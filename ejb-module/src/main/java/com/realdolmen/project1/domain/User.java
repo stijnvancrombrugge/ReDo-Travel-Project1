@@ -2,6 +2,7 @@ package com.realdolmen.project1.domain;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 
 /**
@@ -19,6 +20,11 @@ public class User implements Serializable {
     @Basic(optional = false)
     private String username;
 
+    @Basic(optional = false)
+    @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
+    private String emailadress;
+
 
     public User(String username){
         this.username = username;
@@ -32,6 +38,19 @@ public class User implements Serializable {
         return id;
     }
 
+    public String getUsername() {
+        return username;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
+    public String getEmailadress() {
+        return emailadress;
+    }
+
+    public void setEmailadress(String emailadress) {
+        this.emailadress = emailadress;
+    }
 }
