@@ -1,6 +1,6 @@
-This project serves as a demo/template for JEE6 and JEE7 development.
+This project is the first project exercise for RD using JEE6 and JEE7 development.
 
-Demonstrates the following:
+Using the following:
     - JEE7
     - EJB
     - CDI
