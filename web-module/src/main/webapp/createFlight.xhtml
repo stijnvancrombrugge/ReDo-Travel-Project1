@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Create Flight  </title>
+</h:head>
+<h:body>
+
+
+
+    <h:form id="form">
+
+
+        <h:panelGrid columns="2" cellpadding="5">
+
+
+            <p:outputLabel for="datetimedep" value="Departure Datetime:" />
+            <p:calendar id="datetimedep" value="#{createFlightController.departureDate}" pattern="MM/dd/yyyy HH:mm:ss" />
+            <p:outputLabel for="datetimearr" value="Arrival Datetime:" />
+            <p:calendar id="datetimearr" value="#{createFlightController.arrivalDate}" pattern="MM/dd/yyyy HH:mm:ss" />
+            <p:outputLabel for="totplaces" value="Total Places:" />
+            <p:inputText id="totplaces" value="#{createFlightController.totalPlaces}"  />
+            <p:outputLabel for="freeplaces" value="Free places:" />
+            <p:inputText id="freeplaces" value="#{createFlightController.freePlaces}"  />
+            <p:outputLabel for="fromLocation" value="From:" />
+            <p:selectOneMenu id="fromLocation" value="#{createFlightController.from}">
+                <f:selectItems value="#{createFlightController.allLocations}" var="loc" itemLabel="#{loc.city}" itemValue="#{loc.id}" />
+            </p:selectOneMenu>
+
+            <p:outputLabel for="toLocation" value="To:" />
+            <p:selectOneMenu id="toLocation" value="#{createFlightController.to}">
+                <f:selectItems value="#{createFlightController.allLocations}" var="loc" itemLabel="#{loc.city}" itemValue="#{loc.id}" />
+            </p:selectOneMenu>
+
+
+        </h:panelGrid>
+
+
+
+    <h:commandButton value="Submit"  action="#{createFlightController.createFlight}" />
+
+    </h:form>
+
+   </h:body>
+</html>
