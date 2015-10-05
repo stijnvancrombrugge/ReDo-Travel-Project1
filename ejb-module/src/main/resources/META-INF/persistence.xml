@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<com.realdolmen.project1.persistence xmlns="http://xmlns.jcp.org/xml/ns/com.realdolmen.project1.persistence"
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/com.realdolmen.project1.persistence http://xmlns.jcp.org/xml/ns/com.realdolmen.project1.persistence/persistence_2_1.xsd"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
         version="2.1">
 
-    <com.realdolmen.project1.persistence-unit name="MyPersistenceUnit" transaction-type="JTA">
+    <persistence-unit name="MyPersistenceUnit" transaction-type="JTA">
         <jta-data-source>java:/MyDataSource</jta-data-source>
-    </com.realdolmen.project1.persistence-unit>
+    </persistence-unit>
 
-</com.realdolmen.project1.persistence>
+</persistence>

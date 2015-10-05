@@ -11,7 +11,7 @@ public class UserPersistenceTest extends DataSetPersistenceTest{
     @Test
     public void persistANewUser(){
 
-        User user = new User("SVC");
+        User user = new User("SVC", "qq", "qq");
         entityManager().persist(user);
 
     }

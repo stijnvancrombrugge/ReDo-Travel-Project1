@@ -20,10 +20,10 @@ import java.util.Map;
  * Use {@link #properties()} to configure database properties
  */
 public abstract class PersistenceTest extends Assert {
-    public static final String DRIVER = "javax.com.realdolmen.project1.persistence.jdbc.driver";
-    public static final String URL = "javax.com.realdolmen.project1.persistence.jdbc.url";
-    public static final String USER = "javax.com.realdolmen.project1.persistence.jdbc.user";
-    public static final String PASSWORD = "javax.com.realdolmen.project1.persistence.jdbc.password";
+    public static final String DRIVER = "javax.persistence.jdbc.driver";
+    public static final String URL = "javax.persistence.jdbc.url";
+    public static final String USER = "javax.persistence.jdbc.user";
+    public static final String PASSWORD = "javax.persistence.jdbc.password";
 
     private static final Logger logger = LoggerFactory.getLogger(PersistenceTest.class);
     public static final String DATABASE_ENGINE_SYSTEM_PARAMETER = "databaseEngine";
