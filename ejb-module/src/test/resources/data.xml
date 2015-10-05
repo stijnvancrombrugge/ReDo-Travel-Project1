@@ -1,3 +1,10 @@
 <dataset>
 
+    <location id="1000" city="Londen" code="LON" continent="Europe" country="England"/>
+    <location id="2000" city="Antwerpen" code="ANT" continent="Europe" country="België"/>
+    <location id="3000" city="Paris" code="PAR" continent="Europe" country="Frankrijk"/>
+    <location id="4000" city="New York" code="NYR" continent="Noord-Amerika" country="Amerika"/>
+    <flight id="1000" arrivalTime="2015-09-09 16:00:00" availablePlaces="15" departureTime="2015-09-09 12:00:00" totalPlaces="60" From_id="1000" To_id="2000" />
+    <flight id="1001" arrivalTime="2015-09-20 12:00:00" availablePlaces="20" departureTime="2015-09-20 09:00:00" totalPlaces="60" From_id="2000" To_id="3000" />
+    <flight id="1002" arrivalTime="2015-09-15 12:00:00" availablePlaces="25" departureTime="2015-09-15 09:00:00" totalPlaces="60" From_id="3000" To_id="2000" />
 </dataset>
