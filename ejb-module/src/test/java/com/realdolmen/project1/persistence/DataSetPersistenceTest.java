@@ -1,4 +1,4 @@
-package persistence;
+package com.realdolmen.project1.persistence;
 
 import org.dbunit.database.DatabaseConfig;
 import org.dbunit.database.DatabaseConnection;

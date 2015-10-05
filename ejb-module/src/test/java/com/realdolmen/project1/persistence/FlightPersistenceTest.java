@@ -1,8 +1,7 @@
-package persistence;
+package com.realdolmen.project1.persistence;
 
 import com.realdolmen.project1.domain.Flight;
 import com.realdolmen.project1.domain.Location;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -39,6 +38,8 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
         assertNotNull(flight.getId());
 
     }
+
+
     @Test
     public void newflightCanBeRetrievedById() {
         Location from = new Location("Europe", "België", "Antwerpen", "ANT");

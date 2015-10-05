@@ -1,4 +1,4 @@
-package persistence;
+package com.realdolmen.project1.persistence;
 
 import org.junit.*;
 import org.slf4j.Logger;
@@ -16,14 +16,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Prepares a persistence context for testing with JPA.
+ * Prepares a com.realdolmen.project1.persistence context for testing with JPA.
  * Use {@link #properties()} to configure database properties
  */
 public abstract class PersistenceTest extends Assert {
-    public static final String DRIVER = "javax.persistence.jdbc.driver";
-    public static final String URL = "javax.persistence.jdbc.url";
-    public static final String USER = "javax.persistence.jdbc.user";
-    public static final String PASSWORD = "javax.persistence.jdbc.password";
+    public static final String DRIVER = "javax.com.realdolmen.project1.persistence.jdbc.driver";
+    public static final String URL = "javax.com.realdolmen.project1.persistence.jdbc.url";
+    public static final String USER = "javax.com.realdolmen.project1.persistence.jdbc.user";
+    public static final String PASSWORD = "javax.com.realdolmen.project1.persistence.jdbc.password";
 
     private static final Logger logger = LoggerFactory.getLogger(PersistenceTest.class);
     public static final String DATABASE_ENGINE_SYSTEM_PARAMETER = "databaseEngine";

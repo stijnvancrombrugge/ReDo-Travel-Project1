@@ -1,9 +1,7 @@
-package persistence;
+package com.realdolmen.project1.persistence;
 
 import com.realdolmen.project1.domain.User;
 import org.junit.Test;
-
-import javax.persistence.EntityManager;
 
 /**
  * Created by SVCAX33 on 2/10/2015.

@@ -1,4 +1,4 @@
-package persistence;
+package com.realdolmen.project1.persistence;
 
 public enum DatabaseEngine {
     mysql("com.mysql.jdbc.Driver", "jdbc:mysql://localhost:3306/project1db", "root", "root"),

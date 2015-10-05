@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!--
-    Due to JPA's reluctance to allow more flexible persistence.xml configurations, (which by the way is
+    Due to JPA's reluctance to allow more flexible com.realdolmen.project1.persistence.xml configurations, (which by the way is
     unspeakably lame) we are forced to duplicate the entire context for the tests, strip out the managed stuff,
     and manually list all entity classes.
     Check with teacher for details on this subject, or wait for the wonderful world of Spring.
@@ -28,11 +28,11 @@
         - Use mocks/stubs
                 + Fast
                 + The way of TDD
-                + True unit tests (less integration)
+                + True unit tests (less com.realdolmen.project1.persistence.integration)
 
     The choice made here is:
         - Commit strategy using DBUnit and actual database (mysql).
-        - Prefer mocks/stubs for non-persistence layers
+        - Prefer mocks/stubs for non-com.realdolmen.project1.persistence layers
         ==> Maximize true unit tests, mocks and stubs, allow eyeball assertions on database.
 
     When you start with your project, you decide which strategy is best for your situation.

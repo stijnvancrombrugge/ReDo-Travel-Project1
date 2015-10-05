@@ -1,4 +1,4 @@
-package persistence;
+package com.realdolmen.project1.persistence;
 
 import com.realdolmen.project1.domain.Location;
 import org.junit.Test;
