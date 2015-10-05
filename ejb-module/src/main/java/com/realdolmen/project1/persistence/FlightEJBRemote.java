@@ -23,7 +23,7 @@ public interface FlightEJBRemote {
 
     void createFlight(Flight flight);
 
-   Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid);
+   Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid, Double price);
 
 
 

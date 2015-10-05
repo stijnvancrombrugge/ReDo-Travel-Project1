@@ -30,6 +30,7 @@ public class CreateFlightController implements Serializable {
     private int freePlaces;
     private int from;
     private int to;
+    private Double price;
     private List<Location> allLocations = new ArrayList<>();
 
     public FlightEJB getFlightEJB() {
@@ -99,6 +100,14 @@ public class CreateFlightController implements Serializable {
         this.allLocations = allLocations;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public String startCreation(){
         allLocations = flightEJB.findAllLocations();
         return "createFlight";
@@ -109,7 +118,7 @@ public class CreateFlightController implements Serializable {
         System.out.println(from);
         System.out.println(to);
         System.out.println(arrivalDate);
-       Flight f =  flightEJB.createFlight(departureDate, arrivalDate, totalPlaces, freePlaces, from, to);
+        Flight f =  flightEJB.createFlight(departureDate, arrivalDate, totalPlaces, freePlaces, from, to, price);
         return "index.html";
     }
 

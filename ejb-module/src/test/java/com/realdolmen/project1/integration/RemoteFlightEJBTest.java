@@ -36,7 +36,7 @@ public class RemoteFlightEJBTest extends RemoteIntegrationTest implements Serial
     @Test
     public void newCreatedFlightIsPersist() throws NamingException {
         FlightEJBRemote flightEJBRemote = lookup("ear-module-1.1/ejb-module-1.1/FlightEJB!com.realdolmen.project1.persistence.FlightEJBRemote");
-        Flight f = flightEJBRemote.createFlight(new Date(), new Date(),23, 29,  4000,3000);
+        Flight f = flightEJBRemote.createFlight(new Date(), new Date(),23, 29,  4000,3000, 55.99);
         f = flightEJBRemote.findFlightById(1003);
         assertEquals("NYR", f.getFrom().getCode());
         assertNotNull(f.getId());

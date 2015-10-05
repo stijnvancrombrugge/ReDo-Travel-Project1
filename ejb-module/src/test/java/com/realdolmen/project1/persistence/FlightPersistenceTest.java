@@ -33,7 +33,7 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
         Date arrival = new Date(); //createDateFromString("Friday, Jun 8, 2016 15:10:00 PM");
         entityManager().persist(from);
         entityManager().persist(to);
-        Flight flight = new Flight(from, 20, to, departure, arrival, 60);
+        Flight flight = new Flight(from, 20, to, departure, arrival, 60, 69d);
         entityManager().persist(flight);
         assertNotNull(flight.getId());
 
@@ -70,7 +70,7 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
         Date departure = new Date(); //createDateFromString("Friday, Jun 7, 2016 12:10:00 PM");
         Date arrival = new Date(); //createDateFromString("Friday, Jun 8, 2016 15:10:00 PM");
 
-        Flight flight = new Flight(from, 20, to, departure, arrival, 60);
+        Flight flight = new Flight(from, 20, to, departure, arrival, 60, 49d);
         entityManager().persist(flight);
 
         assertEquals("LON", entityManager().find(Flight.class, flight.getId()).getFrom().getCode());

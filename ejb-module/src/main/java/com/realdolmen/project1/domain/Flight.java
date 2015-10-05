@@ -22,6 +22,17 @@ public class Flight implements Serializable {
     Date arrivalTime;
     int totalPlaces;
     int availablePlaces;
+    Double pricePerSeat;
+
+    public Flight(Location from, int availablePlaces, Location to, Date departureTime, Date arrivalTime, int totalPlaces, Double pricePerSeat) {
+        From = from;
+        this.availablePlaces = availablePlaces;
+        To = to;
+        this.departureTime = departureTime;
+        this.arrivalTime = arrivalTime;
+        this.totalPlaces = totalPlaces;
+        this.pricePerSeat = pricePerSeat;
+    }
 
     public Flight(Location from, int availablePlaces, Location to, Date departureTime, Date arrivalTime, int totalPlaces) {
         From = from;
@@ -89,5 +100,13 @@ public class Flight implements Serializable {
 
     public void setTotalPlaces(int totalPlaces) {
         this.totalPlaces = totalPlaces;
+    }
+
+    public double getPricePerSeat() {
+        return pricePerSeat;
+    }
+
+    public void setPricePerSeat(double pricePerSeat) {
+        this.pricePerSeat = pricePerSeat;
     }
 }
