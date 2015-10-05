@@ -10,12 +10,17 @@ import java.io.Serializable;
  */
 
 @Entity
-public class User implements Serializable {
+@NamedQueries({
+        @NamedQuery(name=User.FIND_ALL, query = "select c from User c")
+})
 
+public abstract class User extends AbstractEntity {
 
-    @Id   // JPA gaat rechtstreeks injecteren hiermee ipv setter
+    public static final String FIND_ALL = "User.findAll";
+
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;    // Bij int default op 0 gezet, nu kan hij null zijn
+    private Integer id;
 
     @Basic(optional = false)
     @Column(unique=true)

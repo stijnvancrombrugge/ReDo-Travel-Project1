@@ -45,6 +45,7 @@
     <persistence-unit name="MyTestPersistenceUnit" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
         <class>com.realdolmen.project1.domain.User</class>
+        <class>com.realdolmen.project1.domain.Customer</class>
         <class>com.realdolmen.project1.domain.Location</class>
         <class>com.realdolmen.project1.domain.Flight</class>
 
