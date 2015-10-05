@@ -11,25 +11,30 @@ import java.io.Serializable;
 
 @Entity
 @NamedQueries({
-        @NamedQuery(name=User.FIND_ALL, query = "select c from User c")
+        @NamedQuery(name=User.FIND_ALL, query = "select c from User c"),
+        @NamedQuery(name=User.FIND_BY_USERNAME, query = "select c from User c where c.username = :username")
 })
 
 public abstract class User extends AbstractEntity {
 
     public static final String FIND_ALL = "User.findAll";
+    public static final String FIND_BY_USERNAME = "User.findByUsername";
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @Basic(optional = false)
-    @Column(unique=true)
+    @Column(unique=true,  nullable = false)
     private String username;
 
     @Basic(optional = false)
+    @Column(nullable = false)
     private String password;
 
     @Basic(optional = false)
+    @Column(nullable = false)
     @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
     private String emailadress;

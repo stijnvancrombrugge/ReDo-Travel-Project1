@@ -1,4 +1,4 @@
-package com.realdolmen.project1;
+package com.realdolmen.project1.persistence;
 
 
 
@@ -46,23 +46,23 @@ public class UserEJB implements UserEJBRemote, Serializable {
     public boolean doLogin(String username, String password) {
         // Get every user from our sample database :)
 
-        TypedQuery<User> query = entityManager.createNamedQuery(User.FIND_ALL, User.class);
+        TypedQuery<User> query = entityManager.createNamedQuery(User.FIND_BY_USERNAME, User.class).setParameter("username", username);
+        User user = query.getSingleResult();
 
-        for (User user: query.getResultList()) {
-            String dbUsername = user.getUsername();
+        if(user != null) {
             String dbPassword = user.getPassword();
 
             // Successful login
-            if (dbUsername.equals(username) && dbPassword.equals(password)) {
+            if (dbPassword.equals(password)) {
                 loggedIn = true;
                 return loggedIn;
             }
         }
 
-        // To to login page
         return false;
-
     }
+
+
 
     /**
      * Logout operation.
@@ -75,9 +75,6 @@ public class UserEJB implements UserEJBRemote, Serializable {
         loggedIn = false;
 
     }
-
-    // ------------------------------
-    // Getters & Setters
 
     @Override
     public boolean isLoggedIn() {

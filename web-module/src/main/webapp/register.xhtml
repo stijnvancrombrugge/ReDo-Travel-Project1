@@ -11,19 +11,19 @@
 <h:body>
     <h3>Register here</h3>
     <h:form id="register-form">
-        <h:outputText value="Username:"/>
-        <h:inputText value="#{registrationController.username}" id="username"/>
-        <br/>
-        <h:outputText value="Password:"/>
-        <h:inputSecret value="#{registrationController.password}" id="password"/>
-        <br/>
-        <h:outputText value="Emailadress:"/>
-        <h:inputText value="#{registrationController.emailadress}" id="emailadress"/>
-        <br/>
-        <h:commandButton id="button" value="Register" action="#{registrationController.register}"/>
-        <br/>
-        <h:messages />
-        <br/>
+        <h:panelGrid columns="3" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value, message">
+            <h:outputText value="Username:"/>
+            <h:inputText value="#{registrationController.username}" id="username" required = "true"/>
+            <h:message for="username"/>
+            <h:outputText value="Password:"/>
+            <h:inputSecret value="#{registrationController.password}" id="password"/>
+            <h:message for="password"/>
+            <h:outputText value="Emailadress:"/>
+            <h:inputText value="#{registrationController.emailadress}" id="emailadress"/>
+            <h:message for="emailadress"/>
+            <h:commandButton id="button" value="Register" action="#{registrationController.register}"/>
+            <br/>
+        </h:panelGrid>
     </h:form>
 </h:body>
 </html>

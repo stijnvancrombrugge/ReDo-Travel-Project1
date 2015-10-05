@@ -1,6 +1,6 @@
 package com.realdolmen.project1.filters;
 
-        import com.realdolmen.project1.UserEJB;
+        import com.realdolmen.project1.persistence.UserEJB;
 
         import java.io.IOException;
         import javax.servlet.Filter;

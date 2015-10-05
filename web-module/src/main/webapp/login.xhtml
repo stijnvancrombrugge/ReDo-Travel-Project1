@@ -11,16 +11,15 @@
 <h:body>
     <h3>Login here</h3>
     <h:form id="login-form">
-        <h:outputText value="Username:"/>
-        <h:inputText value="#{loginController.username}" id="username"/>
-        <br/>
-        <h:outputText value="Password:"/>
-        <h:inputSecret value="#{loginController.password}" id="password"/>
-        <br/>
-        <h:commandButton id="button" value="Login" action="#{loginController.login}"/>
-        <br/>
-        <h:messages />
-        <br/>
+        <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value">
+            <h:outputText value="Username:"/>
+            <h:inputText value="#{loginController.username}" id="username"/>
+            <h:outputText value="Password:"/>
+            <h:inputSecret value="#{loginController.password}" id="password"/>
+            <h:commandButton id="button" value="Login" action="#{loginController.login}"/>
+            <h:messages />
+            <br/>
+        </h:panelGrid>
     </h:form>
     <h:button value="Register" outcome="/register.xhtml" />
     <br/>

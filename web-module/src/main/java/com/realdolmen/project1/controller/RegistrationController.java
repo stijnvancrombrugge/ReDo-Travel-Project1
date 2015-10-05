@@ -1,6 +1,6 @@
-package com.realdolmen.project1.controllers;
+package com.realdolmen.project1.controller;
 
-import com.realdolmen.project1.UserEJB;
+import com.realdolmen.project1.persistence.UserEJB;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;

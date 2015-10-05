@@ -10,11 +10,11 @@
 </h:head>
 <h:body>
     <h:form>
-        <h3>Welcome #{loginEJB.username}</h3>
+        <h3>Welcome #{loginController.username}</h3>
         <br/>
         <h:outputText value="This is a secured welcome page!"/>
         <br/>
-        <h:commandLink action="#{loginEJB.doLogout}" value="Logout"/>
+        <h:commandLink action="#{loginController.logout}" value="Logout"/>
     </h:form>
 </h:body>
 </html>

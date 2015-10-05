@@ -1,9 +1,9 @@
-package com.realdolmen.project1.controllers;
+package com.realdolmen.project1.controller;
 
 /**
  * Created by SVCAX33 on 5/10/2015.
  */
-import com.realdolmen.project1.UserEJB;
+import com.realdolmen.project1.persistence.UserEJB;
 
 import java.io.Serializable;
 

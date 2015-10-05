@@ -1,4 +1,4 @@
-package com.realdolmen.project1;
+package com.realdolmen.project1.persistence;
 
 import javax.ejb.Remote;
 
