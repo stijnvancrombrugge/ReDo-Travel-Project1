@@ -1,4 +1,4 @@
-package com.realdolmen.project1.persistence;
+package com.realdolmen.project1;
 
 import com.realdolmen.project1.domain.Flight;
 

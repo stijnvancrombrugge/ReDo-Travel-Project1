@@ -28,7 +28,7 @@
         - Use mocks/stubs
                 + Fast
                 + The way of TDD
-                + True unit tests (less com.realdolmen.project1.persistence.integration)
+                + True unit tests (less com.realdolmen.project1.persistence.com.realdolmen.project1.integration)
 
     The choice made here is:
         - Commit strategy using DBUnit and actual database (mysql).
