@@ -1,5 +1,6 @@
 package com.realdolmen.project1.controller;
 
+import com.realdolmen.project1.domain.Flight;
 import com.realdolmen.project1.domain.Location;
 import com.realdolmen.project1.persistence.FlightEJB;
 
@@ -108,7 +109,7 @@ public class CreateFlightController implements Serializable {
         System.out.println(from);
         System.out.println(to);
         System.out.println(arrivalDate);
-        flightEJB.createFlight(departureDate, arrivalDate, totalPlaces, freePlaces, from, to);
+       Flight f =  flightEJB.createFlight(departureDate, arrivalDate, totalPlaces, freePlaces, from, to);
         return "index.html";
     }
 
