@@ -1,4 +1,4 @@
-<>
+<dataset>
 
     <location id="1000" city="Londen" code="LON" continent="Europe" country="England"/>
     <location id="2000" city="Antwerpen" code="ANT" continent="Europe" country="België"/>
@@ -13,4 +13,11 @@
     <jnd_trip_flight flight_fk="1001" trip_fk="1000" />
     <User id="100" DTYPE="RdEmployee" username="Glenn" password="Glenn" emailadress="gvc@i.be"/>
     <User id="101" DTYPE="PartnerEmployee" username="Amber" password="Amber" emailadress="avc@i.be"/>
+
+    <airlinecompany id="1" name="JetairFly" />
+    <airlinecompany_user AirlineCompany_id="1" partners_id="101" />
+    <airlinecompany_flight AirlineCompany_id="1" flights_id="1002" />
+    <airlinecompany_flight AirlineCompany_id="1" flights_id="1003" />
+
+
         </dataset>
