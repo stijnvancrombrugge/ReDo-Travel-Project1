@@ -33,4 +33,13 @@ public class AirlinePersitenceTest extends DataSetPersistenceTest {
     }
 
 
+    @Test
+    public void persistEmptyAirline(){
+
+        AirlineCompany airlineCompany = new AirlineCompany("etihad");
+        entityManager().persist(airlineCompany);
+        assertNotNull(airlineCompany.getId());
+
+    }
+
 }

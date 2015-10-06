@@ -1,7 +1,10 @@
 package com.realdolmen.project1.persistence;
 
+import com.realdolmen.project1.domain.AirlineCompany;
+import com.realdolmen.project1.domain.Discount;
 import com.realdolmen.project1.domain.Flight;
 import com.realdolmen.project1.domain.Location;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.text.ParseException;
@@ -75,6 +78,18 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
 
         assertEquals("LON", entityManager().find(Flight.class, flight.getId()).getFrom().getCode());
     };
+
+    @Ignore
+    @Test
+    public void flightCanAddDiscount() {
+        Discount discount = new Discount(15, 0.15);
+        entityManager().persist(discount);
+        Flight flight = entityManager().find(Flight.class, 1002);
+        flight.addDiscount(discount);
+        entityManager().merge(flight);
+        assertEquals(1, flight.getDiscounts().size());
+
+    }
 
 
 }

@@ -22,6 +22,8 @@ public class AirlineCompany {
     @OneToMany
     private List<PartnerEmployee> partners = new ArrayList<>();
 
+
+
     protected AirlineCompany(){
 
     }
@@ -33,6 +35,7 @@ public class AirlineCompany {
     public void addPartner(PartnerEmployee partnerEmployee){
         partners.add(partnerEmployee);
     }
+
 
     public AirlineCompany(String name) {
         Name = name;
@@ -69,4 +72,6 @@ public class AirlineCompany {
     public void setPartners(List<PartnerEmployee> partners) {
         this.partners = partners;
     }
+
+
 }

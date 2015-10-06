@@ -27,6 +27,12 @@ public class Flight implements Serializable {
     private Double pricePerSeat;
     private Double pricePerSeatByEmployee;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Discount> discounts = new ArrayList<>();
+
+
+
+
     @ManyToMany
     @JoinTable(name="jnd_trip_flight",
         joinColumns = @JoinColumn(name="flight_fk"),
@@ -57,6 +63,11 @@ public class Flight implements Serializable {
     public void addTrip(Trip trip){
         trips.add(trip);
     }
+
+    public void addDiscount(Discount discount){
+        discounts.add(discount);
+    }
+
 
     protected Flight() {
     }
@@ -136,5 +147,13 @@ public class Flight implements Serializable {
 
     public void setTrips(List<Trip> trips) {
         this.trips = trips;
+    }
+
+    public List<Discount> getDiscounts() {
+        return discounts;
+    }
+
+    public void setDiscounts(List<Discount> discounts) {
+        this.discounts = discounts;
     }
 }

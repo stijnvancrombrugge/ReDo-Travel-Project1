@@ -1,9 +1,6 @@
 package com.realdolmen.project1.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by JVDAX31 on 6/10/2015.
@@ -20,11 +17,39 @@ public class Discount {
     private int nbrToCell;
     private double percentage;
 
-    //true: nbr of sells are bound to a flight
-    //false: nbr of sells are bound to all the flights sold by RDTravel
-    private boolean boundToFlight;
 
 
+    protected Discount(){
 
+    }
+
+    public Discount(int nbrToCell, double percentage) {
+        this.nbrToCell = nbrToCell;
+        this.percentage = percentage;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getNbrToCell() {
+        return nbrToCell;
+    }
+
+    public void setNbrToCell(int nbrToCell) {
+        this.nbrToCell = nbrToCell;
+    }
+
+    public double getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(double percentage) {
+        this.percentage = percentage;
+    }
 
 }

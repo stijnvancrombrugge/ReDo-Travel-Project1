@@ -1,10 +1,12 @@
 package com.realdolmen.project1.controller;
 
+import com.realdolmen.project1.domain.Discount;
 import com.realdolmen.project1.domain.Flight;
 import com.realdolmen.project1.domain.Location;
 import com.realdolmen.project1.persistence.FlightEJB;
 
 import javax.ejb.EJB;
+import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
@@ -18,7 +20,7 @@ import java.util.List;
  */
 
 @Named
-@SessionScoped
+@ConversationScoped
 public class CreateFlightController implements Serializable {
 
     @EJB
@@ -32,6 +34,11 @@ public class CreateFlightController implements Serializable {
     private int to;
     private Double price;
     private List<Location> allLocations = new ArrayList<>();
+
+    private List<Discount> discounts = new ArrayList<>();
+
+    private int nbrToCell;
+    private double percentage;
 
     public FlightEJB getFlightEJB() {
         return flightEJB;
@@ -100,12 +107,38 @@ public class CreateFlightController implements Serializable {
         this.allLocations = allLocations;
     }
 
+
+
     public Double getPrice() {
         return price;
     }
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public double getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(double percentage) {
+        this.percentage = percentage;
+    }
+
+    public int getNbrToCell() {
+        return nbrToCell;
+    }
+
+    public void setNbrToCell(int nbrToCell) {
+        this.nbrToCell = nbrToCell;
+    }
+
+    public List<Discount> getDiscounts() {
+        return discounts;
+    }
+
+    public void setDiscounts(List<Discount> discounts) {
+        this.discounts = discounts;
     }
 
     public String startCreation(){
@@ -118,8 +151,24 @@ public class CreateFlightController implements Serializable {
         System.out.println(from);
         System.out.println(to);
         System.out.println(arrivalDate);
-        Flight f =  flightEJB.createFlight(departureDate, arrivalDate, totalPlaces, freePlaces, from, to, price);
-        return "index.html";
+       // Flight f =  flightEJB.createFlight(departureDate, arrivalDate, totalPlaces, freePlaces, from, to, price);
+        return "createFlightDiscount";
+    }
+
+    public String addDiscount(){
+        Discount discount =  new Discount(nbrToCell,percentage);
+        nbrToCell = 0;
+        percentage = 0;
+        discounts.add(discount);
+        return "createFlightDiscount";
+
+
+    }
+
+    public String saveFlight(){
+        Flight f =  flightEJB.createFlight(departureDate, arrivalDate, totalPlaces, freePlaces, from, to, price, discounts);
+        return "allFlights";
+
     }
 
 

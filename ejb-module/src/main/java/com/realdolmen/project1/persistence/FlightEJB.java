@@ -1,5 +1,6 @@
 package com.realdolmen.project1.persistence;
 
+import com.realdolmen.project1.domain.Discount;
 import com.realdolmen.project1.domain.Flight;
 import com.realdolmen.project1.domain.Location;
 
@@ -62,6 +63,18 @@ public class FlightEJB implements FlightEJBRemote {
         return flight;
 
     }
+
+    @Override
+    public Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid, Double price, List<Discount> discounts){
+        Location from =  (Location) entityManager.createQuery("select l from Location l where l.id =  :id").setParameter("id", locationfromid).getSingleResult();
+        Location to =  (Location) entityManager.createQuery("select l from Location l where l.id =  :id").setParameter("id", locationtoid).getSingleResult();
+        Flight flight = new Flight(from, freePlaces, to, departureDate, arrivalDate, totalPlaces, price);
+        flight.setDiscounts(discounts);
+        entityManager.persist(flight);
+        return flight;
+
+    }
+
 
 
 }

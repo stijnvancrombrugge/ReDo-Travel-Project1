@@ -1,5 +1,6 @@
 package com.realdolmen.project1.persistence;
 
+import com.realdolmen.project1.domain.Discount;
 import com.realdolmen.project1.domain.Flight;
 import com.realdolmen.project1.domain.Location;
 
@@ -24,6 +25,8 @@ public interface FlightEJBRemote {
     void createFlight(Flight flight);
 
    Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid, Double price);
+
+   Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid, Double price, List<Discount> discounts);
 
 
 
