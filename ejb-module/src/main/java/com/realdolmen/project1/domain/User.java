@@ -15,7 +15,7 @@ import java.io.Serializable;
         @NamedQuery(name=User.FIND_BY_USERNAME, query = "select c from User c where c.username = :username")
 })
 
-public abstract class User extends AbstractEntity {
+public abstract class User{
 
     public static final String FIND_ALL = "User.findAll";
     public static final String FIND_BY_USERNAME = "User.findByUsername";
@@ -76,4 +76,5 @@ public abstract class User extends AbstractEntity {
     public void setPassword(String password) {
         this.password = password;
     }
+
 }

@@ -21,8 +21,8 @@ public class UserPersistenceTest extends DataSetPersistenceTest{
             @Test
             public void retrieveAUserFromDatabaseTest(){
                 entityManager().persist(new Customer("SVD", "testpw", "Stijn@Stijn.be"));
-                User user = entityManager().getReference(User.class,1);
-                assertEquals("SVC", user.getUsername());
+                User user = entityManager().getReference(User.class,103);
+                assertEquals("SVD", user.getUsername());
             }
 
     }

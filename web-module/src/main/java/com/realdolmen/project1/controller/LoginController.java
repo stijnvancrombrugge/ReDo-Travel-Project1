@@ -24,7 +24,8 @@ public class LoginController implements Serializable {
     @Inject
     private UserEJB loginBean;
 
-
+    private boolean loggedIn;
+    private String userType;
     private String username;
     private String password;
 
@@ -35,16 +36,21 @@ public class LoginController implements Serializable {
      */
     public String login() {
 
-        if(loginBean.doLogin(username, password) == true) {
-            return "/secured/welcome.xhtml";
+        String loggedInUserType = loginBean.doLogin(username, password);
+        if( loggedInUserType != "noUser") {
+            userType = loggedInUserType;
+            loggedIn = true;
+            if(loggedInUserType.equals("Customer")) {
+                return "/secured/welcome.xhtml";
+            }
+            return "/secured/createFlight.xhtml";
         }
-        else {
-            return "/login.xhtml";
-        }
+        return "/login.xhtml";
     }
 
     public String logout(){
-        loginBean.doLogout();
+
+        loggedIn = false;
         return "/login.xhtml";
     }
 
@@ -65,5 +71,12 @@ public class LoginController implements Serializable {
         this.password = password;
     }
 
+    public boolean getLoggedIn() {
+        return loggedIn;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
 
 }

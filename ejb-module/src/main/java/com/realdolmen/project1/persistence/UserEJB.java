@@ -7,6 +7,7 @@ import com.realdolmen.project1.domain.User;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateful;
+import javax.enterprise.context.SessionScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -20,16 +21,9 @@ import java.io.Serializable;
 @LocalBean
 public class UserEJB implements UserEJBRemote, Serializable {
 
-    private boolean loggedIn;
-
     @PersistenceContext
     EntityManager entityManager;
 
-    /**
-     * Login operation.
-     *
-     * @return
-     */
 
     public UserEJB() {
     }
@@ -43,8 +37,7 @@ public class UserEJB implements UserEJBRemote, Serializable {
     }
 
     @Override
-    public boolean doLogin(String username, String password) {
-        // Get every user from our sample database :)
+    public String doLogin(String username, String password) {
 
         TypedQuery<User> query = entityManager.createNamedQuery(User.FIND_BY_USERNAME, User.class).setParameter("username", username);
         User user = query.getSingleResult();
@@ -52,39 +45,11 @@ public class UserEJB implements UserEJBRemote, Serializable {
         if(user != null) {
             String dbPassword = user.getPassword();
 
-            // Successful login
             if (dbPassword.equals(password)) {
-                loggedIn = true;
-                return loggedIn;
+                return user.getClass().getSimpleName();
             }
         }
-
-        return false;
+        return "noUser";
     }
-
-
-
-    /**
-     * Logout operation.
-     * @return
-     */
-
-    @Override
-    public void doLogout() {
-        // Set the paremeter indicating that user is logged in to false
-        loggedIn = false;
-
-    }
-
-    @Override
-    public boolean isLoggedIn() {
-        return loggedIn;
-    }
-
-    @Override
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
-    }
-
 
 }
