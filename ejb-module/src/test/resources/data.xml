@@ -5,6 +5,12 @@
     <location id="3000" city="Paris" code="PAR" continent="Europe" country="Frankrijk"/>
     <location id="4000" city="New York" code="NYR" continent="Noord-Amerika" country="Amerika"/>
     <flight id="1000" arrivalTime="2015-09-09 16:00:00" availablePlaces="15" departureTime="2015-09-09 12:00:00" totalPlaces="60" From_id="1000" To_id="2000" pricePerSeat="40" />
-    <flight id="1001" arrivalTime="2015-09-20 12:00:00" availablePlaces="20" departureTime="2015-09-20 09:00:00" totalPlaces="60" From_id="2000" To_id="3000" pricePerSeat="59.99" />
+    <flight id="1001" arrivalTime="2015-09-20 12:00:00" availablePlaces="20" departureTime="2015-09-20 09:00:00" totalPlaces="60" From_id="2000" To_id="1000" pricePerSeat="59.99" />
     <flight id="1002" arrivalTime="2015-09-15 12:00:00" availablePlaces="25" departureTime="2015-09-15 09:00:00" totalPlaces="60" From_id="3000" To_id="2000" pricePerSeat="54.99"/>
+    <flight id="1003" arrivalTime="2015-09-22 12:00:00" availablePlaces="25" departureTime="2015-09-22 09:00:00" totalPlaces="60" From_id="2000" To_id="3000" pricePerSeat="54.99"/>
+    <trip id="1000" Description="aa" availablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" Destination_id="2000" From_id="1000" />
+    <jnd_trip_flight flight_fk="1000" trip_fk="1000" />
+    <jnd_trip_flight flight_fk="1001" trip_fk="1000" />
+
+
 </dataset>

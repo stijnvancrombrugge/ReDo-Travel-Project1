@@ -48,6 +48,7 @@
         <class>com.realdolmen.project1.domain.Customer</class>
         <class>com.realdolmen.project1.domain.Location</class>
         <class>com.realdolmen.project1.domain.Flight</class>
+        <class>com.realdolmen.project1.domain.Trip</class>
 
         <properties>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
