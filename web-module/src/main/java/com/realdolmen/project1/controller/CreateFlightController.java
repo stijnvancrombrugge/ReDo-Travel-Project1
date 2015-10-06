@@ -156,7 +156,7 @@ public class CreateFlightController implements Serializable {
     }
 
     public String addDiscount(){
-        Discount discount =  new Discount(nbrToCell,percentage);
+        Discount discount =  new Discount(nbrToCell, (percentage * 0.01));
         nbrToCell = 0;
         percentage = 0;
         discounts.add(discount);

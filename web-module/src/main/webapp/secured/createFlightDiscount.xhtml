@@ -36,8 +36,9 @@
 
             <p:outputLabel for="nbrToSell" value="Nbr of Seats Sold:" />
             <p:inputText id="nbrToSell" value="#{createFlightController.nbrToCell}"  />
-            <p:outputLabel for="perc" value="Percentage Discount:" />
-            <p:inputText id="perc" value="#{createFlightController.percentage}"  />
+            <h:outputText id="output" value="Percentage Discount:#{createFlightController.percentage}%" />
+            <h:inputHidden id="txt2" value="#{createFlightController.percentage}" />
+            <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
 
 
 
@@ -45,8 +46,9 @@
 
 
 
-    <h:commandButton value="Submit"  action="#{createFlightController.addDiscount}" />
-    <h:commandButton value="Submit"  action="#{createFlightControllerConversation.saveFlight}" />
+    <h:commandButton value="Add Discount"  action="#{createFlightController.addDiscount}" />
+        <br> </br>
+    <h:commandButton value="Save Flight"  action="#{createFlightControllerConversation.saveFlight}" />
     </h:form>
 
    </h:body>
