@@ -11,12 +11,6 @@ public interface UserEJBRemote {
 
     public void register(String username, String password, String emailadress);
 
-    public boolean doLogin(String username, String password);
-
-    public void doLogout();
-
-    public boolean isLoggedIn();
-
-    public void setLoggedIn(boolean loggedIn);
+    public String doLogin(String username, String password);
 
 }

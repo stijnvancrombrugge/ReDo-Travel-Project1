@@ -1,5 +1,6 @@
 package com.realdolmen.project1.filters;
 
+        import com.realdolmen.project1.controller.LoginController;
         import com.realdolmen.project1.persistence.UserEJB;
 
         import java.io.IOException;
@@ -27,8 +28,8 @@ public class LoginFilter implements Filter {
      */
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        UserEJB loginBean = (UserEJB)((HttpServletRequest)request).getSession().getAttribute("UserEJB");
-        if (loginBean == null || !loginBean.isLoggedIn()) {
+        LoginController loginBean = (LoginController)((HttpServletRequest)request).getSession().getAttribute("LoginController");
+        if (loginBean == null || !loginBean.getLoggedIn()) {
             String contextPath = ((HttpServletRequest)request).getContextPath();
             ((HttpServletResponse)response).sendRedirect(contextPath + "/login.xhtml");
         }

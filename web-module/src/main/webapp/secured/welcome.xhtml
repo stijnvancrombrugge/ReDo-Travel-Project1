@@ -13,6 +13,7 @@
         <h3>Welcome #{loginController.username}</h3>
         <br/>
         <h:outputText value="This is a secured welcome page!"/>
+        <h2>#{loginController.userType}</h2>
         <br/>
         <h:commandLink action="#{loginController.logout}" value="Logout"/>
     </h:form>
