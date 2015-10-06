@@ -4,6 +4,7 @@ package com.realdolmen.project1.filters;
         import com.realdolmen.project1.persistence.UserEJB;
 
         import java.io.IOException;
+        import javax.inject.Inject;
         import javax.servlet.Filter;
         import javax.servlet.FilterChain;
         import javax.servlet.FilterConfig;
@@ -26,16 +27,16 @@ public class LoginFilter implements Filter {
     /**
      * Checks if user is logged in. If not it redirects to the login.xhtml page.
      */
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-        LoginController loginBean = (LoginController)((HttpServletRequest)request).getSession().getAttribute("LoginController");
-        if (loginBean == null || !loginBean.getLoggedIn()) {
+    @Inject
+    private LoginController loginBean;
+
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        /*if (loginBean == null || !loginBean.getLoggedIn()) {
             String contextPath = ((HttpServletRequest)request).getContextPath();
             ((HttpServletResponse)response).sendRedirect(contextPath + "/login.xhtml");
-        }
-
+        }*/
         chain.doFilter(request, response);
-
     }
 
     public void init(FilterConfig config) throws ServletException {

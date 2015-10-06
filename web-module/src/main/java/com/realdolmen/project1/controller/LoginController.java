@@ -41,7 +41,7 @@ public class LoginController implements Serializable {
             userType = loggedInUserType;
             loggedIn = true;
             if(loggedInUserType.equals("Customer")) {
-                return "/secured/welcome.xhtml";
+                return "/secured/customerWelcome.xhtml";
             }
             return "/secured/createFlight.xhtml";
         }
@@ -49,7 +49,6 @@ public class LoginController implements Serializable {
     }
 
     public String logout(){
-
         loggedIn = false;
         return "/login.xhtml";
     }
@@ -72,6 +71,7 @@ public class LoginController implements Serializable {
     }
 
     public boolean getLoggedIn() {
+        System.out.println(loggedIn);
         return loggedIn;
     }
 

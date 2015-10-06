@@ -1,9 +1,8 @@
 <dataset>
-
-    <location id="1000" city="Londen" code="LON" continent="Europe" country="England"/>
-    <location id="2000" city="Antwerpen" code="ANT" continent="Europe" country="België"/>
-    <location id="3000" city="Paris" code="PAR" continent="Europe" country="Frankrijk"/>
-    <location id="4000" city="New York" code="NYR" continent="Noord-Amerika" country="Amerika"/>
+    <location id="1000" city="Londen" code="LON" continent="Europe" latitude="51.5" longitude="-0.11670" country="England"/>
+    <location id="2000" city="Antwerpen" code="ANT" continent="Europe" latitude="+51.21670" longitude="+4.4" country="België"/>
+    <location id="3000" city="Paris" code="PAR" continent="Europe" latitude="+48.85" longitude="+2.3333" country="Frankrijk"/>
+    <location id="4000" city="New York" code="NYR" continent="Noord-Amerika" latitude="+40.75170" longitude="-73.9942" country="Amerika"/>
     <flight id="1000" arrivalTime="2015-09-09 16:00:00" availablePlaces="15" departureTime="2015-09-09 12:00:00" totalPlaces="60" From_id="1000" To_id="2000" pricePerSeat="40" />
     <flight id="1001" arrivalTime="2015-09-20 12:00:00" availablePlaces="20" departureTime="2015-09-20 09:00:00" totalPlaces="60" From_id="2000" To_id="3000" pricePerSeat="59.99" />
     <flight id="1002" arrivalTime="2015-09-15 12:00:00" availablePlaces="25" departureTime="2015-09-15 09:00:00" totalPlaces="60" From_id="3000" To_id="2000" pricePerSeat="54.99"/>

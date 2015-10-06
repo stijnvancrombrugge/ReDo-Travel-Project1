@@ -18,15 +18,19 @@ public class Location implements Serializable {
 
     private String continent;
     private String country;
+    private double latitude;
+    private double longitude;
     private String city;
     private String code;
 
 
-    public Location(String continent, String country, String city, String code) {
+    public Location(String continent, String country, String city, String code, double latitude, double longitude) {
         this.continent = continent;
         this.country = country;
         this.city = city;
         this.code = code;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     protected Location() {
@@ -72,4 +76,19 @@ public class Location implements Serializable {
         this.code = code;
     }
 
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(long latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(long longitude) {
+        this.longitude = longitude;
+    }
 }

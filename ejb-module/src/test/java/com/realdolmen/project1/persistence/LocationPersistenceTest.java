@@ -12,7 +12,7 @@ public class LocationPersistenceTest extends  DataSetPersistenceTest {
     @Test
     public void persistANewLocation(){
 
-        Location location = new Location("Europe", "België", "Brussel", "BRU");
+        Location location = new Location("Europe", "België", "Brussel", "BRU", 50.85, 4.35);
         entityManager().persist(location);
         assertNotNull(location.getId());
     }

@@ -30,8 +30,8 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
 
     @Test
     public void persistNewFlight()  {
-        Location from = new Location("Europe", "België", "Brussel", "BRU");
-        Location to = new Location("Europe","England", "Londen", "LON");
+        Location from = new Location("Europe", "België", "Brussel", "BRU", 50.85, 4.35);
+        Location to = new Location("Europe","England", "Londen", "LON", 51.5, -0.1167);
         Date departure = new Date(); //createDateFromString("Friday, Jun 7, 2016 12:10:00 PM");
         Date arrival = new Date(); //createDateFromString("Friday, Jun 8, 2016 15:10:00 PM");
         entityManager().persist(from);
@@ -45,8 +45,8 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
 
     @Test
     public void newflightCanBeRetrievedById() {
-        Location from = new Location("Europe", "België", "Antwerpen", "ANT");
-        Location to = new Location("Europe", "Netherland", "Amsterdam",  "AMS");
+        Location from = new Location("Europe", "België", "Antwerpen", "ANT", +51.2167, 4.4);
+        Location to = new Location("Europe", "Netherland", "Amsterdam",  "AMS", +52.35, 4.8666);
         entityManager().persist(from);
         entityManager().persist(to);
         Date departure = new Date(); //createDateFromString("Friday, Jun 7, 2016 12:10:00 PM");
