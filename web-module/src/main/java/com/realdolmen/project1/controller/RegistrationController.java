@@ -25,7 +25,6 @@ public class RegistrationController {
 
 
     public String register(){
-
        registrationBean.register(username, password, emailadress);
             return "/secured/welcome.xhtml";
     }
