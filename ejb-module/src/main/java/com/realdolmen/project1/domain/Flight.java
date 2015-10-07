@@ -137,6 +137,11 @@ public class Flight implements Serializable {
         this.pricePerSeatByEmployee = pricePerSeatByEmployee;
     }
 
+
+    public Double getPricePerSeat() {
+        return pricePerSeat;
+    }
+
     public void setPricePerSeat(Double pricePerSeat) {
         this.pricePerSeat = pricePerSeat;
     }

@@ -22,6 +22,8 @@ public interface FlightEJBRemote {
 
     void updateFlight(Flight flight);
 
+    void updateFlight(Flight flight, int fromid, int toid);
+
     void createFlight(Flight flight);
 
    Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid, Double price);

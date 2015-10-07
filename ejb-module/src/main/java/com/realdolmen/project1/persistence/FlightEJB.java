@@ -49,6 +49,16 @@ public class FlightEJB implements FlightEJBRemote {
     }
 
     @Override
+    public void updateFlight(Flight flight, int fromid, int toid) {
+        Location from =  (Location) entityManager.createQuery("select l from Location l where l.id =  :id").setParameter("id", fromid).getSingleResult();
+        Location to =  (Location) entityManager.createQuery("select l from Location l where l.id =  :id").setParameter("id", toid).getSingleResult();
+        flight.setFrom(from);
+        flight.setTo(to);
+        entityManager.merge(flight);
+
+    }
+
+    @Override
     public void createFlight(Flight flight) {
         entityManager.persist(flight);
 

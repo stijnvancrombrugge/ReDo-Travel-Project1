@@ -48,6 +48,13 @@
             </f:facet>
             <h:outputText value="#{flight.totalPlaces}"/>
         </h:column>
+        <h:column>
+
+            <h:form>
+                <h:commandLink action="#{editFlightController.editFlight(flight.id)}" value="Edit flight ">
+          </h:commandLink>
+            </h:form>
+        </h:column>
     </h:dataTable>
  <h3> #{flightController.departureDate}</h3>
 
