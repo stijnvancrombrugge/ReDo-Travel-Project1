@@ -29,7 +29,7 @@ public class Trip implements Serializable {
     private int totalPlaces;
     private int availablePlaces;
 
-    @ManyToMany(mappedBy = "trips", cascade = {CascadeType.PERSIST})
+    @ManyToMany(mappedBy = "trips", cascade = {CascadeType.PERSIST}, fetch = FetchType.EAGER)
     private List<Flight> flights = new ArrayList<>();
 
     protected Trip(){
@@ -140,4 +140,6 @@ public class Trip implements Serializable {
     public void setFlights(List<Flight> flights) {
         this.flights = flights;
     }
+
+
 }

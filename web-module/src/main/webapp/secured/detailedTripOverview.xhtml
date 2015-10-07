@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Passengers</title>
+</h:head>
+<h:body>
+    <h1>Trip Info </h1>
+    <h:panelGrid id="grid" columns="1">
+        <h:panelGroup>
+            <h:outputLabel value="Departure Location: " />
+            <h:outputLabel value="#{rDTripController.detailedTrip.from.city} " />
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputLabel value="Destination Location: " />
+            <h:outputLabel value="#{rDTripController.detailedTrip.destination.city} " />
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputLabel value="Departure Date: " />
+            <h:outputLabel value="#{rDTripController.detailedTrip.departureDate} " />
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputLabel value="Return Date: " />
+            <h:outputLabel value="#{rDTripController.detailedTrip.returnDate} " />
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputLabel value="Description: " />
+            <h:outputLabel value="#{rDTripController.detailedTrip.description} " />
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputLabel value="Available Places: " />
+            <h:outputLabel value="#{rDTripController.detailedTrip.availablePlaces} " />
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputLabel value="Total Places: " />
+            <h:outputLabel value="#{rDTripController.detailedTrip.totalPlaces} " />
+        </h:panelGroup>
+        <h:panelGroup>
+            <h:outputLabel value="Price Per Day: " />
+            <h:outputLabel value="#{rDTripController.detailedTrip.pricePerDay} " />
+        </h:panelGroup>
+    </h:panelGrid>
+
+    <h1>Flights Info    </h1>
+
+    <h:dataTable id="tripFlights" value="#{rDTripController.detailedTrip.flights}" var="flight">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="From"/>
+            </f:facet>
+            <h:outputText value="#{flight.from.city}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="To"/>
+            </f:facet>
+            <h:outputText value="#{flight.to.city}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Arrival Date"/>
+            </f:facet>
+            <h:outputText value="#{flight.arrivalTime}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Departure Date"/>
+            </f:facet>
+            <h:outputText value="#{flight.departureTime}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Available places"/>
+            </f:facet>
+            <h:outputText value="#{flight.availablePlaces}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Total places"/>
+            </f:facet>
+            <h:outputText value="#{flight.totalPlaces}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Price Per Seat"/>
+            </f:facet>
+            <h:outputText value="#{flight.pricePerSeat}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Price Per Seat ordered by RD Travel"/>
+            </f:facet>
+            <h:outputText value="#{flight.pricePerSeatByEmployee}"/>
+        </h:column>
+        <h:column>
+            <h:form>
+                <p:inputText id="newwPrice" value="#{rDTripController.newPrice}"  />
+            <p:commandButton id="upd" value="update price" update="tripFlights" actionListener="#{rDTripController.updPrice}" />
+
+            </h:form>
+        </h:column>
+
+    </h:dataTable>
+
+
+
+
+</h:body>
+</html>

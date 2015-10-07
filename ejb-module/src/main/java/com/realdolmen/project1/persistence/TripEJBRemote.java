@@ -12,4 +12,6 @@ import java.util.List;
 public interface TripEJBRemote {
 
     List<Trip> getAllTrips();
+
+    Trip getTripForID(int id);
 }

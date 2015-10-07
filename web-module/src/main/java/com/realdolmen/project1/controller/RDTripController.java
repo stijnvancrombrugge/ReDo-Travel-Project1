@@ -5,6 +5,8 @@ import com.realdolmen.project1.persistence.TripEJB;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
@@ -22,6 +24,8 @@ public class RDTripController implements Serializable {
     private TripEJB tripEJB;
 
     private List<Trip> allTrips;
+    private Trip detailedTrip;
+    private double newPrice;
 
     public String goToTripOverview(){
         allTrips = tripEJB.getAllTrips();
@@ -29,9 +33,17 @@ public class RDTripController implements Serializable {
     }
 
 
-    public String detailedTrip(int id){
-        return "tripOverview";
+    public String showDetailedTrip(int id){
+        detailedTrip = tripEJB.getTripForID(id);
+        System.out.println(detailedTrip.getDestination().getCity());
+        return "detailedTripOverview";
     }
+
+    public void updPrice(ActionEvent actionEvent){
+        //System.out.println(id);
+        System.out.println(newPrice);
+    }
+
     public TripEJB getTripEJB() {
         return tripEJB;
     }
@@ -48,4 +60,19 @@ public class RDTripController implements Serializable {
         this.allTrips = allTrips;
     }
 
+    public Trip getDetailedTrip() {
+        return detailedTrip;
+    }
+
+    public void setDetailedTrip(Trip detailedTrip) {
+        this.detailedTrip = detailedTrip;
+    }
+
+    public double getNewPrice() {
+        return newPrice;
+    }
+
+    public void setNewPrice(double newPrice) {
+        this.newPrice = newPrice;
+    }
 }

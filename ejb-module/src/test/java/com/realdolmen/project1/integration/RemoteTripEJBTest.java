@@ -20,4 +20,15 @@ public class RemoteTripEJBTest extends RemoteIntegrationTest{
 
 
     }
+
+    @Test
+    public void findTripByID() throws NamingException {
+        TripEJBRemote tripEJBRemote = lookup("ear-module-1.1/ejb-module-1.1/TripEJB!com.realdolmen.project1.persistence.TripEJBRemote");
+        Trip trip = tripEJBRemote.getTripForID(1004);
+        assertEquals("dd", trip.getDescription());
+        assertEquals(2, trip.getFlights().size());
+        assertEquals("New York", trip.getFrom().getCity());
+
+
+    }
 }
