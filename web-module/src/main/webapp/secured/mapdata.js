@@ -1,3 +1,21 @@
+
+$(document).ready(function(){
+	$.getJSON('/api/locations/all', function(data) {
+
+		var i = 0;
+		var dataObject = [];
+		for(i; i<data.length; i++){
+			dataObject.push(data[i]);
+		}
+		simplemaps_continentmap_mapdata.locations = dataObject;
+		simplemaps_continentmap.load();
+		console.log(simplemaps_continentmap_mapdata);
+	});
+
+});
+
+
+
 var simplemaps_continentmap_mapdata = {
 
 			main_settings:{
@@ -14,14 +32,14 @@ var simplemaps_continentmap_mapdata = {
 				state_description:   '',
 				state_color: '#88A4BC',
 				state_hover_color: '#3B729F',
-				state_url: 'http://simplemaps.com',
+				state_url: '',
 				all_states_inactive: 'no',
 
 				//Location defaults
 				location_description:  'Location description',
 				location_color: '#FF0067',
 				location_opacity: .8,
-				location_url: 'http://simplemaps.com',
+				location_url: '',
 				location_size: 35,
 				location_type: 'circle', //or circle
 				all_locations_inactive: 'no',
@@ -104,16 +122,3 @@ var simplemaps_continentmap_mapdata = {
 			locations: {}
 };
 
-
-$(document).ready(function(){
-	$.getJSON('/api/locations/all', function(data) {
-
-		var i = 0;
-		var dataObject = [];
-		for(i; i<data.length; i++){
-			 dataObject.push(data[i]);
-		}
-		simplemaps_continentmap_mapdata.locations = dataObject;
-	});
-	console.log(simplemaps_continentmap_mapdata);
-});

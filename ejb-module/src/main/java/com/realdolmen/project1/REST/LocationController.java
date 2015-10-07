@@ -27,7 +27,7 @@ public class LocationController {
     public JsonArray getAll(){
         JsonArrayBuilder builder = Json.createArrayBuilder();
         for(Location loc : locationBean.getAll()){
-            builder.add(Json.createObjectBuilder().add("name", loc.getCity()).add("lng", loc.getLongitude()).add("lat", loc.getLatitude()));
+            builder.add(Json.createObjectBuilder().add("name", loc.getCity()).add("lng", loc.getLongitude()).add("lat", loc.getLatitude()).add("description", loc.getContinent()).add("hide", "yes"));
         }
 
         return builder.build();

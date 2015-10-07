@@ -30,7 +30,7 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
 
     @Test
     public void persistNewFlight()  {
-        Location from = new Location("Europe", "België", "Brussel", "BRU", 50.85, 4.35);
+        Location from = new Location("Europe", "Belgium", "Brussels", "BRU", 50.85, 4.35);
         Location to = new Location("Europe","England", "Londen", "LON", 51.5, -0.1167);
         Date departure = new Date(); //createDateFromString("Friday, Jun 7, 2016 12:10:00 PM");
         Date arrival = new Date(); //createDateFromString("Friday, Jun 8, 2016 15:10:00 PM");
@@ -45,8 +45,8 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
 
     @Test
     public void newflightCanBeRetrievedById() {
-        Location from = new Location("Europe", "België", "Antwerpen", "ANT", +51.2167, 4.4);
-        Location to = new Location("Europe", "Netherland", "Amsterdam",  "AMS", +52.35, 4.8666);
+        Location from = new Location("Europe", "Belgium", "Antwerp", "ANT", +51.2167, 4.4);
+        Location to = new Location("Europe", "Netherlands", "Amsterdam",  "AMS", +52.35, 4.8666);
         entityManager().persist(from);
         entityManager().persist(to);
         Date departure = new Date(); //createDateFromString("Friday, Jun 7, 2016 12:10:00 PM");
@@ -61,7 +61,7 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
     @Test
     public void flightCanBeRetrievedById() {
         assertEquals(25, entityManager().find(Flight.class, 1002).getAvailablePlaces());
-        assertEquals("Antwerpen", entityManager().find(Flight.class, 1002).getTo().getCity());
+        assertEquals("Antwerp", entityManager().find(Flight.class, 1002).getTo().getCity());
     };
 
     @Test
