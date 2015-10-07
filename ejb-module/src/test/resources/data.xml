@@ -10,6 +10,21 @@
     <trip id="1000" Description="aa" availablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" Destination_id="2000" From_id="1000" />
     <jnd_trip_flight flight_fk="1000" trip_fk="1000" />
     <jnd_trip_flight flight_fk="1001" trip_fk="1000" />
+    <trip id="1001" Description="aa" availablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" Destination_id="2000" From_id="1000" />
+    <trip id="1002" Description="bb" availablePlaces="20" departureDate="2015-10-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="45.55" returnDate="2015-10-20 12:00:00" totalPlaces="30" Destination_id="3000" From_id="2000" />
+    <trip id="1003" Description="cc" availablePlaces="25" departureDate="2015-11-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="35.55" returnDate="2015-11-20 12:00:00" totalPlaces="40" Destination_id="4000" From_id="3000" />
+    <trip id="1004" Description="dd" availablePlaces="30" departureDate="2015-12-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="99.55" returnDate="2015-12-20 12:00:00" totalPlaces="50" Destination_id="1000" From_id="4000" />
+    <trip id="1005" Description="ee" availablePlaces="35" departureDate="2015-08-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="88.55" returnDate="2015-08-20 12:00:00" totalPlaces="60" Destination_id="2000" From_id="1000" />
+    <jnd_trip_flight flight_fk="1002" trip_fk="1001" />
+    <jnd_trip_flight flight_fk="1003" trip_fk="1001" />
+    <jnd_trip_flight flight_fk="1000" trip_fk="1002" />
+    <jnd_trip_flight flight_fk="1003" trip_fk="1002" />
+    <jnd_trip_flight flight_fk="1002" trip_fk="1003" />
+    <jnd_trip_flight flight_fk="1001" trip_fk="1003" />
+    <jnd_trip_flight flight_fk="1000" trip_fk="1004" />
+    <jnd_trip_flight flight_fk="1001" trip_fk="1004" />
+    <jnd_trip_flight flight_fk="1002" trip_fk="1005" />
+    <jnd_trip_flight flight_fk="1003" trip_fk="1005" />
     <User id="100" DTYPE="RdEmployee" username="Glenn" password="Glenn" emailadress="gvc@i.be"/>
     <User id="101" DTYPE="PartnerEmployee" username="Amber" password="Amber" emailadress="avc@i.be" airlineCompany_id="1"/>
 
