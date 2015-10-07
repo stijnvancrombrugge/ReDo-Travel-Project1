@@ -12,6 +12,29 @@
     <script type="text/javascript" src="continentmap.js"></script>
 </h:head>
 <h:body>
+
+    <script type="text/javascript">
+        simplemaps_continentmap.hooks.click_state = function(id){
+
+            for(var location in simplemaps_continentmap_mapdata.locations){
+
+                loc=simplemaps_continentmap_mapdata.locations[location];
+                if(loc.description == simplemaps_continentmap_mapdata.state_specific[id].name){
+                    loc.hide = 'no';
+                }
+                else{
+                    loc.hide = 'yes';
+                }
+            }
+            simplemaps_continentmap.refresh();
+        };
+
+
+        simplemaps_continentmap.hooks.click_location = function(id){
+            window.location.href = '/secured/searchTrip.xhtml?city=' + simplemaps_continentmap_mapdata.locations[id].name;
+        }
+
+    </script>
 <h1>Find A Destionation</h1>
     <div id="map"></div>
 </h:body>
