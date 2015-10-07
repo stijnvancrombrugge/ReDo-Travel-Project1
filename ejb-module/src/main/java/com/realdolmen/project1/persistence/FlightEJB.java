@@ -49,6 +49,12 @@ public class FlightEJB implements FlightEJBRemote {
     }
 
     @Override
+    public void updateDiscount(Discount discount) {
+        entityManager.merge(discount);
+
+    }
+
+    @Override
     public void updateFlight(Flight flight, int fromid, int toid) {
         Location from =  (Location) entityManager.createQuery("select l from Location l where l.id =  :id").setParameter("id", fromid).getSingleResult();
         Location to =  (Location) entityManager.createQuery("select l from Location l where l.id =  :id").setParameter("id", toid).getSingleResult();
@@ -85,6 +91,9 @@ public class FlightEJB implements FlightEJBRemote {
 
     }
 
+    @Override
+    public Discount findDiscountById(int id) {
+        return (Discount) entityManager.createQuery("select d from Discount d where d.id =  :id").setParameter("id", id).getSingleResult();
 
-
+    }
 }

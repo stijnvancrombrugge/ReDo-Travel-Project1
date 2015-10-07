@@ -1,13 +1,14 @@
 package com.realdolmen.project1.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by JVDAX31 on 6/10/2015.
  */
 
 @Entity
-public class Discount {
+public class Discount implements Serializable {
 
 
     @Id

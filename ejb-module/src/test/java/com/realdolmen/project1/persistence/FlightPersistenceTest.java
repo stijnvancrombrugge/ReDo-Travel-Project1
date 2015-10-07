@@ -79,7 +79,7 @@ public class FlightPersistenceTest extends DataSetPersistenceTest {
         assertEquals("LON", entityManager().find(Flight.class, flight.getId()).getFrom().getCode());
     };
 
-    @Ignore
+
     @Test
     public void flightCanAddDiscount() {
         Discount discount = new Discount(15, 0.15);

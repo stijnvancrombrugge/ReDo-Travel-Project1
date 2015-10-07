@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Create Flight  </title>
+</h:head>
+<h:body>
+
+    <h:dataTable id="passangers" value="#{editFlightController.discounts}" var="discount">
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Nbr to Cell"/>
+            </f:facet>
+            <h:outputText value="#{discount.nbrToCell}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
+                <h:outputText value="Percentage"/>
+            </f:facet>
+            <h:outputText value="#{discount.percentage}"/>
+        </h:column>
+        <h:column>
+
+            <h:form>
+                <h:commandLink action="#{editFlightController.editDiscount(discount.id)}" value="Edit discount ">
+                </h:commandLink>
+            </h:form>
+        </h:column>
+    </h:dataTable>
+
+    <c:if test="#{editFlightController.discountToEdit()}">
+     <h3> Update Discount </h3>
+
+    <h:form id="form">
+
+
+        <h:panelGrid columns="2" cellpadding="5">
+
+
+
+            <p:outputLabel for="nbrToSell1" value="Nbr of Seats To Sell:" />
+            <p:inputText id="nbrToSell1" value="#{editFlightController.discount.nbrToCell}"  />
+            <h:outputText id="output1" value="Percentage Discount:#{editFlightController.percentage}%" />
+            <h:inputHidden id="txt21" value="#{editFlightController.percentage}" />
+            <p:slider for="txt21" display="output1" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
+
+
+
+        </h:panelGrid>
+
+
+
+        <h:commandButton value="Save Changed Discount"  action="#{editFlightController.updateDiscount}" />
+        <br> </br>
+
+    </h:form>
+
+    </c:if>
+    <c:if test="#{!editFlightController.discountToEdit()}">
+        <h3> Add New Discount </h3>
+
+
+
+        <h:form id="formnew">
+
+
+            <h:panelGrid columns="2" cellpadding="5">
+
+
+
+                <p:outputLabel for="nbrToSell" value="Nbr of Seats Sold:" />
+                <p:inputText id="nbrToSell" value="#{editFlightController.nbrToCell}"  />
+                <h:outputText id="output" value="Percentage Discount:#{editFlightController.percentage}%" />
+                <h:inputHidden id="txt2" value="#{editFlightController.percentage}" />
+                <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
+
+
+
+            </h:panelGrid>
+
+
+
+            <h:commandButton value="Add Discount"  action="#{editFlightController.addNewDiscount}" />
+
+        </h:form>
+
+
+    </c:if>
+
+    <h:form>
+        <h:commandButton action="#{editFlightController.editFlight(editFlightController.flightID)}" value="Edit flight " />
+
+        <h:commandButton action="#{editFlightController.endUpdate}" value="Update Done" />
+
+    </h:form>
+
+
+
+</h:body>
+</html>

@@ -1,5 +1,6 @@
 package com.realdolmen.project1.controller;
 
+import com.realdolmen.project1.domain.Discount;
 import com.realdolmen.project1.domain.Flight;
 import com.realdolmen.project1.domain.Location;
 import com.realdolmen.project1.persistence.FlightEJB;
@@ -26,17 +27,66 @@ public class EditFlightController implements Serializable{
     private int from;
     private int to;
     private List<Location> allLocations = new ArrayList<>();
+    private List<Discount> discounts = new ArrayList<>();
+    private Discount discount;
+    private double percentage;
+    private int nbrToCell;
 
+    private int flightID;
 
     public String editFlight(int id){
+        flightID = id;
         flight = flightEJB.findFlightById(id);
         allLocations = flightEJB.findAllLocations();
         return "editFlight";
     }
 
+    public String editDiscount(int id){
+        discount = flightEJB.findDiscountById(id);
+      //  allLocations = flightEJB.findAllLocations();
+        return "editDiscounts";
+    }
+
     public String updateFlight(){
         flightEJB.updateFlight(flight, from, to);
         return "allFlights";
+    }
+
+    public String updateDiscount(){
+        discount.setPercentage(percentage * 0.01);
+        flightEJB.updateDiscount(discount);
+        flight = flightEJB.findFlightById(flight.getId());
+        discounts = flight.getDiscounts();
+        discount = null;
+        percentage = 0;
+        return "editDiscounts";
+    }
+
+    public String editDiscounts(){
+      discounts = flight.getDiscounts();
+      discount = null;
+
+      return "editDiscounts";
+    };
+
+    public String addNewDiscount(){
+        Discount discount =  new Discount(nbrToCell, (percentage * 0.01));
+        nbrToCell = 0;
+        percentage = 0;
+        flight.addDiscount(discount);
+        flightEJB.updateFlight(flight);
+        flight = flightEJB.findFlightById(flight.getId());
+        discount = null;
+        discounts = flight.getDiscounts();
+        return "editDiscounts";
+    }
+
+    public String endUpdate(){
+        return "allFlights";
+    }
+
+    public boolean discountToEdit(){
+        return discount != null;
     }
 
 
@@ -78,5 +128,45 @@ public class EditFlightController implements Serializable{
 
     public void setAllLocations(List<Location> allLocations) {
         this.allLocations = allLocations;
+    }
+
+    public List<Discount> getDiscounts() {
+        return discounts;
+    }
+
+    public void setDiscounts(List<Discount> discounts) {
+        this.discounts = discounts;
+    }
+
+    public Discount getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Discount discount) {
+        this.discount = discount;
+    }
+
+    public double getPercentage() {
+        return percentage;
+    }
+
+    public void setPercentage(double percentage) {
+        this.percentage = percentage;
+    }
+
+    public int getNbrToCell() {
+        return nbrToCell;
+    }
+
+    public void setNbrToCell(int nbrToCell) {
+        this.nbrToCell = nbrToCell;
+    }
+
+    public int getFlightID() {
+        return flightID;
+    }
+
+    public void setFlightID(int flightID) {
+        this.flightID = flightID;
     }
 }

@@ -27,7 +27,7 @@ public class Flight implements Serializable {
     private Double pricePerSeat;
     private Double pricePerSeatByEmployee;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Discount> discounts = new ArrayList<>();
 
 

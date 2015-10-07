@@ -40,11 +40,15 @@
             </p:selectOneMenu>
 
 
+
+
         </h:panelGrid>
+        <h:commandButton value="Save Flight"  action="#{editFlightController.updateFlight}" />
 
+        <h:commandButton action="#{editFlightController.editDiscounts}" value="Edit Discounts " />
 
+            <h:commandButton action="#{editFlightController.endUpdate}" value="Update Done"/>
 
-        <h:commandButton value="Submit"  action="#{editFlightController.updateFlight}" />
 
     </h:form>
 

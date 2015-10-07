@@ -26,9 +26,13 @@ public interface FlightEJBRemote {
 
     void createFlight(Flight flight);
 
-   Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid, Double price);
+    Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid, Double price);
 
-   Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid, Double price, List<Discount> discounts);
+    Flight createFlight(Date departureDate, Date arrivalDate, int totalPlaces, int freePlaces, int locationfromid, int locationtoid, Double price, List<Discount> discounts);
+
+    Discount findDiscountById(int id);
+
+    void updateDiscount(Discount discount);
 
 
 
