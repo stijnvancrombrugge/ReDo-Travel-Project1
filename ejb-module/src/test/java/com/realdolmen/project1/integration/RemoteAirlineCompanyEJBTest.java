@@ -1,0 +1,28 @@
+package com.realdolmen.project1.integration;
+
+import com.realdolmen.project1.domain.AirlineCompany;
+import com.realdolmen.project1.domain.PartnerEmployee;
+import com.realdolmen.project1.domain.User;
+import com.realdolmen.project1.persistence.AirlineEJBRemote;
+import com.realdolmen.project1.persistence.FlightEJBRemote;
+import org.junit.Test;
+
+import javax.naming.NamingException;
+import java.io.Serializable;
+
+/**
+ * Created by JVDAX31 on 7/10/2015.
+ */
+public class RemoteAirlineCompanyEJBTest extends RemoteIntegrationTest implements Serializable {
+
+    @Test
+    public void findAirlineCompanyForPartner() throws NamingException {
+          AirlineEJBRemote airlineEJBRemote = lookup("ear-module-1.1/ejb-module-1.1/AirlineEJB!com.realdolmen.project1.persistence.AirlineEJBRemote");
+       AirlineCompany airlineCompany = airlineEJBRemote.getAirlineOfPartner("Amber");
+        assertEquals("JetairFly", airlineCompany.getName());
+        assertEquals(2, airlineCompany.getFlights().size());
+        //
+    }
+
+
+}

@@ -1,6 +1,7 @@
 package com.realdolmen.project1.persistence;
 
 import com.realdolmen.project1.domain.Customer;
+import com.realdolmen.project1.domain.PartnerEmployee;
 import com.realdolmen.project1.domain.User;
 import org.junit.Test;
 
@@ -23,6 +24,13 @@ public class UserPersistenceTest extends DataSetPersistenceTest{
                 entityManager().persist(new Customer("SVD", "testpw", "Stijn@Stijn.be"));
                 User user = entityManager().getReference(User.class,103);
                 assertEquals("SVD", user.getUsername());
+            }
+
+            @Test
+            public void retrievePartnerEmployee(){
+                PartnerEmployee partner = entityManager().find(PartnerEmployee.class, 101);
+                assertEquals("Amber", partner.getUsername());
+             //   assertEquals(2, partner.getAirlineCompany().getFlights().size());
             }
 
     }

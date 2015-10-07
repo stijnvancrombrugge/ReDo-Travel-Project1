@@ -30,6 +30,12 @@ public class FlightController implements Serializable {
 
     }
 
+    public List<Flight> getAllFlightsForAirline(){
+        return flightEJB.findAllFlights();
+
+    }
+
+
     public FlightEJB getFlightEJB() {
         return flightEJB;
     }

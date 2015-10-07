@@ -96,7 +96,7 @@
     <h:form>
         <h:commandButton action="#{editFlightController.editFlight(editFlightController.flightID)}" value="Edit flight " />
 
-        <h:commandButton action="#{editFlightController.endUpdate}" value="Update Done" />
+        <h:commandButton action="#{partnerController.goToFlights(loginController.username)}" value="Update Done" />
 
     </h:form>
 

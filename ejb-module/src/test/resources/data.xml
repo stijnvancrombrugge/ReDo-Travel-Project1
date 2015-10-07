@@ -11,7 +11,7 @@
     <jnd_trip_flight flight_fk="1000" trip_fk="1000" />
     <jnd_trip_flight flight_fk="1001" trip_fk="1000" />
     <User id="100" DTYPE="RdEmployee" username="Glenn" password="Glenn" emailadress="gvc@i.be"/>
-    <User id="101" DTYPE="PartnerEmployee" username="Amber" password="Amber" emailadress="avc@i.be"/>
+    <User id="101" DTYPE="PartnerEmployee" username="Amber" password="Amber" emailadress="avc@i.be" airlineCompany_id="1"/>
 
     <airlinecompany id="1" name="JetairFly" />
     <airlinecompany_user AirlineCompany_id="1" partners_id="101" />

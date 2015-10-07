@@ -1,6 +1,7 @@
 package com.realdolmen.project1.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,14 +10,14 @@ import java.util.List;
  */
 
 @Entity
-public class AirlineCompany {
+public class AirlineCompany implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String Name;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Flight> flights = new ArrayList<>();
 
     @OneToMany

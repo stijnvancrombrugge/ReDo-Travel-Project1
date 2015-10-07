@@ -9,9 +9,8 @@
     <title>Passengers</title>
 </h:head>
 <h:body>
-    <h1>Passengers</h1>
-    <p>All Passengers</p>
-    <h:dataTable id="passangers" value="#{flightController.allFlights}" var="flight">
+    <h1>Flights of #{partnerController.airlineCompany.name}</h1>
+    <h:dataTable id="passangers" value="#{partnerController.flights}" var="flight">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="From"/>

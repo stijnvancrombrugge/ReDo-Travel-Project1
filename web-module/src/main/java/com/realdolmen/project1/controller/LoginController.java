@@ -43,7 +43,7 @@ public class LoginController implements Serializable {
             if(loggedInUserType.equals("Customer")) {
                 return "/secured/customerWelcome.xhtml";
             }
-            return "/secured/createFlight.xhtml";
+            return "/secured/partnerHomePage.xhtml";
         }
         return "/login.xhtml";
     }

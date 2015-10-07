@@ -3,12 +3,14 @@ package com.realdolmen.project1.controller;
 import com.realdolmen.project1.domain.Discount;
 import com.realdolmen.project1.domain.Flight;
 import com.realdolmen.project1.domain.Location;
+import com.realdolmen.project1.persistence.AirlineEJB;
 import com.realdolmen.project1.persistence.FlightEJB;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,6 +27,12 @@ public class CreateFlightController implements Serializable {
 
     @EJB
     private FlightEJB flightEJB;
+
+    @EJB
+    private AirlineEJB airlineEJB;
+
+    @Inject
+    private LoginController loginController;
 
     private Date departureDate;
     private Date arrivalDate;
@@ -167,7 +175,9 @@ public class CreateFlightController implements Serializable {
 
     public String saveFlight(){
         Flight f =  flightEJB.createFlight(departureDate, arrivalDate, totalPlaces, freePlaces, from, to, price, discounts);
-        return "allFlights";
+        airlineEJB.addFlightToAirline(f, loginController.getUsername());
+
+        return "partnerHomePage";
 
     }
 

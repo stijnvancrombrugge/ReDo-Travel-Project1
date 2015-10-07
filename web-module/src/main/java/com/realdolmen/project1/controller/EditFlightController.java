@@ -49,7 +49,7 @@ public class EditFlightController implements Serializable{
 
     public String updateFlight(){
         flightEJB.updateFlight(flight, from, to);
-        return "allFlights";
+        return "editFlight";
     }
 
     public String updateDiscount(){
@@ -82,6 +82,8 @@ public class EditFlightController implements Serializable{
     }
 
     public String endUpdate(){
+
+
         return "allFlights";
     }
 
