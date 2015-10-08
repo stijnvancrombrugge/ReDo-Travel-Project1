@@ -96,4 +96,11 @@ public class FlightEJB implements FlightEJBRemote {
         return (Discount) entityManager.createQuery("select d from Discount d where d.id =  :id").setParameter("id", id).getSingleResult();
 
     }
+
+    @Override
+    public void updateEmployeePriceOfFlight(int flightID, double newPrice){
+        Flight flight = findFlightById(flightID);
+        flight.setPricePerSeatByEmployee(newPrice);
+        entityManager.merge(flight);
+    }
 }

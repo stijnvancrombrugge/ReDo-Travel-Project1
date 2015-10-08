@@ -42,8 +42,10 @@ public class LoginController implements Serializable {
             loggedIn = true;
             if(loggedInUserType.equals("Customer")) {
                 return "/secured/customerWelcome.xhtml";
+            } else if(loggedInUserType.equals("PartnerEmployee")) {
+                return "/secured/partnerHomePage.xhtml";
             }
-            return "/secured/partnerHomePage.xhtml";
+            return "/secured/rdEmpHomePage.xhtml";
         }
         return "/login.xhtml";
     }

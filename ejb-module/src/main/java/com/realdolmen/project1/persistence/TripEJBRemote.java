@@ -1,5 +1,4 @@
 package com.realdolmen.project1.persistence;
-
 import com.realdolmen.project1.domain.Location;
 import com.realdolmen.project1.domain.Trip;
 
@@ -16,4 +15,6 @@ public interface TripEJBRemote {
     public List<Trip> getAllTrips();
 
     public List<Location> getAllDestinations();
+
+    Trip getTripForID(int id);
 }
