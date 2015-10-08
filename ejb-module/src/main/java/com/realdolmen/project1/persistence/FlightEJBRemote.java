@@ -34,6 +34,8 @@ public interface FlightEJBRemote {
 
     void updateDiscount(Discount discount);
 
+    void updateEmployeePriceOfFlight(int flightID, double newPrice);
+
 
 
 }

@@ -50,6 +50,12 @@
     <h:dataTable id="tripFlights" value="#{rDTripController.detailedTrip.flights}" var="flight">
         <h:column>
             <f:facet name="header">
+                <h:outputText value="Flight ID"/>
+            </f:facet>
+            <h:outputText value="#{flight.id}"/>
+        </h:column>
+        <h:column>
+            <f:facet name="header">
                 <h:outputText value="From"/>
             </f:facet>
             <h:outputText value="#{flight.from.city}"/>
@@ -98,15 +104,19 @@
         </h:column>
         <h:column>
             <h:form>
+                <h:outputText id="pr" value="#{flight.pricePerSeatByEmployee}"/>
                 <p:inputText id="newwPrice" value="#{rDTripController.newPrice}"  />
-            <p:commandButton id="upd" value="update price" update="tripFlights" actionListener="#{rDTripController.updPrice}" />
+                <p:commandButton id="upd" value="update price" update="pr" actionListener="#{rDTripController.updPrice}">
+                    <f:setPropertyActionListener target="#{rDTripController.flightID}" value="#{flight.id}" />
+                    <f:ajax event="click" render="pr" />
+                </p:commandButton>
 
-            </h:form>
-        </h:column>
+        </h:form>
+
+
+</h:column>
 
     </h:dataTable>
-
-
 
 
 </h:body>

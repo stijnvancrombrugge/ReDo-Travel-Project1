@@ -1,10 +1,12 @@
 package com.realdolmen.project1.controller;
 
 import com.realdolmen.project1.domain.Trip;
+import com.realdolmen.project1.persistence.FlightEJB;
 import com.realdolmen.project1.persistence.TripEJB;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.event.ActionEvent;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.inject.Inject;
@@ -23,9 +25,15 @@ public class RDTripController implements Serializable {
     @EJB
     private TripEJB tripEJB;
 
+    @EJB
+    private FlightEJB flightEJB;
+
     private List<Trip> allTrips;
     private Trip detailedTrip;
     private double newPrice;
+
+    @ManagedProperty(value="#{param.flightID}")
+    private int flightID;
 
     public String goToTripOverview(){
         allTrips = tripEJB.getAllTrips();
@@ -39,8 +47,23 @@ public class RDTripController implements Serializable {
         return "detailedTripOverview";
     }
 
+
     public void updPrice(ActionEvent actionEvent){
-        //System.out.println(id);
+        System.out.println("in updPrce");
+        System.out.println(flightID);
+        System.out.println(newPrice);
+        if(flightID != 0){
+            flightEJB.updateEmployeePriceOfFlight(flightID,newPrice);
+            detailedTrip = tripEJB.getTripForID(detailedTrip.getId());
+            flightID = 0;
+
+        }
+    }
+
+
+    public void updPriceWithParam(int id){
+        System.out.println("in update price with param");
+        System.out.println(id);
         System.out.println(newPrice);
     }
 
@@ -74,5 +97,13 @@ public class RDTripController implements Serializable {
 
     public void setNewPrice(double newPrice) {
         this.newPrice = newPrice;
+    }
+
+    public int getFlightID() {
+        return flightID;
+    }
+
+    public void setFlightID(int flightID) {
+        this.flightID = flightID;
     }
 }
