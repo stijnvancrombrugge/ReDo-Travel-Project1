@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<trips>
+<trip>
+    <from> LON </from>
+    <to>  NYR </to>
+    <freeplaces> 40 </freeplaces>
+    <returnDate> 2015-10-05 02:00:00 </returnDate>
+    <departureDate>2015-10-12 02:00:00</departureDate>
+    <description>  qdsfdsqfd </description>
+    <pricePerDay>12.2</pricePerDay>
+    <pictureName>aaa</pictureName>
+    <totalPlaces>100</totalPlaces>
+    <availablePlaces> 30 </availablePlaces>
+    <flight>
+        <flightID> 1000 </flightID>
+    </flight>
+    <flight>
+        <flightID> 1001 </flightID>
+    </flight>
+</trip>
+<trip>
+    <from> PAR </from>
+    <to>  NYR </to>
+    <freeplaces> 40 </freeplaces>
+    <returnDate> 2015-11-05 02:00:00 </returnDate>
+    <departureDate>2015-11-05 02:00:00</departureDate>
+    <description>  zzzzz </description>
+    <pricePerDay>122.2</pricePerDay>
+    <pictureName>aaa</pictureName>
+    <totalPlaces>80</totalPlaces>
+    <availablePlaces> 40 </availablePlaces>
+    <flight>
+        <flightID> 1002 </flightID>
+    </flight>
+</trip>
+</trips>
