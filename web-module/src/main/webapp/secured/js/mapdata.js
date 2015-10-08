@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-	$.getJSON('/api/locations/all', function(data) {
+	$.getJSON('/api/trips/all', function(data) {
 
 		var i = 0;
 		var dataObject = [];
@@ -9,7 +9,6 @@ $(document).ready(function(){
 		}
 		simplemaps_continentmap_mapdata.locations = dataObject;
 		simplemaps_continentmap.load();
-		console.log(simplemaps_continentmap_mapdata);
 	});
 
 });
@@ -116,8 +115,6 @@ var simplemaps_continentmap_mapdata = {
 					url: 'default' //Note:  You must omit the comma after the last property in an object to prevent errors in internet explorer.
 				}
 			},
-
-
 
 			locations: {}
 };

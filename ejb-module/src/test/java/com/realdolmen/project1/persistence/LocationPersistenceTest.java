@@ -12,7 +12,7 @@ public class LocationPersistenceTest extends  DataSetPersistenceTest {
     @Test
     public void persistANewLocation(){
 
-        Location location = new Location("Europe", "België", "Brussel", "BRU", 50.85, 4.35);
+        Location location = new Location("Europe", "Belgium", "Brussels", "BRU", 50.85, 4.35);
         entityManager().persist(location);
         assertNotNull(location.getId());
     }
@@ -25,8 +25,8 @@ public class LocationPersistenceTest extends  DataSetPersistenceTest {
     @Test
     public void locationCodeCanBeUpdated() {
         Location location = entityManager().find(Location.class, 3000);
-        location.setContinent("Europa");
+        location.setContinent("Europe");
         entityManager().merge(location);
-        assertEquals("Europa", entityManager().find(Location.class, 3000).getContinent());
+        assertEquals("Europe", entityManager().find(Location.class, 3000).getContinent());
     };
 }

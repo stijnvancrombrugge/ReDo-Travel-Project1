@@ -8,8 +8,8 @@
 <h:head>
     <title>Find destination</title>
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" src="mapdata.js"></script>
-    <script type="text/javascript" src="continentmap.js"></script>
+    <script type="text/javascript" src="js/mapdata.js"></script>
+    <script type="text/javascript" src="js/continentmap.js"></script>
 </h:head>
 <h:body>
 
@@ -18,6 +18,7 @@
 
             for(var location in simplemaps_continentmap_mapdata.locations){
 
+                console.log("showing locations" + id);
                 loc=simplemaps_continentmap_mapdata.locations[location];
                 if(loc.description == simplemaps_continentmap_mapdata.state_specific[id].name){
                     loc.hide = 'no';
@@ -27,15 +28,22 @@
                 }
             }
             simplemaps_continentmap.refresh();
-        };
+        }
 
 
         simplemaps_continentmap.hooks.click_location = function(id){
-            window.location.href = '/secured/searchTrip.xhtml?city=' + simplemaps_continentmap_mapdata.locations[id].name;
+            document.getElementById("destinationForm:selectedDestinationName").setAttribute("value", simplemaps_continentmap_mapdata.locations[id].name);
+            document.getElementById("destinationForm:destinationButton").click();
         }
 
     </script>
-<h1>Find A Destionation</h1>
+<h1>Find A Destination</h1>
     <div id="map"></div>
+    <h:form id="destinationForm">
+        <p style="display:none">
+            <h:inputHidden id="selectedDestinationName" value="#{createBookingController.selectedDestinationName}"/>
+            <h:commandButton id="destinationButton" value="Choose A Trip" action="#{createBookingControllerConversation.startCreationTrip}" />
+        </p>
+    </h:form>
 </h:body>
 </html>
