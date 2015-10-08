@@ -5,13 +5,14 @@ import com.realdolmen.project1.domain.Location;
 import javax.persistence.ManyToOne;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by JVDAX31 on 8/10/2015.
  */
-public class TripElement {
+public class TripElement implements Serializable {
 
     private String from;
     private String to;

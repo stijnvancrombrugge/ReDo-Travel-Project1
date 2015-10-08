@@ -4,13 +4,14 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by JVDAX31 on 8/10/2015.
  */
 @XmlRootElement(name = "trips")
-public class TripsElement {
+public class TripsElement implements Serializable {
 
     List<TripElement> trip;
 

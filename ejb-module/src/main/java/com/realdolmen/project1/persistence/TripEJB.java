@@ -1,5 +1,7 @@
 package com.realdolmen.project1.persistence;
 
+import com.realdolmen.project1.XML.FlightElement;
+import com.realdolmen.project1.XML.TripElement;
 import com.realdolmen.project1.domain.Flight;
 import com.realdolmen.project1.domain.Location;
 import com.realdolmen.project1.domain.Trip;
@@ -9,8 +11,7 @@ import javax.ejb.Stateless;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.websocket.OnError;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -42,6 +43,49 @@ public class TripEJB implements TripEJBRemote{
     
     @Override
     public Trip getTripForID(int id){
+        return (Trip) em.createQuery("select t from Trip t where t.id =  :id").setParameter("id", id).getSingleResult();
+    }
+
+    @Override
+    public Flight findFlightById(int id) {
+        System.out.println(id);
+        return (Flight) em.createQuery("select f from Flight f where f.id =  :id").setParameter("id", id).getSingleResult();
+
+    }
+
+    @Override
+    public Location findLocationByCode(String code) {
+        return (Location) em.createQuery("select l from Location l where l.code =  :code").setParameter("code", code).getSingleResult();
+
+    }
+
+    @Override
+    public void storeNewTrips(List<TripElement> lst) {
+
+
+        for(TripElement trip:lst){
+
+            List<Flight> flights = new ArrayList<>();
+            List<FlightElement> xmlFlights = trip.getFlight();
+
+            for(int f = 0; f < xmlFlights.size(); f++){
+                  flights.add(findFlightById(xmlFlights.get(f).getFlightID()));
+            };
+
+            Location from = findLocationByCode(trip.getFrom().trim());
+            Location to = findLocationByCode(trip.getTo().trim());
+            Trip newTrip = new Trip(from, to, trip.getPricePerDay(), trip.getDepartureDate(), trip.getReturnDate(),
+                    trip.getDescription(), trip.getTotalPlaces(), trip.getPicturename(), trip.getAvailablePlaces());
+            newTrip.setFlights(flights);
+
+            em.persist(newTrip);
+            for(Flight fl:flights){
+                fl.addTrip(newTrip);
+                em.merge(fl);
+            }
+
+        }
+
         return (Trip) em.createQuery("select t from Trip t where t.id =  :id").setParameter("id", id).getSingleResult();
     }
 

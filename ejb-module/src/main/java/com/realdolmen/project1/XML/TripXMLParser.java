@@ -14,6 +14,7 @@ import javax.xml.stream.events.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -21,7 +22,7 @@ import java.util.List;
 /**
  * Created by JVDAX31 on 8/10/2015.
  */
-public class TripXMLParser {
+public class TripXMLParser implements Serializable{
 
     /*
         @ManyToOne
@@ -39,7 +40,28 @@ public class TripXMLParser {
     private int availablePlaces;
      */
 
-    public static void main(String[] args) {
+    public List<TripElement> parseXML(String filename){
+
+        try {
+            //web-module\src\main\trips.xml
+            File file = new File(filename);
+            JAXBContext jaxbContext = JAXBContext.newInstance(TripsElement.class);
+
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            TripsElement que= (TripsElement) jaxbUnmarshaller.unmarshal(file);
+
+            return que.getTrip();
+
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+
+
+
+   // public static void main(String[] args) {
 
         /*
         boolean bFrom = false;
@@ -134,6 +156,8 @@ public class TripXMLParser {
         */
 
 
+    /*
+
         try {
 
             File file = new File("web-module\\src\\main\\trips.xml");
@@ -156,5 +180,7 @@ public class TripXMLParser {
             e.printStackTrace();
         }
     }
+
+    */
 }
 
