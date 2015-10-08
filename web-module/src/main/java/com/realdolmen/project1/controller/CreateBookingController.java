@@ -6,10 +6,8 @@ import com.realdolmen.project1.persistence.TripEJB;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
-import javax.faces.event.ValueChangeEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.print.attribute.standard.Destination;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -25,6 +23,9 @@ public class CreateBookingController implements Serializable {
 
     @EJB
     private TripEJB tripEJB;
+
+    @Inject
+    private LoginController loginController;
 
 
     private String selectedDestinationName;
@@ -53,9 +54,19 @@ public class CreateBookingController implements Serializable {
         return "/bookingTripList.xhtml";
     }
 
-    public String proceedToOverview(int id){
+    public String chooseTrip(int id){
         selectedTrip = tripEJB.getTripForID(id);
-        return "/bookingOverview.xhtml";
+        if(loginController.getLoggedIn()){
+            return "/secured/proceedBooking.xhtml";
+        }
+        else{
+            return "/login.xhtml";
+        }
+
+    }
+
+    public String proceedToOverview(){
+        return "/secured/bookingOverview.xhtml";
     }
 
 
