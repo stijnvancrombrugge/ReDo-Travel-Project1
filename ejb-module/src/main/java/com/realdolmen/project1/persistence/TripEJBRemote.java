@@ -3,6 +3,7 @@ import com.realdolmen.project1.domain.Location;
 import com.realdolmen.project1.domain.Trip;
 
 import javax.ejb.Remote;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,5 +17,9 @@ public interface TripEJBRemote {
 
     public List<Location> getAllDestinations();
 
+    Location getDestinationForName(String destinationName);
+
     Trip getTripForID(int id);
+
+    List<Trip> getPossibleTrips(Location destination, Date departureDate, Date arrivalDate, int numberOfPersons);
 }
