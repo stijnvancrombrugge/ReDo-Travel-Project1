@@ -5,6 +5,7 @@ import com.realdolmen.project1.domain.Location;
 import com.realdolmen.project1.domain.Trip;
 
 import javax.ejb.Remote;
+import java.util.Date;
 import java.util.List;
 
 /**

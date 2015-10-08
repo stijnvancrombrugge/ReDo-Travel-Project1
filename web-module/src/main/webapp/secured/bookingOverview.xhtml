@@ -76,6 +76,21 @@
         </h:column>
     </h:dataTable>
 
+    <h1>Total Price</h1>
+    <h:column>
+        <f:facet name="header">
+            <h:outputText value="Price: "/>
+        </f:facet>
+        <h:outputText value="#{createBookingController.totalPrice}"/>
+    </h:column>
+
+    <h:form>
+        <h:commandButton value="Pay by CreditCard" action="#{createBookingController.payByCreditCard}" />
+        <br/>
+        <br/>
+        <h:commandButton value="Pay by Endorsement" action="#{createBookingController.endBooking}" />
+
+    </h:form>
 
 </h:body>
 </html>

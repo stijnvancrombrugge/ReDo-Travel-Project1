@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Date;
 
 /**
  * Created by SVCAX33 on 7/10/2015.
@@ -86,7 +87,7 @@ public class TripEJB implements TripEJBRemote{
 
         }
 
-        return (Trip) em.createQuery("select t from Trip t where t.id =  :id").setParameter("id", id).getSingleResult();
+        //return (Trip) em.createQuery("select t from Trip t where t.id =  :id").setParameter("id", id).getSingleResult();
     }
 
     @Override

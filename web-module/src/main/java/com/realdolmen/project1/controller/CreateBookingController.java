@@ -35,6 +35,7 @@ public class CreateBookingController implements Serializable {
     private int numberOfPersons;
     private List<Trip> possibleTrips;
     private Trip selectedTrip;
+    private double totalPrice;
 
     public String startCreationTrip(){
         allDestinations = tripEJB.getAllDestinations();
@@ -56,6 +57,8 @@ public class CreateBookingController implements Serializable {
 
     public String chooseTrip(int id){
         selectedTrip = tripEJB.getTripForID(id);
+        int timeDiff = (int)( (selectedTrip.getReturnDate().getTime() - selectedTrip.getDepartureDate().getTime()) / (1000 * 60 * 60 * 24) );
+        totalPrice = selectedTrip.getPricePerDay()*numberOfPersons*timeDiff;
         if(loginController.getLoggedIn()){
             return "/secured/proceedBooking.xhtml";
         }
@@ -67,6 +70,20 @@ public class CreateBookingController implements Serializable {
 
     public String proceedToOverview(){
         return "/secured/bookingOverview.xhtml";
+    }
+
+    public String payByCreditCard(){
+
+        //TODO calculate new price
+
+        return "/secured/creditCardPage.xhtml";
+    }
+
+    public String endBooking(){
+
+        //TODO persist booking
+
+        return "/secured/thanksPage.xhtml";
     }
 
 
@@ -120,5 +137,11 @@ public class CreateBookingController implements Serializable {
 
     public Trip getSelectedTrip() {
         return selectedTrip;
+    }
+
+    public double getTotalPrice(){return totalPrice;}
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 }
