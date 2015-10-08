@@ -14,7 +14,7 @@
         <br/>
         <h:commandLink action="#{loginController.logout}" value="Logout"/>
         <br/>
-        <h:button value="Choose A Trip" outcome="/secured/searchTrip.xhtml" />
+        <h:commandButton value="Choose A Trip" action="#{createBookingControllerConversation.startCreationTrip}" />
         <br/>
         <br/>
         <h:button value="Choose A Destination" outcome="/secured/findDestination.xhtml" />
