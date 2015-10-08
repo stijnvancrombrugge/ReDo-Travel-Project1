@@ -26,6 +26,7 @@ public class Trip implements Serializable {
     private String Description;
     private Double pricePerDay;
     private String picturename;
+
     private int totalPlaces;
     private int availablePlaces;
 

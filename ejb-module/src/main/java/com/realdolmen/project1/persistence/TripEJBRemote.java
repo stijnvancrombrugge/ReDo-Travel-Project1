@@ -18,6 +18,8 @@ public interface TripEJBRemote {
 
     public List<Location> getAllDestinations();
 
+    Location getDestinationForName(String destinationName);
+
     Trip getTripForID(int id);
 
     void storeNewTrips(List<TripElement> lst);
@@ -28,4 +30,6 @@ public interface TripEJBRemote {
 
 
 
+
+    List<Trip> getPossibleTrips(Location destination, Date departureDate, Date arrivalDate, int numberOfPersons);
 }
