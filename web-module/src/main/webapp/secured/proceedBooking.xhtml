@@ -6,16 +6,18 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-    <title>Secured welcome page</title>
+    <title>Proceed Booking</title>
 </h:head>
 <h:body>
     <h:form>
-        <h:commandLink action="#{loginController.logout}" value="Logout"/>
+        <h3>Welcome #{loginController.username}</h3>
         <br/>
-        <h:commandButton value="Choose A Trip" action="#{createBookingControllerConversation.startCreationTrip}" />
+        <h:commandButton value="Proceed Booking" action="#{createBookingController.proceedToOverview}" />
         <br/>
         <br/>
-        <h:button value="Choose A Destination" outcome="/findDestination.xhtml" />
+        <h:commandButton value="Cancel Booking" action="#{createBookingController.proceedToTrips}" />
+        <br/>
+
     </h:form>
 </h:body>
 </html>

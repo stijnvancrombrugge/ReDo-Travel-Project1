@@ -30,7 +30,7 @@
                     <h:outputText value="Available places: " style="font-weight: bold" />
                     <h:outputText value="#{trip.availablePlaces}" />
 
-                    <h:commandButton value="Choose trip" icon="ui-icon-check" action="#{createBookingController.proceedToOverview(trip.id)}" style="display:block;margin:10px 0" />
+                    <h:commandButton value="Choose trip" icon="ui-icon-check" action="#{createBookingController.chooseTrip(trip.id)}" style="display:block;margin:10px 0" />
 
                 </h:panelGrid>
             </p:tab>

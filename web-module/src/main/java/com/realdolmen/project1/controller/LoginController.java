@@ -8,6 +8,7 @@ import com.realdolmen.project1.persistence.UserEJB;
 import java.io.Serializable;
 
 
+import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -21,7 +22,7 @@ import javax.inject.Named;
 @SessionScoped
 public class LoginController implements Serializable {
 
-    @Inject
+    @EJB
     private UserEJB loginBean;
 
     private boolean loggedIn;
@@ -41,7 +42,7 @@ public class LoginController implements Serializable {
             userType = loggedInUserType;
             loggedIn = true;
             if(loggedInUserType.equals("Customer")) {
-                return "/secured/customerWelcome.xhtml";
+                return "/secured/proceedBooking.xhtml";
             } else if(loggedInUserType.equals("PartnerEmployee")) {
                 return "/secured/partnerHomePage.xhtml";
             }

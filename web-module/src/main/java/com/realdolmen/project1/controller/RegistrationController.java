@@ -26,7 +26,7 @@ public class RegistrationController {
 
     public String register(){
        registrationBean.register(username, password, emailadress);
-            return "/secured/customerWelcome.xhtml";
+            return "/secured/proceedBooking.xhtml";
     }
 
     public String getUsername() {
