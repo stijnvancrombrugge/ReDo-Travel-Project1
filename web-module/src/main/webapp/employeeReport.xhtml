@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+        >
+
+
+
+                            <p:dataTable var="booking" value="#{reportController.bookings}">
+                            <p:column headerText="Departure Date">
+                                <h:outputText value="#{booking.trip.departureDate}" />
+                            </p:column>
+
+                            <p:column headerText="Return Date">
+                                <h:outputText value="#{booking.trip.returnDate}" />
+                            </p:column>
+
+                            <p:column headerText="From">
+                                <h:outputText value="#{booking.trip.from.city}" />
+                            </p:column>
+
+                            <p:column headerText="Destination">
+                                <h:outputText value="#{booking.trip.destination.city}" />
+                            </p:column>
+                            <p:column headerText="Nbr of Trips">
+                                <h:outputText value="#{booking.nrOfTrips}" />
+                            </p:column>
+                            <p:column headerText="TotalPrice">
+                                <h:outputText value="#{booking.totalPrice}" />
+                            </p:column>
+                        </p:dataTable>
+
+
+
+
+</html>

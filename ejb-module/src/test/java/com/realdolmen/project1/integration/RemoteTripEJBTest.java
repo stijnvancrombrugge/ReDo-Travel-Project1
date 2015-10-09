@@ -25,7 +25,7 @@ public class RemoteTripEJBTest extends RemoteIntegrationTest{
     public void allTripsAreRetrieved() throws NamingException {
         TripEJBRemote tripEJBRemote = lookup("ear-module-1.1/ejb-module-1.1/TripEJB!com.realdolmen.project1.persistence.TripEJBRemote");
         List<Trip> trips = tripEJBRemote.getAllTrips();
-        assertEquals(7, trips.size());
+        assertEquals(9, trips.size());
 
 
     }

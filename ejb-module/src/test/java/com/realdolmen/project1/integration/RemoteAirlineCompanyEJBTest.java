@@ -31,7 +31,7 @@ public class RemoteAirlineCompanyEJBTest extends RemoteIntegrationTest implement
         AirlineEJBRemote airlineEJBRemote = lookup("ear-module-1.1/ejb-module-1.1/AirlineEJB!com.realdolmen.project1.persistence.AirlineEJBRemote");
         List<Location> locations = airlineEJBRemote.allLocationsWithWildcard("%%");
 
-        assertEquals(4,locations.size());
+        assertEquals(9,locations.size());
         //
     }
 

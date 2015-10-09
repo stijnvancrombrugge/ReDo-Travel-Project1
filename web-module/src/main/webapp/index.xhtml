@@ -48,7 +48,9 @@
             <h:link outcome="/logintemp.xhtml" fragment="login"> Login </h:link>
         </li>
         <li>
-            <a href="#services">Services</a>
+           <h:form>
+               <h:commandButton actionListener="#{reportController.goToReportPage}" value="Report" />
+           </h:form>
         </li>
         <li>
             <a href="#places">Places</a>

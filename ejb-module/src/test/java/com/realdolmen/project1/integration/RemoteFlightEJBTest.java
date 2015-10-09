@@ -19,7 +19,7 @@ public class RemoteFlightEJBTest extends RemoteIntegrationTest implements Serial
     @Test
     public void findAllRetrievesAllFlightsRemotely() throws NamingException {
         FlightEJBRemote flightEJBRemote = lookup("ear-module-1.1/ejb-module-1.1/FlightEJB!com.realdolmen.project1.persistence.FlightEJBRemote");
-        assertEquals(4, flightEJBRemote.findAllFlights().size());
+        assertEquals(8, flightEJBRemote.findAllFlights().size());
     }
 
 
