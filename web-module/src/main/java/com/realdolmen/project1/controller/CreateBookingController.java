@@ -39,6 +39,7 @@ public class CreateBookingController implements Serializable {
     private double totalPrice;
     private Date departureMax;
     private Date arrivalMin;
+    private String creditcardNumber;
     private PaymentType paymentType = PaymentType.Endorsement;
 
     public String startCreationTrip(){
@@ -84,7 +85,6 @@ public class CreateBookingController implements Serializable {
     }
 
     public String payByCreditCard(){
-
         totalPrice *= 0.9;
         paymentType = PaymentType.Creditcard;
         return "/secured/creditCardPage.xhtml";
@@ -169,4 +169,21 @@ public class CreateBookingController implements Serializable {
     public void setArrivalMin(Date arrivalMin) {
         this.arrivalMin = arrivalMin;
     }
+
+    public String getCreditcardNumber() {
+        return creditcardNumber;
+    }
+
+    public void setCreditcardNumber(String creditcardNumber) {
+        this.creditcardNumber = creditcardNumber;
+    }
+
+    public PaymentType getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+    }
+
 }
