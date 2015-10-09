@@ -31,6 +31,8 @@
 
     <airlinecompany id="1" name="JetairFly" />
     <airlinecompany_user AirlineCompany_id="1" partners_id="101" />
+    <airlinecompany_flight AirlineCompany_id="1" flights_id="1000" />
+    <airlinecompany_flight AirlineCompany_id="1" flights_id="1001" />
     <airlinecompany_flight AirlineCompany_id="1" flights_id="1002" />
     <airlinecompany_flight AirlineCompany_id="1" flights_id="1003" />
 

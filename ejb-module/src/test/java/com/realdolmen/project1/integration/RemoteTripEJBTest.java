@@ -89,8 +89,6 @@ public class RemoteTripEJBTest extends RemoteIntegrationTest{
         List<TripElement> tripElements = tripXMLParser.parseXML("src\\main\\trips.xml");
         tripEJBRemote.storeNewTrips(tripElements);
         assertEquals(2, tripElements.size());
-
-
     }
 
 
