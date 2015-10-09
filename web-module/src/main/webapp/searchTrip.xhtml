@@ -27,10 +27,15 @@
             </h:panelGrid>
             <br/>
             <p:outputLabel for="dateDep" value="Departure Date:" />
-            <p:calendar id="dateDep" binding="#{startDateComponent}" value="#{createBookingController.departureDate}" pattern="MM/dd/yyyy" required="true"/>
+            <p:calendar id="dateDep" value="#{createBookingController.departureDate}" pattern="MM/dd/yyyy" required="true" maxdate="#{createBookingController.departureMax}">
+                <p:ajax event="dateSelect" listener="#{createBookingController.onDepDateSelect}" update="dateArr"></p:ajax>
+                <p:ajax event="change" update="dateArr"></p:ajax>
+            </p:calendar>
+
             <p:outputLabel for="dateArr" value="Arrival Date:" />
-            <p:calendar id="dateArr" value="#{createBookingController.arrivalDate}" pattern="MM/dd/yyyy" required="true" validator="dateRangeValidator">
-                <f:attribute name="startDateComponent" value="#{startDateComponent}" />
+            <p:calendar id="dateArr" value="#{createBookingController.arrivalDate}" pattern="MM/dd/yyyy" required="true" mindate="#{createBookingController.arrivalMin}">
+                    <p:ajax event="dateSelect" listener="#{createBookingController.onArrDateSelect}" update="dateDep"></p:ajax>
+                <p:ajax event="change" update="dateDep"></p:ajax>
             </p:calendar>
             <p:message id="arrDateMessage" for="dateArr" />
             <p:message id="depDateMessage" for="dateDep" />

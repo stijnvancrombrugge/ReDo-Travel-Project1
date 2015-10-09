@@ -29,6 +29,7 @@
     <User id="100" DTYPE="RdEmployee" username="Glenn" password="Glenn" emailadress="gvc@i.be"/>
     <User id="101" DTYPE="PartnerEmployee" username="Amber" password="Amber" emailadress="avc@i.be" airlineCompany_id="1"/>
 
+
     <airlinecompany id="1" name="JetairFly" />
     <airlinecompany_user AirlineCompany_id="1" partners_id="101" />
     <airlinecompany_flight AirlineCompany_id="1" flights_id="1000" />
@@ -37,4 +38,5 @@
     <airlinecompany_flight AirlineCompany_id="1" flights_id="1003" />
 
 
-        </dataset>
+    <Booking id="1" nrOfTrips="2" paymentType="0" totalPrice="2000" trip_id="1001"/>
+</dataset>

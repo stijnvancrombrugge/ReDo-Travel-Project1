@@ -3,9 +3,7 @@ package com.realdolmen.project1.integration;
 import com.realdolmen.project1.XML.FlightElement;
 import com.realdolmen.project1.XML.TripElement;
 import com.realdolmen.project1.XML.TripXMLParser;
-import com.realdolmen.project1.domain.Location;
-import com.realdolmen.project1.domain.Location;
-import com.realdolmen.project1.domain.Trip;
+import com.realdolmen.project1.domain.*;
 import com.realdolmen.project1.persistence.TripEJBRemote;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -91,5 +89,15 @@ public class RemoteTripEJBTest extends RemoteIntegrationTest{
         assertEquals(2, tripElements.size());
     }
 
+
+    @Test
+    public void bookingIsPersisted() throws NamingException{
+        TripEJBRemote tripEJBRemote = lookup("ear-module-1.1/ejb-module-1.1/TripEJB!com.realdolmen.project1.persistence.TripEJBRemote");
+        Trip trip = tripEJBRemote.getTripForID(1001);
+        Booking booking = tripEJBRemote.createBooking(1005, 10, PaymentType.Endorsement, trip);
+        assertNotNull(booking.getId());
+        assertEquals(PaymentType.Endorsement, booking.getPaymentType());
+
+    }
 
 }

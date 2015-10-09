@@ -1,6 +1,7 @@
 package com.realdolmen.project1.controller;
 
 import com.realdolmen.project1.domain.Location;
+import com.realdolmen.project1.domain.PaymentType;
 import com.realdolmen.project1.domain.Trip;
 import com.realdolmen.project1.persistence.TripEJB;
 
@@ -36,6 +37,9 @@ public class CreateBookingController implements Serializable {
     private List<Trip> possibleTrips;
     private Trip selectedTrip;
     private double totalPrice;
+    private Date departureMax;
+    private Date arrivalMin;
+    private PaymentType paymentType = PaymentType.Endorsement;
 
     public String startCreationTrip(){
         allDestinations = tripEJB.getAllDestinations();
@@ -65,7 +69,14 @@ public class CreateBookingController implements Serializable {
         else{
             return "/login.xhtml";
         }
+    }
 
+    public void onArrDateSelect(){
+        departureMax = arrivalDate;
+    }
+
+    public void onDepDateSelect(){
+        arrivalMin = departureDate;
     }
 
     public String proceedToOverview(){
@@ -74,15 +85,13 @@ public class CreateBookingController implements Serializable {
 
     public String payByCreditCard(){
 
-        //TODO calculate new price
-
+        totalPrice *= 0.9;
+        paymentType = PaymentType.Creditcard;
         return "/secured/creditCardPage.xhtml";
     }
 
     public String endBooking(){
-
-        //TODO persist booking
-
+        tripEJB.createBooking(totalPrice, numberOfPersons, paymentType, selectedTrip);
         return "/secured/thanksPage.xhtml";
     }
 
@@ -143,5 +152,21 @@ public class CreateBookingController implements Serializable {
 
     public void setTotalPrice(int totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public Date getDepartureMax() {
+        return departureMax;
+    }
+
+    public void setDepartureMax(Date departureMax) {
+        this.departureMax = departureMax;
+    }
+
+    public Date getArrivalMin() {
+        return arrivalMin;
+    }
+
+    public void setArrivalMin(Date arrivalMin) {
+        this.arrivalMin = arrivalMin;
     }
 }

@@ -1,8 +1,6 @@
 package com.realdolmen.project1.persistence;
 import com.realdolmen.project1.XML.TripElement;
-import com.realdolmen.project1.domain.Flight;
-import com.realdolmen.project1.domain.Location;
-import com.realdolmen.project1.domain.Trip;
+import com.realdolmen.project1.domain.*;
 
 import javax.ejb.Remote;
 import java.util.Date;
@@ -30,4 +28,6 @@ public interface TripEJBRemote {
     Location findLocationByCode(String code);
 
     List<Trip> getPossibleTrips(Location destination, Date departureDate, Date arrivalDate, int numberOfPersons);
+
+    Booking createBooking(double totalPrice, int nrOfTrips, PaymentType paymentType, Trip trip);
 }

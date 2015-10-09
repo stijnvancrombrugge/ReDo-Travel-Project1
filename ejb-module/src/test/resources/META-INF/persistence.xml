@@ -51,6 +51,7 @@
         <class>com.realdolmen.project1.domain.Trip</class>
         <class>com.realdolmen.project1.domain.AirlineCompany</class>
         <class>com.realdolmen.project1.domain.Discount</class>
+        <class>com.realdolmen.project1.domain.Booking</class>
         <class>com.realdolmen.project1.domain.PartnerEmployee</class>
         <class>com.realdolmen.project1.domain.RdEmployee</class>
 

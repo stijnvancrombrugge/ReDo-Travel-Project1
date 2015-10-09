@@ -28,10 +28,8 @@ public class CreateBookingControllerConversation implements Serializable {
 
 
     public String endCreationTrip(){
-        //String go =  createBookingController.saveBooking();
         conversation.end();
-        return "go";
-
+        return createBookingController.endBooking();
     }
 
 }

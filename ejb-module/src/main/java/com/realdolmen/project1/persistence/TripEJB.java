@@ -2,9 +2,7 @@ package com.realdolmen.project1.persistence;
 
 import com.realdolmen.project1.XML.FlightElement;
 import com.realdolmen.project1.XML.TripElement;
-import com.realdolmen.project1.domain.Flight;
-import com.realdolmen.project1.domain.Location;
-import com.realdolmen.project1.domain.Trip;
+import com.realdolmen.project1.domain.*;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -87,6 +85,7 @@ public class TripEJB implements TripEJBRemote{
 
         }
 
+        //return (Trip) em.createQuery("select t from Trip t where t.id =  :id").setParameter("id", id).getSingleResult();
     }
 
     @Override
@@ -94,5 +93,12 @@ public class TripEJB implements TripEJBRemote{
         return em.createQuery("select c from Trip c where c.Destination = :destination and c.returnDate <= :arrivalDate and c.departureDate >= :departureDate and c.availablePlaces >= :numberOfPersons",Trip.class)
                 .setParameter("destination", destination).setParameter("departureDate", departureDate).setParameter("numberOfPersons", numberOfPersons).setParameter("arrivalDate", arrivalDate)
                 .getResultList();
+    }
+
+    @Override
+    public Booking createBooking(double totalPrice, int nrOfTrips, PaymentType paymentType, Trip trip){
+        Booking booking = new Booking(totalPrice, nrOfTrips, paymentType, trip);
+        em.persist(booking);
+        return booking;
     }
 }
