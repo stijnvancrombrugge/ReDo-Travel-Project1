@@ -4,6 +4,10 @@
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee 
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 
+    <validator>
+        <validator-id>CreditCardValidator</validator-id>
+        <validator-class>com.realdolmen.project1.controller.CreditCardValidator</validator-class>
+    </validator>
 
 
   

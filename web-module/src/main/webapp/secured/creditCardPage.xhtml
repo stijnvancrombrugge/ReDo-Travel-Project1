@@ -11,6 +11,14 @@
 </h:head>
 <h:body>
 
-    <h:commandButton value="Pay by Endorsement" action="#{createBookingControllerConversation.endCreationTrip}" />
+    <h:form id="form">
+        <h:inputText label="Credit Card Number:"
+                     id="inpCCnumber" required="true"
+                     value="#{createBookingController.creditcardNumber}">
+            <f:validator validatorId="CreditCardValidator"/>
+        </h:inputText>
+
+    <h:commandButton value="Pay" action="#{createBookingControllerConversation.endCreationTrip}" />
+</h:form>
 </h:body>
 </html>
