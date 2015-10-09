@@ -17,6 +17,7 @@
                      value="#{createBookingController.creditcardNumber}">
             <f:validator validatorId="CreditCardValidator"/>
         </h:inputText>
+        <p:message id="creditcardNumber" for="inpCCnumber" />
 
     <h:commandButton value="Pay" action="#{createBookingControllerConversation.endCreationTrip}" />
 </h:form>

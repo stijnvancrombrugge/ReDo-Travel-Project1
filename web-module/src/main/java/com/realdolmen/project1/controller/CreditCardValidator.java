@@ -27,13 +27,13 @@ public class CreditCardValidator implements javax.faces.validator.Validator {
                 alternate = !alternate;
                 }
             catch (NumberFormatException e) {
-                throw new ValidatorException(new FacesMessage(" Invalid credit card format!!!!"));
+                throw new ValidatorException(new FacesMessage(" Invalid credit card format"));
             }
         }
         if (sum % 10 == 0) {
         }
         else {
-            throw new ValidatorException(new FacesMessage(" Invalid credit card format!!!!"));
+            throw new ValidatorException(new FacesMessage(" Invalid Credit Card"));
         }
     }
 }
