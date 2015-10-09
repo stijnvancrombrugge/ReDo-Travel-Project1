@@ -26,15 +26,13 @@ public abstract class User{
     private Integer id;
 
     @Basic(optional = false)
-    @Column(unique=true,  nullable = false)
+    @Column(unique=true)
     private String username;
 
     @Basic(optional = false)
-    @Column(nullable = false)
     private String password;
 
     @Basic(optional = false)
-    @Column(nullable = false)
     @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
     private String emailadress;

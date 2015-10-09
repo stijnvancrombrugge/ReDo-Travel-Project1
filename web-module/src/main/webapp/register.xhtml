@@ -4,26 +4,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
 <h:head>
     <title>Registration</title>
 </h:head>
 <h:body>
     <h3>Register here</h3>
     <h:form id="register-form">
-        <h:panelGrid columns="3" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value, message">
-            <h:outputText value="Username:"/>
-            <h:inputText value="#{registrationController.username}" id="username" required = "true"/>
-            <h:message for="username"/>
-            <h:outputText value="Password:"/>
-            <h:inputSecret value="#{registrationController.password}" id="password"/>
-            <h:message for="password"/>
-            <h:outputText value="Emailadress:"/>
-            <h:inputText value="#{registrationController.emailadress}" id="emailadress"/>
-            <h:message for="emailadress"/>
-            <h:commandButton id="button" value="Register" action="#{registrationController.register}"/>
-            <br/>
+        <h:panelGrid id="grid" columns="3" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value, message">
+            <h:outputLabel for="username" value="Username:"/>
+            <p:inputText value="#{loginController.username}" id="username" required = "true" label="Username"/>
+            <p:message for="username"/>
+            <h:outputLabel for="password" value="Password:"/>
+            <p:password value="#{loginController.password}" id="password" required = "true" label="Password"/>
+            <p:message for="password"/>
+            <h:outputLabel for="emailadress" value="Emailadress:"/>
+            <p:inputText value="#{loginController.emailadress}" id="emailadress" required="true" label="Emailadress" validatorMessage="This is not a valid email adress">
+                <f:validateRegex pattern= "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" />
+            </p:inputText>
+            <p:message for="emailadress"/>
         </h:panelGrid>
+        <p:commandButton id="button" value="Register" update="grid" validateClient="true"  action="#{loginController.register}"/>
     </h:form>
+    <p:messages for="registerCredentials" id="messages" showDetail="true" autoUpdate="true" closable="true" />
 </h:body>
 </html>

@@ -7,6 +7,7 @@ import com.realdolmen.project1.persistence.TripEJB;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.ConversationScoped;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;

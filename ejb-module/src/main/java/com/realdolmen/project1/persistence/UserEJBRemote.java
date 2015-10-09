@@ -9,7 +9,7 @@ import javax.ejb.Remote;
 @Remote
 public interface UserEJBRemote {
 
-    public void register(String username, String password, String emailadress);
+    public String register(String username, String password, String emailadress);
 
     public String doLogin(String username, String password);
 

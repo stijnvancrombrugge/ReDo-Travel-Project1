@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
 <ui:composition template="index.xhtml">
     <ui:define name="pageContent" >
 
@@ -19,24 +21,23 @@
                         <div class="col-sm-8">
                             <h3>Login here</h3>
                             <h:form id="login-form">
-                                <h:panelGrid columns="2" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value">
-                                    <h:outputText value="Username:"/>
-                                    <h:inputText value="#{loginController.username}" id="username"/>
-                                    <h:outputText value="Password:"/>
-                                    <h:inputSecret value="#{loginController.password}" id="password"/>
-                                    <h:commandButton id="button" value="Login" action="#{loginController.login}"/>
-                                    <h:messages />
-                                    <br/>
+                                <h:panelGrid id="grid" columns="3" style="margin-bottom:10px" cellpadding="5" columnClasses="label, value">
+                                    <h:outputLabel for="username" value="Username:"/>
+                                    <p:inputText value="#{loginController.username}" id="username" required="true" label="Username"/>
+                                    <p:message for="username"/>
+                                    <h:outputLabel for="password" value="Password:" />
+                                    <p:password value="#{loginController.password}" id="password" required="true" label="Password"/>
+                                    <p:message for="password"/>
                                 </h:panelGrid>
+                                <p:commandButton id="button" value="Login" update="grid" validateClient="true" action="#{loginController.login}"/>
                             </h:form>
-                            <h:button value="Register" outcome="/register.xhtml" />
-                            <br/>
+                            <p:messages for="credentials" id="messages" showDetail="true" autoUpdate="true" closable="true" />
+                            <p:button value="Register" outcome="/register.xhtml" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
 
     </ui:define>
 </ui:composition>
