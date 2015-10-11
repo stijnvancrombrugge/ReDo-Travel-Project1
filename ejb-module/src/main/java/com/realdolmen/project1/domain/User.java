@@ -35,6 +35,7 @@ public abstract class User{
     @Basic(optional = false)
     @Pattern(regexp = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")
+    @Column(unique=true)
     private String emailadress;
 
 

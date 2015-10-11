@@ -10,6 +10,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -23,6 +24,8 @@ public class EditFlightController implements Serializable{
     @EJB
     private FlightEJB flightEJB;
 
+    private Date departureMax;
+    private Date arrivalMin;
     private Flight flight;
     private int from;
     private int to;
@@ -80,6 +83,15 @@ public class EditFlightController implements Serializable{
         discounts = flight.getDiscounts();
         return "editDiscounts";
     }
+
+    public void onArrDateSelect(){
+        departureMax = flight.getArrivalTime();
+    }
+
+    public void onDepDateSelect(){
+        arrivalMin = flight.getDepartureTime();
+    }
+
 
     public String endUpdate(){
 
@@ -170,5 +182,21 @@ public class EditFlightController implements Serializable{
 
     public void setFlightID(int flightID) {
         this.flightID = flightID;
+    }
+
+    public Date getDepartureMax() {
+        return departureMax;
+    }
+
+    public void setDepartureMax(Date departureMax) {
+        this.departureMax = departureMax;
+    }
+
+    public Date getArrivalMin() {
+        return arrivalMin;
+    }
+
+    public void setArrivalMin(Date arrivalMin) {
+        this.arrivalMin = arrivalMin;
     }
 }

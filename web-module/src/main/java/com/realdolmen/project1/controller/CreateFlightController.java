@@ -36,6 +36,10 @@ public class CreateFlightController implements Serializable {
 
     private Date departureDate;
     private Date arrivalDate;
+
+    private Date departureMax;
+    private Date arrivalMin;
+
     private int totalPlaces;
     private int freePlaces;
     private int from;
@@ -170,7 +174,6 @@ public class CreateFlightController implements Serializable {
         discounts.add(discount);
         return "createFlightDiscount";
 
-
     }
 
     public String saveFlight(){
@@ -181,5 +184,28 @@ public class CreateFlightController implements Serializable {
 
     }
 
+    public void onArrDateSelect(){
+        departureMax = arrivalDate;
+    }
 
+    public void onDepDateSelect(){
+        arrivalMin = departureDate;
+    }
+
+
+    public Date getDepartureMax() {
+        return departureMax;
+    }
+
+    public void setDepartureMax(Date departureMax) {
+        this.departureMax = departureMax;
+    }
+
+    public Date getArrivalMin() {
+        return arrivalMin;
+    }
+
+    public void setArrivalMin(Date arrivalMin) {
+        this.arrivalMin = arrivalMin;
+    }
 }

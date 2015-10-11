@@ -16,13 +16,13 @@
         <h:panelGrid id="panel" columns="2" cellpadding="5">
 
             <h:panelGrid columns="2" cellpadding="5" rendered="#{empty createBookingController.selectedDestinationName}">
-                <h:outputLabel for="selectedDestination" value="Available Destinations: "/>
+                <p:outputLabel for="selectedDestination" value="Available Destinations: "/>
                 <p:selectOneMenu id="selectedDestination" value="#{createBookingController.selectedDestinationName}">
                     <f:selectItems value="#{createBookingController.allDestinations}" var="destination" itemLabel="#{destination.city}" itemValue="#{destination.city}"/>
                 </p:selectOneMenu>
             </h:panelGrid>
             <h:panelGrid columns="2" cellpadding="5" rendered="#{not empty createBookingController.selectedDestinationName}" >
-                <h:outputLabel for="chosenDestination" value="Selected Destination: "/>
+                <p:outputLabel for="chosenDestination" value="Selected Destination: "/>
                 <h:outputText id="chosenDestination" value="#{createBookingController.selectedDestinationName}"/>
             </h:panelGrid>
             <br/>
@@ -31,6 +31,7 @@
                 <p:ajax event="dateSelect" listener="#{createBookingController.onDepDateSelect}" update="dateArr"></p:ajax>
                 <p:ajax event="change" update="dateArr"></p:ajax>
             </p:calendar>
+            <p:message id="depDateMessage" for="dateDep" />
 
             <p:outputLabel for="dateArr" value="Arrival Date:" />
             <p:calendar id="dateArr" value="#{createBookingController.arrivalDate}" pattern="MM/dd/yyyy" required="true" mindate="#{createBookingController.arrivalMin}">
@@ -38,7 +39,7 @@
                 <p:ajax event="change" update="dateDep"></p:ajax>
             </p:calendar>
             <p:message id="arrDateMessage" for="dateArr" />
-            <p:message id="depDateMessage" for="dateDep" />
+
         </h:panelGrid>
 
         <p:commandButton value="Continue" icon="ui-icon-check" update="arrDateMessage" validateClient="true" action="#{createBookingController.proceedToNumberOfPersons}" style="display:block;margin:10px 0" />

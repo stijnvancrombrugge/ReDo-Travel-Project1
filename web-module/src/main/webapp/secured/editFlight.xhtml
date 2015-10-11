@@ -20,15 +20,27 @@
 
 
             <p:outputLabel for="datetimedep" value="Departure Datetime:" />
-            <p:calendar id="datetimedep" value="#{editFlightController.flight.departureTime}" pattern="MM/dd/yyyy HH:mm:ss" />
+            <p:calendar id="datetimedep" value="#{editFlightController.flight.departureTime}" pattern="MM/dd/yyyy HH:mm:ss" required="true" maxdate="#{editFlightController.departureMax}">
+                   <p:ajax event="dateSelect" listener="#{editFlightController.onDepDateSelect}" update="datetimearr"></p:ajax>
+                   <p:ajax event="change" update="datetimearr"></p:ajax>
+            </p:calendar>
             <p:outputLabel for="datetimearr" value="Arrival Datetime:" />
-            <p:calendar id="datetimearr" value="#{editFlightController.flight.arrivalTime}" pattern="MM/dd/yyyy HH:mm:ss" />
+            <p:calendar id="datetimearr" value="#{editFlightController.flight.arrivalTime}" pattern="MM/dd/yyyy HH:mm:ss" required="true" mindate="#{editFlightController.arrivalMin}">
+                    <p:ajax event="dateSelect" listener="#{editFlightController.onArrDateSelect}" update="datetimedep"></p:ajax>
+                    <p:ajax event="change" update="datetimedep"></p:ajax>
+            </p:calendar>
             <p:outputLabel for="totplaces" value="Total Places:" />
-            <p:inputText id="totplaces" value="#{editFlightController.flight.totalPlaces}"  />
+            <p:inputText id="totplaces" value="#{editFlightController.flight.totalPlaces}">
+                <f:validateDoubleRange minimum="1"/>
+            </p:inputText>
             <p:outputLabel for="freeplaces" value="Free places:" />
-            <p:inputText id="freeplaces" value="#{editFlightController.flight.availablePlaces}"  />
+            <p:inputText id="freeplaces" value="#{editFlightController.flight.availablePlaces}">
+                <f:validateDoubleRange minimum="1"/>
+            </p:inputText>
             <p:outputLabel for="price" value="Price per seat:" />
-            <p:inputText id="price" value="#{editFlightController.flight.pricePerSeat}"  />
+            <p:inputText id="price" value="#{editFlightController.flight.pricePerSeat}">
+                <f:validateDoubleRange minimum="0.01"/>
+            </p:inputText>
             <p:outputLabel for="fromLocation" value="From:" />
             <p:selectOneMenu id="fromLocation" value="#{editFlightController.from}">
                 <f:selectItems value="#{editFlightController.allLocations}" var="loc" itemLabel="#{loc.city}" itemValue="#{loc.id}" />

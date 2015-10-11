@@ -48,9 +48,7 @@ public class PartnerController implements Serializable {
 
     public void filterWithDestination(AjaxBehaviorEvent event){
 
-
         doFiltering();
-
     }
 
     public void onFromDateSelect(SelectEvent event){

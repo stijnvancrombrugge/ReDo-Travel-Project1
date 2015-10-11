@@ -15,16 +15,29 @@ public class Flight implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     @ManyToOne
     private Location From;
 
     @ManyToOne
     private Location To;
+
+    @Basic(optional = false)
     private Date departureTime;
+
+    @Basic(optional = false)
     private Date arrivalTime;
+
+    @Basic(optional = false)
     private int totalPlaces;
+
+    @Basic(optional = false)
     private int availablePlaces;
+
+    @Basic(optional = false)
     private Double pricePerSeat;
+
+    @Basic(optional = false)
     private Double pricePerSeatByEmployee;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

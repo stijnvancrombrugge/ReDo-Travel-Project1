@@ -17,9 +17,13 @@
 
         <h:panelGrid id="panel" columns="2" cellpadding="5">
             <p:outputLabel for="persons" value="Number of persons:" />
-            <p:inputText id="persons" value="#{createBookingController.numberOfPersons}"  />
+            <p:inputText id="persons" value="#{createBookingController.numberOfPersons}">
+                <f:validateDoubleRange minimum="1"/>
+            </p:inputText>
         </h:panelGrid>
         <h:commandButton value="Continue" icon="ui-icon-check" action="#{createBookingController.proceedToTrips}" style="display:block;margin:10px 0" />
+        <p:messages/>
+
     </h:form>
 </h:body>
 

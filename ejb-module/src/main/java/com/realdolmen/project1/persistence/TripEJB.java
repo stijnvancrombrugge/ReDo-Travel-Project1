@@ -32,12 +32,12 @@ public class TripEJB implements TripEJBRemote{
 
     @Override
     public List<Location> getAllDestinations() {
-        return em.createQuery("select c.Destination from Trip c", Location.class).getResultList();
+        return em.createQuery("select distinct c.Destination from Trip c", Location.class).getResultList();
     }
 
     @Override
     public Location getDestinationForName(String destinationName){
-        return em.createQuery("select c from Location c where c.city = :destinationName", Location.class).setParameter("destinationName", destinationName).getSingleResult();
+        return em.createQuery("select c from Location c where c.city = :destinationName", Location.class).setParameter("destinationName", destinationName).getResultList().get(0);
     }
     
     @Override
