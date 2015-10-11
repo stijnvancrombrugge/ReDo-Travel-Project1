@@ -37,7 +37,9 @@ public class PartnerController implements Serializable {
     private Date departureMax;
 
     public String goToFlights(String username){
-        airlineCompany = airlineEJB.getAirlineOfPartner(username);
+        System.out.println(username);
+
+        airlineCompany = airlineEJB.getAirlineOfPartner("Jeff");
         flights = airlineCompany.getFlights();
         locationListForPartner = airlineEJB.getFromLocationForAirline(airlineCompany.getName());
         return "allFlights";

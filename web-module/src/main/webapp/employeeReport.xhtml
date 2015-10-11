@@ -1,15 +1,65 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html>
+
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui"
-        >
+      xmlns:p="http://primefaces.org/ui" >
+<h:head>
+    <meta charset="UTF-8"/>
+    <title>Passengers</title>
+</h:head>
+<h:body>
+
+            <h:form>
+                <h:panelGrid columns="2" >
+
+                    <h:outputLabel value="From Continent:" />
+                    <h:selectOneMenu id="filterFromContinent" value="#{reportController.filterContinentFromID}" >
+                        <f:selectItem itemValue="%%" itemLabel="" />
+                        <f:selectItems value="#{reportController.continentFrom}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
+                        <f:ajax event="valueChange" listener="#{reportController.filterOnLocation}"   render="bookings repinfo" />
+                    </h:selectOneMenu>
+
+                    <h:outputLabel value="Destination Continent:" />
+                    <h:selectOneMenu id="filterDestinationcontinent" value="#{reportController.filterContintentDestinationID}" >
+                        <f:selectItem itemValue="%%" itemLabel="" />
+                        <f:selectItems value="#{reportController.continentDestination}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
+                        <f:ajax event="valueChange" listener="#{reportController.filterOnLocation}"   render="bookings repinfo" />
+                    </h:selectOneMenu>
+
+                    <h:outputLabel value="From:" />
+                    <h:selectOneMenu id="filterFrom" value="#{reportController.filterFromID}" >
+                        <f:selectItem itemValue="0" itemLabel="" />
+                        <f:selectItems value="#{reportController.locationListFrom}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+                        <f:ajax event="valueChange" listener="#{reportController.filterOnLocation}"   render="bookings repinfo" />
+                    </h:selectOneMenu>
 
 
+                    <h:outputLabel value="Destination:" />
+                    <h:selectOneMenu id="filterDestination" value="#{reportController.filterDestinationID}" >
+                        <f:selectItem itemValue="0" itemLabel="" />
+                        <f:selectItems value="#{reportController.locationListDestination}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+                        <f:ajax event="valueChange" listener="#{reportController.filterOnLocation}"   render="bookings repinfo" />
+                    </h:selectOneMenu>
 
-                            <p:dataTable var="booking" value="#{reportController.bookings}">
+
+                    <p:calendar id="FromDate" value="#{reportController.departureMin}" showOn="button"
+                                maxdate="#{reportController.departureMax}" >
+                        <p:ajax event="dateSelect" listener="#{reportController.onDateSelect}" update="ToDate bookings repinfo"></p:ajax>
+                        <p:ajax event="change" update="ToDate"></p:ajax>
+                    </p:calendar>
+
+                    <p:calendar id="ToDate" value="#{reportController.departureMax}" showOn="button"
+                                mindate="#{reportController.departureMin}">
+                        <p:ajax event="dateSelect" listener="#{reportController.onDateSelect}" update="FromDate bookings repinfo"></p:ajax>
+                        <p:ajax event="change" update="FromDate"></p:ajax>
+                    </p:calendar>
+                </h:panelGrid>
+            </h:form>
+
+
+        <p:dataTable id="bookings" var="booking" value="#{reportController.bookings}">
                             <p:column headerText="Departure Date">
                                 <h:outputText value="#{booking.trip.departureDate}" />
                             </p:column>
@@ -33,7 +83,21 @@
                             </p:column>
                         </p:dataTable>
 
+    <h:panelGrid id="repinfo" columns="2" >
+        <h:outputLabel value="Total number of trips:" />
+        <h:outputLabel value="#{reportController.reportInfo.count}" />
+        <h:outputLabel value="Minimum price:" />
+        <h:outputLabel value="#{reportController.reportInfo.min}" />
+        <h:outputLabel value="Maximum price:" />
+        <h:outputLabel value="#{reportController.reportInfo.max}" />
+        <h:outputLabel value="Average price:" />
+        <h:outputLabel value="#{reportController.reportInfo.avg}" />
+        <h:outputLabel value="Total booking volume:" />
+        <h:outputLabel value="#{reportController.reportInfo.sum}" />
 
+            </h:panelGrid>
 
-
+</h:body>
 </html>
+
+

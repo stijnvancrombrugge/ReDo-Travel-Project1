@@ -14,27 +14,27 @@
 
 
     <h:form>
-    <h:panelGrid columns="2" >
-         <h:outputLabel value="To:" />
-        <h:selectOneMenu id="filterDestination" value="#{partnerController.filterDestinationID}" >
-            <f:selectItem itemValue="0" itemLabel="" />
-            <f:selectItems value="#{partnerController.locationListForPartner}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
-            <f:ajax event="valueChange" listener="#{partnerController.filterWithDestination}"   render="flights" />
-        </h:selectOneMenu>
+        <h:panelGrid columns="2" >
+            <h:outputLabel value="To:" />
+            <h:selectOneMenu id="filterDestination" value="#{partnerController.filterDestinationID}" >
+                <f:selectItem itemValue="0" itemLabel="" />
+                <f:selectItems value="#{partnerController.locationListForPartner}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+                <f:ajax event="valueChange" listener="#{partnerController.filterWithDestination}"   render="flights" />
+            </h:selectOneMenu>
 
 
-        <p:calendar id="FromDate" value="#{partnerController.departureMin}" showOn="button"
-                    maxdate="#{partnerController.departureMax}" >
-            <p:ajax event="dateSelect" listener="#{partnerController.onToDateSelect}" update="ToDate flights"></p:ajax>
-            <p:ajax event="change" update="ToDate"></p:ajax>
-        </p:calendar>
+            <p:calendar id="FromDate" value="#{partnerController.departureMin}" showOn="button"
+                        maxdate="#{partnerController.departureMax}" >
+                <p:ajax event="dateSelect" listener="#{partnerController.onToDateSelect}" update="ToDate flights"></p:ajax>
+                <p:ajax event="change" update="ToDate"></p:ajax>
+            </p:calendar>
 
-        <p:calendar id="ToDate" value="#{partnerController.departureMax}" showOn="button"
-                    mindate="#{partnerController.departureMin}">
-            <p:ajax event="dateSelect" listener="#{partnerController.onToDateSelect}" update="FromDate flights"></p:ajax>
-            <p:ajax event="change" update="FromDate"></p:ajax>
-        </p:calendar>
-    </h:panelGrid>
+            <p:calendar id="ToDate" value="#{partnerController.departureMax}" showOn="button"
+                        mindate="#{partnerController.departureMin}">
+                <p:ajax event="dateSelect" listener="#{partnerController.onToDateSelect}" update="FromDate flights"></p:ajax>
+                <p:ajax event="change" update="FromDate"></p:ajax>
+            </p:calendar>
+        </h:panelGrid>
     </h:form>
     <h:dataTable id="flights" value="#{partnerController.flights}" var="flight">
         <h:column>
@@ -77,11 +77,13 @@
 
             <h:form>
                 <h:commandLink action="#{editFlightController.editFlight(flight.id)}" value="Edit flight ">
-          </h:commandLink>
+                </h:commandLink>
             </h:form>
         </h:column>
     </h:dataTable>
- <h3> #{flightController.departureDate}</h3>
+    <h3> #{flightController.departureDate}</h3>
 
 </h:body>
 </html>
+
+
