@@ -7,42 +7,62 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"  >
 
-<h:head>
-    <title>Search Trip</title>
-</h:head>
-<h:body>
+<ui:composition template="index.xhtml">
+<ui:define name="customerServices">
+
+    <div id="tripsection" class="form-container">
+    <div class="modal-header">
+            <h1 class="main-title">Trip Form</h1>
+        </div>
+    <div class="modal-body">
     <h:form id="tripForm">
 
-        <h:panelGrid id="panel" columns="2" cellpadding="5">
 
+        <div class="form-group">
             <h:panelGrid columns="2" cellpadding="5" rendered="#{empty createBookingController.selectedDestinationName}">
-                <p:outputLabel for="selectedDestination" value="Available Destinations: "/>
-                <p:selectOneMenu id="selectedDestination" value="#{createBookingController.selectedDestinationName}">
+                <h:outputLabel for="selectedDestination" value="Destination: "/>
+                <br/>
+                <p:selectOneMenu style="font-size:20px!important; width: 275px" id="selectedDestination" value="#{createBookingController.selectedDestinationName}">
                     <f:selectItems value="#{createBookingController.allDestinations}" var="destination" itemLabel="#{destination.city}" itemValue="#{destination.city}"/>
                 </p:selectOneMenu>
             </h:panelGrid>
+        </div>
+        <div class="form-group">
             <h:panelGrid columns="2" cellpadding="5" rendered="#{not empty createBookingController.selectedDestinationName}" >
-                <p:outputLabel for="chosenDestination" value="Selected Destination: "/>
-                <h:outputText id="chosenDestination" value="#{createBookingController.selectedDestinationName}"/>
+                <h:outputLabel for="chosenDestination" value="Destination: "/>
+                <br/>
+                <h:outputText style="font-size: 20px;" id="chosenDestination" value="#{createBookingController.selectedDestinationName}"/>
             </h:panelGrid>
-            <br/>
-            <p:outputLabel for="dateDep" value="Departure Date:" />
-            <p:calendar id="dateDep" value="#{createBookingController.departureDate}" pattern="MM/dd/yyyy" required="true" maxdate="#{createBookingController.departureMax}">
+        </div>
+        <div class="form-group">
+            <h:outputLabel for="dateDep" value="Departure Date:" />
+            <p:calendar class="calendar-item" id="dateDep" value="#{createBookingController.departureDate}" pattern="MM/dd/yyyy" required="true" maxdate="#{createBookingController.departureMax}">
                 <p:ajax event="dateSelect" listener="#{createBookingController.onDepDateSelect}" update="dateArr"></p:ajax>
                 <p:ajax event="change" update="dateArr"></p:ajax>
             </p:calendar>
             <p:message id="depDateMessage" for="dateDep" />
-
-            <p:outputLabel for="dateArr" value="Arrival Date:" />
-            <p:calendar id="dateArr" value="#{createBookingController.arrivalDate}" pattern="MM/dd/yyyy" required="true" mindate="#{createBookingController.arrivalMin}">
+        </div>
+        <div class="form-group">
+            <h:outputLabel for="dateArr" value="Arrival Date:" />
+            <p:calendar class="calendar-item" id="dateArr" value="#{createBookingController.arrivalDate}" pattern="MM/dd/yyyy" required="true" mindate="#{createBookingController.arrivalMin}">
                     <p:ajax event="dateSelect" listener="#{createBookingController.onArrDateSelect}" update="dateDep"></p:ajax>
                 <p:ajax event="change" update="dateDep"></p:ajax>
             </p:calendar>
             <p:message id="arrDateMessage" for="dateArr" />
+        </div>
 
-        </h:panelGrid>
-
-        <p:commandButton value="Continue" icon="ui-icon-check" update="arrDateMessage" validateClient="true" action="#{createBookingController.proceedToNumberOfPersons}" style="display:block;margin:10px 0" />
+        <p:commandButton value="Continue" class="btn confirm-btn" update="arrDateMessage" validateClient="true" action="#{createBookingController.proceedToNumberOfPersons}" />
     </h:form>
-</h:body>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        function goToAnchor(){
+            window.location = "#customer-services";
+        }
+    </script>
+
+</ui:define>
+</ui:composition>
+
 </html>

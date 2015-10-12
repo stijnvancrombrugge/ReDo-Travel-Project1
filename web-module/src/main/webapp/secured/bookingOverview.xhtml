@@ -4,12 +4,13 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-<h:head>
-    <meta charset="UTF-8"/>
-    <title>Booking Overview</title>
-</h:head>
-<h:body>
-    <h1>Booking Info for #{loginController.username}</h1>
+
+<ui:composition template="../index.xhtml">
+<ui:define name="customerServices">
+
+    <div class="services-center">
+
+    <h1 class="main-title">Booking Info for #{loginController.username}</h1>
     <h:panelGrid id="grid" columns="1">
         <h:panelGroup>
             <h:outputLabel value="Departure Location: " />
@@ -85,12 +86,22 @@
     </h:column>
 
     <h:form>
-        <h:commandButton value="Pay by CreditCard" action="#{createBookingController.payByCreditCard}" />
-        <br/>
-        <br/>
-        <h:commandButton value="Pay by Endorsement" action="#{createBookingControllerConversation.endCreationTrip}" />
+        <div style="width: 45%; float:left;">
+            <h:commandButton class="btn confirm-btn" value="Pay by CreditCard" action="#{createBookingController.payByCreditCard}" />
+        </div>
+        <div style="width: 45%; float:right;">
+        <h:commandButton class="btn confirm-btn" value="Pay by Endorsement" action="#{createBookingControllerConversation.endCreationTrip}" />
+        </div>
 
     </h:form>
+    </div>
 
-</h:body>
+    <script type="text/javascript">
+        function goToAnchor(){
+            window.location = "#customer-services";
+        }
+    </script>
+
+</ui:define>
+</ui:composition>
 </html>

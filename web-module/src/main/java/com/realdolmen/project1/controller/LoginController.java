@@ -50,7 +50,7 @@ public class LoginController implements Serializable {
                 if(prevPage[5].equals("bookingTripList")){
                     return "/secured/proceedBooking.xhtml";
                 }
-                return "/customerWelcome.xhtml";
+                return "/homepage.xhtml";
             } else if(loggedInUserType.equals("PartnerEmployee")) {
                 return "/secured/partnerHomePage.xhtml";
             }

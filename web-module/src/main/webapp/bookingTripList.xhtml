@@ -7,37 +7,59 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui" >
 
-<h:head>
-    <title>Trips</title>
-</h:head>
+<ui:composition template="index.xhtml">
+<ui:define name="customerServices">
 
-<h:body>
+    <div class="services-center">
     <h:form id="tripsForm">
 
-        <h3>Possible trips</h3>
+        <h1 class="main-title">Possible trips</h1>
         <p:accordionPanel rendered="#{not empty createBookingController.possibleTrips}" value="#{createBookingController.possibleTrips}" var="trip">
-            <p:tab title="Trip to #{trip.destination.city} from - #{trip.departureDate} to - #{trip.returnDate}">
-                <h:panelGrid columns="2" cellpadding="5">
-                    <f:facet name="header">
-                        <p:graphicImage name="resources/images/#{trip.picturename}" />
-                    </f:facet>
-                    <h:outputText value="Description: " style="font-weight: bold" />
-                    <h:outputText value="#{trip.description}" />
+            <p:tab title="Trip to #{trip.destination.city}">
 
-                    <h:outputText value="Price per day: " style="font-weight: bold" />
-                    <h:outputText value="#{trip.pricePerDay}" />
+                <div class="detailed-trip-section">
+                    <p:graphicImage style="height: 250px" rendered="#{not empty trip.picturename}" value="img/#{trip.picturename}" />
+                    <p:graphicImage style="height: 250px" rendered="#{empty trip.picturename}" value="img/paris.jpg" />
 
-                    <h:outputText value="Available places: " style="font-weight: bold" />
-                    <h:outputText value="#{trip.availablePlaces}" />
+                </div>
+                <div class="detailed-trip-section">
+                    <h:panelGrid columns="2" cellpadding="5">
 
-                    <h:commandButton value="Choose trip" icon="ui-icon-check" action="#{createBookingController.chooseTrip(trip.id)}" style="display:block;margin:10px 0" />
+                        <h:outputText value="From: " style="font-weight: bold" />
+                        <h:outputText value="#{trip.departureDate}" />
 
-                </h:panelGrid>
+                        <h:outputText value="To: " style="font-weight: bold" />
+                        <h:outputText value="#{trip.returnDate}" />
+
+                        <h:outputText value="Description: " style="font-weight: bold" />
+                        <h:outputText value="#{trip.description}" />
+
+                        <h:outputText value="Price per day: " style="font-weight: bold" />
+                        <h:outputText value="#{trip.pricePerDay}" />
+
+                        <h:outputText value="Available places: " style="font-weight: bold" />
+                        <h:outputText value="#{trip.availablePlaces}" />
+
+                        <h:commandButton class="btn confirm-btn" value="Choose trip" icon="ui-icon-check" action="#{createBookingController.chooseTrip(trip.id)}" style="display:block;margin:10px 0" />
+
+                    </h:panelGrid>
+
+                </div>
+
             </p:tab>
         </p:accordionPanel>
         <h:outputText value="No trips available for given input" rendered="#{empty createBookingController.possibleTrips}" />
 
     </h:form>
-</h:body>
+    </div>
+
+    <script type="text/javascript">
+        function goToAnchor(){
+            window.location = "#customer-services";
+        }
+    </script>
+
+</ui:define>
+</ui:composition>
 
 </html>

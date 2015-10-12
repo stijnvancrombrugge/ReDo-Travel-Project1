@@ -89,8 +89,8 @@ public class TripEJB implements TripEJBRemote{
     }
 
     @Override
-    public List<Trip> getPossibleTrips(Location destination, Date departureDate, Date arrivalDate, int numberOfPersons){
-        return em.createQuery("select c from Trip c where c.Destination = :destination and c.returnDate <= :arrivalDate and c.departureDate >= :departureDate and c.availablePlaces >= :numberOfPersons",Trip.class)
+    public List<Trip> getPossibleTrips(String destination, Date departureDate, Date arrivalDate, int numberOfPersons){
+        return em.createQuery("select c from Trip c where c.Destination.city = :destination and c.returnDate <= :arrivalDate and c.departureDate >= :departureDate and c.availablePlaces >= :numberOfPersons",Trip.class)
                 .setParameter("destination", destination).setParameter("departureDate", departureDate).setParameter("numberOfPersons", numberOfPersons).setParameter("arrivalDate", arrivalDate)
                 .getResultList();
     }

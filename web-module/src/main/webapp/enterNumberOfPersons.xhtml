@@ -7,24 +7,36 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 
+<ui:composition template="index.xhtml">
+<ui:define name="customerServices">
 
-<h:head>
-    <title>Persons</title>
-</h:head>
+    <div class="form-container">
+    <div class="modal-header">
+        <h1 class="main-title">Trip Form</h1>
+    </div>
+    <div class="modal-body">
+        <h:form id="personsForm">
 
-<h:body>
-    <h:form id="personsForm">
-
-        <h:panelGrid id="panel" columns="2" cellpadding="5">
-            <p:outputLabel for="persons" value="Number of persons:" />
-            <p:inputText id="persons" value="#{createBookingController.numberOfPersons}">
-                <f:validateDoubleRange minimum="1"/>
-            </p:inputText>
-        </h:panelGrid>
-        <h:commandButton value="Continue" icon="ui-icon-check" action="#{createBookingController.proceedToTrips}" style="display:block;margin:10px 0" />
+            <div class="form-group">
+                <h:outputLabel for="persons" value="Enter number of passengers:" />
+                <p:inputText class="text-item" id="persons" required="true" value="#{createBookingController.numberOfPersons}">
+                    <f:validateDoubleRange minimum="1"/>
+                </p:inputText>
+            </div>
+        <h:commandButton class="btn confirm-btn" value="Continue" icon="ui-icon-check" action="#{createBookingController.proceedToTrips}" />
         <p:messages/>
 
     </h:form>
-</h:body>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        function goToAnchor(){
+            window.location = "#form-container";
+        }
+    </script>
+
+</ui:define>
+</ui:composition>
 
 </html>

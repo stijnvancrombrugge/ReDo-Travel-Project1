@@ -867,3 +867,27 @@ i.scroll:hover {
   color: #fff;
   background-color: rgb(22,68,94);
 }
+
+.calendar-item{
+    font-size:22px!important;
+}
+
+.text-item{
+    font-size: 22px;
+}
+
+.form-container{
+    width: 20%;
+    margin-left: 40%;
+}
+
+.services-center{
+    width: 70%;
+    margin-left: 15%;
+}
+
+.detailed-trip-section{
+    width: 50%;
+    height: 250px;
+    float:left;
+}

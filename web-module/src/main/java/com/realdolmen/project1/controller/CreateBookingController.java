@@ -54,8 +54,7 @@ public class CreateBookingController implements Serializable {
 
     public String proceedToTrips(){
 
-        Location destination = tripEJB.getDestinationForName(selectedDestinationName);
-        possibleTrips = tripEJB.getPossibleTrips(destination, departureDate, arrivalDate, numberOfPersons);
+        possibleTrips = tripEJB.getPossibleTrips(selectedDestinationName, departureDate, arrivalDate, numberOfPersons);
         System.out.println(possibleTrips);
 
         return "/bookingTripList.xhtml";
@@ -65,12 +64,7 @@ public class CreateBookingController implements Serializable {
         selectedTrip = tripEJB.getTripForID(id);
         int timeDiff = (int)( (selectedTrip.getReturnDate().getTime() - selectedTrip.getDepartureDate().getTime()) / (1000 * 60 * 60 * 24) );
         totalPrice = selectedTrip.getPricePerDay()*numberOfPersons*timeDiff;
-        if(loginController.getLoggedIn()){
-            return "/secured/proceedBooking.xhtml";
-        }
-        else{
-            return "/index.xhtml";
-        }
+        return "/login.xhtml";
     }
 
     public void onArrDateSelect(){

@@ -10,7 +10,8 @@
 <ui:composition template="index.xhtml">
 <ui:define name="customerServices">
 
-<h1>Find A Destination</h1>
+    <div id="destinationsection">
+<h1 class="main-title">Find A Destination</h1>
     <div id="map"></div>
     <h:form id="destinationForm">
         <p style="display:none">
@@ -18,6 +19,7 @@
             <h:commandButton id="destinationButton" value="Choose A Trip" action="#{createBookingControllerConversation.startCreationTrip}" />
         </p>
     </h:form>
+    </div>
 
 
 
@@ -48,6 +50,12 @@
             document.getElementById("destinationForm:destinationButton").click();
         }
 
+    </script>
+
+    <script type="text/javascript">
+        function goToAnchor(){
+            window.location = "#destinationsection";
+        }
     </script>
 
 </ui:define>

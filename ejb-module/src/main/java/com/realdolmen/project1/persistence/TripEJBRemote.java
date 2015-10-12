@@ -27,7 +27,7 @@ public interface TripEJBRemote {
 
     Location findLocationByCode(String code);
 
-    List<Trip> getPossibleTrips(Location destination, Date departureDate, Date arrivalDate, int numberOfPersons);
+    List<Trip> getPossibleTrips(String destination, Date departureDate, Date arrivalDate, int numberOfPersons);
 
     Booking createBooking(double totalPrice, int nrOfTrips, PaymentType paymentType, Trip trip);
 

@@ -49,6 +49,9 @@
             <h:link outcome="/login.xhtml" fragment="login"> Login </h:link>
         </li>
         <li>
+            <a href="#customer-services"> Customer Services </a>
+        </li>
+        <li>
             <h:form>
             <h:commandLink action="#{reportController.goToReportPage}" fragment="report"> Report </h:commandLink>
             </h:form>
@@ -58,9 +61,6 @@
             <h:form>
                 <h:commandLink action="#{partnerController.goToFlights('SN Brussels Airlines')}" fragment="report"> Flight Overview </h:commandLink>
             </h:form>
-        </li>
-        <li>
-            <a href="#contact">Contact</a>
         </li>
     </ul>
 </div>
@@ -74,9 +74,9 @@
         <h3 class="header-text">
             <em class="header-text">So we are here to guide you</em>
         </h3><br />
-        <a href="#about" class="btn header-btn">Find Out More</a>
+        <a href="#customer-services" class="btn header-btn">Find Out More</a>
         <br/>
-        <a href="#about"><img src="img/direction.png" class="space" alt="Direction"/></a>
+        <a href="#customer-services"><img src="img/direction.png" class="space" alt="Direction"/></a>
 
     </div>
 </div>
@@ -219,16 +219,6 @@
             }
         });
     });
-</script>
-
-    <script>
-    $(document).ready(function(){
-        console.log($(location).attr('pathname'));
-        if( $(location).attr('pathname') == "/index.xhtml"){
-            $('#logina').click();
-        }
-    })
-
 </script>
 
 </h:body>

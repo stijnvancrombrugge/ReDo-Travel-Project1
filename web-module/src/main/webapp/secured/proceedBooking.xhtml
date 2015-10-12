@@ -5,19 +5,43 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-    <title>Proceed Booking</title>
-</h:head>
-<h:body>
-    <h:form>
-        <h3>Welcome #{loginController.username}</h3>
-        <br/>
-        <h:commandButton value="Proceed Booking" action="#{createBookingController.proceedToOverview}" />
-        <br/>
-        <br/>
-        <h:commandButton value="Cancel Booking" action="#{createBookingController.proceedToTrips}" />
-        <br/>
 
-    </h:form>
-</h:body>
+<ui:composition template="../index.xhtml">
+<ui:define name="customerServices">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4 text-center">
+                <h2 class="main-title">Welcome #{loginController.username}</h2>
+            </div>
+        </div>
+        <div class="divide50"></div>
+        <div class="row">
+            <h:form>
+
+                <div class="col-md-6 text-center">
+                    <div class="service-item">
+                        <h:commandLink action="#{createBookingController.proceedToTrips}"><i class="service-icon fa fa-eraser"></i></h:commandLink>
+                        <h4 class="service-title">Cancel Booking</h4>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <div class="service-item">
+                        <h:commandLink action="#{createBookingController.proceedToOverview}"><i class="service-icon fa fa-check"/></h:commandLink>
+                        <h4 class="service-title">Proceed Booking</h4>
+                    </div>
+                </div>
+            </h:form>
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+        function goToAnchor(){
+            window.location = "#customer-services";
+        }
+    </script>
+
+</ui:define>
+</ui:composition>
+
 </html>

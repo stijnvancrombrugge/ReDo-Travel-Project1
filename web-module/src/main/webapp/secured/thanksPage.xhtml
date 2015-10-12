@@ -4,11 +4,20 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-<h:head>
-    <meta charset="UTF-8"/>
-    <title>Thanks page</title>
-</h:head>
-<h:body>
-    <h:outputLabel value="Thanks for booking with RDTravel !"/>
-</h:body>
+
+<ui:composition template="../index.xhtml">
+<ui:define name="customerServices">
+
+    <div class="services-center">
+        <h1 class="main-title">Your booking has been received. <br/> Thanks for booking with RDTravel !</h1>
+    </div>
+
+    <script type="text/javascript">
+        function goToAnchor(){
+            window.location = "#customer-services";
+        }
+    </script>
+
+</ui:define>
+</ui:composition>
 </html>

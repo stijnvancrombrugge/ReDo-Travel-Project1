@@ -5,21 +5,36 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
-<h:head>
-    <meta charset="UTF-8"/>
-    <title>Credit Card Info</title>
-</h:head>
-<h:body>
 
+
+<ui:composition template="../index.xhtml">
+<ui:define name="customerServices">
+
+    <div class="form-container">
+    <div class="modal-header">
+        <h1 class="main-title">Credit Card</h1>
+    </div>
+    <div class="modal-body">
     <h:form id="form">
-        <h:inputText label="Credit Card Number:"
-                     id="inpCCnumber" required="true"
-                     value="#{createBookingController.creditcardNumber}">
+
+        <div class="form-group">
+        <h:inputText label="Credit Card Number:" id="inpCCnumber" required="true" value="#{createBookingController.creditcardNumber}">
             <f:validator validatorId="CreditCardValidator"/>
         </h:inputText>
+        </div>
+        <h:commandButton class="btn confirm-btn" value="Pay" action="#{createBookingControllerConversation.endCreationTrip}" />
         <p:message id="creditcardNumber" for="inpCCnumber" />
 
-    <h:commandButton value="Pay" action="#{createBookingControllerConversation.endCreationTrip}" />
 </h:form>
-</h:body>
+    </div>
+    </div>
+
+    <script type="text/javascript">
+        function goToAnchor(){
+            window.location = "#customer-services";
+        }
+    </script>
+
+</ui:define>
+</ui:composition>
 </html>

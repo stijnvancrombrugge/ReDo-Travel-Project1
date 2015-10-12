@@ -17,9 +17,10 @@
     </div>
     <div class="divide50"></div>
     <div class="row">
+        <h:form>
         <div class="col-md-6 text-center">
             <div class="service-item">
-                <h:link outcome="/searchTrip.xhtml"><i class="service-icon fa fa-plane"/></h:link>
+                <h:commandLink action="#{createBookingControllerConversation.startCreationTrip}"><i class="service-icon fa fa-plane"/></h:commandLink>
                 <h4 class="service-title">Search Trip</h4>
                 <p class="service-desc">Find a trip by choosing a destination, departure and arrival date</p>
             </div>
@@ -31,6 +32,7 @@
                 <p class="service-desc">Find a trip by choosing a destination on a map</p>
             </div>
         </div>
+        </h:form>
     </div>
 </div>
 

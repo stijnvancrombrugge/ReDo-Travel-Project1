@@ -51,16 +51,15 @@ public class RemoteTripEJBTest extends RemoteIntegrationTest{
     @Test
     public void getPossibleTrips() throws NamingException, ParseException {
         TripEJBRemote tripEJBRemote = lookup("ear-module-1.1/ejb-module-1.1/TripEJB!com.realdolmen.project1.persistence.TripEJBRemote");
-        Location loc = tripEJBRemote.getDestinationForName("Antwerp");
         DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-        List<Trip> possibleTrips = tripEJBRemote.getPossibleTrips(loc, formatter.parse("09/09/2015"), formatter.parse("21/09/2015"), 4);
+        List<Trip> possibleTrips = tripEJBRemote.getPossibleTrips("Antwerp", formatter.parse("09/09/2015"), formatter.parse("21/09/2015"), 4);
         assertNotEquals(0, possibleTrips.size());
     }
 
     @Test
     public void getNoPossibleTripsWithWrongInput() throws NamingException, ParseException{
         TripEJBRemote tripEJBRemote = lookup("ear-module-1.1/ejb-module-1.1/TripEJB!com.realdolmen.project1.persistence.TripEJBRemote");
-        Location loc = tripEJBRemote.getDestinationForName("New York");
+        String loc = "New York";
         DateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
         List<Trip> possibleTrips = tripEJBRemote.getPossibleTrips(loc, formatter.parse("09/09/2015"), formatter.parse("21/09/2015"), 4);
         possibleTrips = tripEJBRemote.getPossibleTrips(loc, formatter.parse("19/09/2015"), formatter.parse("21/09/2015"), 4);

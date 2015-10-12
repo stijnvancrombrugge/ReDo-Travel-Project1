@@ -19,11 +19,11 @@ var simplemaps_continentmap_mapdata = {
 
 			main_settings:{
 				//General settings
-				width: 1500,
-				background_color: '#FFFFFF',
+				width: 1400,
+				background_color: '#7fbbda',
 				background_transparent: 'no',
 				label_color: '#d5ddec',
-				border_color: '#FFFFFF',
+				border_color: '#7fbbda',
 				zoom: 'yes',
 				pop_ups: 'detect', //on_click, on_hover, or detect
 
