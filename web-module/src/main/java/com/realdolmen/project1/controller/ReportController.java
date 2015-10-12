@@ -36,12 +36,17 @@ public class ReportController implements Serializable {
 
     List<String> continentFrom;
     List<String> continentDestination;
+    List<String> travelAgencies;
 
     private int filterDestinationID;
     private int filterFromID;
 
+
+
     private String filterContintentDestinationID = "%%";
     private String filterContinentFromID = "%%";
+
+    private String filterTravelAgency = "%%";
 
     private Date departureMin;
     private Date departureMax;
@@ -59,7 +64,8 @@ public class ReportController implements Serializable {
         departureMin =reportEJB.getMinDateOfBookings();
         continentDestination =reportEJB.getAllContintentDestinationsOfBookings();
         continentFrom = reportEJB.getAllContintentFromOfBookings();
-        reportInfo = reportEJB.getAllBookingsInfoFiltered(departureMin, departureMax, "%%", "%%", filterContintentDestinationID, filterContinentFromID);
+        travelAgencies = reportEJB.getAllTravelAgenciesOfBookings();
+        reportInfo = reportEJB.getAllBookingsInfoFiltered(departureMin, departureMax, "%%", "%%", filterContintentDestinationID, filterContinentFromID, filterTravelAgency);
         return "/secured/employeeReport.xhtml";
     }
 
@@ -76,8 +82,8 @@ public class ReportController implements Serializable {
             filterFrID = Integer.toString(filterFromID);
         }
 
-        bookings = reportEJB.getAllBookingsFiltered(fromDate, endDate, filterDestID, filterFrID, filterContintentDestinationID, filterContinentFromID);
-        reportInfo = reportEJB.getAllBookingsInfoFiltered(fromDate, endDate, filterDestID, filterFrID, filterContintentDestinationID, filterContinentFromID);
+        bookings = reportEJB.getAllBookingsFiltered(fromDate, endDate, filterDestID, filterFrID, filterContintentDestinationID, filterContinentFromID, filterTravelAgency);
+        reportInfo = reportEJB.getAllBookingsInfoFiltered(fromDate, endDate, filterDestID, filterFrID, filterContintentDestinationID, filterContinentFromID, filterTravelAgency);
     }
 
 
@@ -204,5 +210,21 @@ public class ReportController implements Serializable {
 
     public void setFilterContinentFromID(String filterContinentFromID) {
         this.filterContinentFromID = filterContinentFromID;
+    }
+
+    public String getFilterTravelAgency() {
+        return filterTravelAgency;
+    }
+
+    public void setFilterTravelAgency(String filterTravelAgency) {
+        this.filterTravelAgency = filterTravelAgency;
+    }
+
+    public List<String> getTravelAgencies() {
+        return travelAgencies;
+    }
+
+    public void setTravelAgencies(List<String> travelAgencies) {
+        this.travelAgencies = travelAgencies;
     }
 }

@@ -26,6 +26,7 @@ public class Trip implements Serializable {
     private String Description;
     private Double pricePerDay;
     private String picturename;
+    private String travelAgency;
 
     private int totalPlaces;
     private int availablePlaces;
@@ -48,6 +49,19 @@ public class Trip implements Serializable {
         this.totalPlaces = totalPlaces;
         this.picturename = picturename;
         this.availablePlaces = availablePlaces;
+    }
+
+    public Trip(Location from, Location destination, Double pricePerDay, Date departureDate, Date returnDate, String description, int totalPlaces, String picturename, int availablePlaces, String travelAgency) {
+        From = from;
+        Destination = destination;
+        this.pricePerDay = pricePerDay;
+        this.departureDate = departureDate;
+        this.returnDate = returnDate;
+        Description = description;
+        this.totalPlaces = totalPlaces;
+        this.picturename = picturename;
+        this.availablePlaces = availablePlaces;
+        this.travelAgency = travelAgency;
     }
 
     public void addFlight(Flight flight){
@@ -142,5 +156,11 @@ public class Trip implements Serializable {
         this.flights = flights;
     }
 
+    public String getTravelAgency() {
+        return travelAgency;
+    }
 
+    public void setTravelAgency(String travelAgency) {
+        this.travelAgency = travelAgency;
+    }
 }

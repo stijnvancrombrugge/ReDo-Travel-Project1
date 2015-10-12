@@ -1,17 +1,29 @@
-<!DOCTYPE html>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui" >
-<h:head>
-    <meta charset="UTF-8"/>
-    <title>Passengers</title>
-</h:head>
-<h:body>
+<ui:composition template="../index.xhtml">
+<ui:define name="pageContent" >
 
-            <h:form>
+
+<div id="report">
+
+<div class="light-wrapper">
+<div class="container inner">
+<div class="row">
+<div class="text-center">
+    <h2 class="main-title"> All Trips Overview </h2>
+    <hr/>
+</div>
+<div class="divide50"></div>
+<div class="col-sm-8">
+
+
+<h:form>
                 <h:panelGrid columns="2" >
 
                     <h:outputLabel value="From Continent:" />
@@ -42,6 +54,16 @@
                         <f:selectItems value="#{reportController.locationListDestination}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
                         <f:ajax event="valueChange" listener="#{reportController.filterOnLocation}"   render="bookings repinfo" />
                     </h:selectOneMenu>
+
+                    <h:outputLabel value="Travel Agency:" />
+                    <h:selectOneMenu id="travels" value="#{reportController.filterTravelAgency}" >
+                        <f:selectItem itemValue="%%" itemLabel="" />
+                        <f:selectItems value="#{reportController.travelAgencies}" var="ta" itemLabel="#{ta}" itemValue="#{ta}"  />
+                        <f:ajax event="valueChange" listener="#{reportController.filterOnLocation}"   render="bookings repinfo" />
+                    </h:selectOneMenu>
+
+
+
 
 
                     <p:calendar id="FromDate" value="#{reportController.departureMin}" showOn="button"
@@ -75,6 +97,9 @@
                             <p:column headerText="Destination">
                                 <h:outputText value="#{booking.trip.destination.city}" />
                             </p:column>
+                            <p:column headerText="Travel Agency">
+                                <h:outputText value="#{booking.trip.travelAgency}" />
+                            </p:column>
                             <p:column headerText="Nbr of Trips">
                                 <h:outputText value="#{booking.nrOfTrips}" />
                             </p:column>
@@ -97,7 +122,21 @@
 
             </h:panelGrid>
 
-</h:body>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+    <script>
+        function goToAnchor(){
+            window.location = "#report";
+        }
+    </script>
+
+
+</ui:define>
+</ui:composition>
 </html>
-
-

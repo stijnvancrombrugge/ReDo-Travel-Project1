@@ -27,16 +27,16 @@
 
             <p:outputLabel for="datetimedep" value="Departure Datetime:" />
             <p:calendar id="datetimedep" value="#{createFlightController.departureDate}" pattern="MM/dd/yyyy HH:mm:ss" required="true" maxdate="#{createFlightController.departureMax}">
-                    <p:ajax event="dateSelect" listener="#{createFlightController.onDepDateSelect}" update="datetimearr"></p:ajax>
-                        <p:ajax event="change" update="datetimearr"></p:ajax>
+                    
             </p:calendar>
             <p:message for="datetimedep"/>
+
             <p:outputLabel for="datetimearr" value="Arrival Datetime:" />
             <p:calendar id="datetimearr" value="#{createFlightController.arrivalDate}" pattern="MM/dd/yyyy HH:mm:ss" required="true" mindate="#{createFlightController.arrivalMin}">
-                <p:ajax event="dateSelect" listener="#{createFlightController.onArrDateSelect}" update="datetimedep"></p:ajax>
-                <p:ajax event="change" update="datetimedep"></p:ajax>
+                
             </p:calendar>
             <p:message for="datetimearr"/>
+
             <p:outputLabel for="totplaces" value="Total Places:" />
             <p:inputText id="totplaces" value="#{createFlightController.totalPlaces}" required="true" label="Total places">
                 <f:validateDoubleRange minimum="1"/>

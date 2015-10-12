@@ -66,6 +66,15 @@ public class AirlineEJB  implements AirlineEJBRemote {
 
     }
 
+    @Override
+    public List<Flight> getFlightsOfAirlineBetween(String airlinename, Date from, Date to, String toloc, String fromloc){
+
+//Select e.name, p.name from HPe hp join hp.hPlatform p join hp.hPespCollection p where p.name = 'xxx'
+
+        return entityManager.createQuery("SELECT f from AirlineCompany  a JOIN a.flights f where STR(f.To.id) like :toid and STR(f.From.id) like :fromid and f.departureTime >= :from and f.departureTime <= :to and a.Name = :name").setParameter("from", from).setParameter("to", to).setParameter("name", airlinename).setParameter("fromid", fromloc).setParameter("toid", toloc).getResultList();
+
+    }
+
 
     public void addFlightToAirline(Flight f, String username){
         AirlineCompany airlineCompany = getAirlineOfPartner(username);
@@ -100,6 +109,42 @@ public class AirlineEJB  implements AirlineEJBRemote {
 //Select e.name, p.name from HPe hp join hp.hPlatform p join hp.hPespCollection p where p.name = 'xxx'
 
         return entityManager.createQuery("SELECT f from AirlineCompany  a JOIN a.flights f where STR(f.To.id) like :fromid and f.departureTime >= :from and f.departureTime <= :to and a.Name = :name").setParameter("from", from).setParameter("to", to).setParameter("name", airlinename).setParameter("fromid", toloc).getResultList();
+
+    }
+
+    @Override
+    public List<Location> getAllDestinationsOfAirline(String airline){
+
+        return entityManager.createQuery("SELECT distinct f.To from AirlineCompany  a JOIN a.flights f where a.Name = :name").setParameter("name", airline).getResultList();
+
+
+
+    }
+
+    @Override
+    public List<Location> getAllFromOfBookingsOfAirline(String airline){
+
+        return entityManager.createQuery("SELECT distinct f.From from AirlineCompany  a JOIN a.flights f where a.Name = :name").setParameter("name", airline).getResultList();
+
+    }
+
+    @Override
+    public Date getMinDateOfFlightsForAirline(String airline) {
+
+//Select e.name, p.name from HPe hp join hp.hPlatform p join hp.hPespCollection p where p.name = 'xxx'
+        return (Date) entityManager.createQuery("SELECT min(f.departureTime) from AirlineCompany  a JOIN a.flights f where a.Name = :name").setParameter("name", airline).getSingleResult();
+
+
+
+    }
+
+    @Override
+    public Date getMaxDateOfFlightsForAirline(String airline) {
+
+//Select e.name, p.name from HPe hp join hp.hPlatform p join hp.hPespCollection p where p.name = 'xxx'
+        return (Date) entityManager.createQuery("SELECT max(f.departureTime) from AirlineCompany  a JOIN a.flights f where a.Name = :name").setParameter("name", airline).getSingleResult();
+
+
 
     }
 

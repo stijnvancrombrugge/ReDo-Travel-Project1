@@ -17,29 +17,29 @@
 
     <flight id="1004" arrivalTime="2015-10-22 12:00:00" availablePlaces="25" departureTime="2015-10-22 09:00:00" totalPlaces="60" From_id="5000" To_id="6000" pricePerSeat="27" pricePerSeatByEmployee="27"/>
     <flight id="1005" arrivalTime="2015-10-29 12:00:00" availablePlaces="25" departureTime="2015-10-29 09:00:00" totalPlaces="60" From_id="6000" To_id="5000" pricePerSeat="35" pricePerSeatByEmployee="35"/>
-    <trip id="3000" Description="aa" availablePlaces="20" departureDate="2015-10-22 09:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-10-29 12:00:00" totalPlaces="20" Destination_id="6000" From_id="5000" />
+    <trip id="3000" Description="aa" availablePlaces="20" departureDate="2015-10-22 09:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-10-29 12:00:00" totalPlaces="20" travelAgency="Neckerman" Destination_id="6000" From_id="5000" />
     <jnd_trip_flight flight_fk="1004" trip_fk="3000" />
     <jnd_trip_flight flight_fk="1005" trip_fk="3000" />
 
 
     <flight id="1006" arrivalTime="2015-11-22 12:00:00" availablePlaces="35" departureTime="2015-11-22 09:00:00" totalPlaces="50" From_id="7000" To_id="8000" pricePerSeat="45" pricePerSeatByEmployee="45"/>
     <flight id="1007" arrivalTime="2015-11-29 12:00:00" availablePlaces="35" departureTime="2015-11-29 09:00:00" totalPlaces="50" From_id="8000" To_id="7000" pricePerSeat="47" pricePerSeatByEmployee="47"/>
-    <trip id="4000" Description="trip 4000" availablePlaces="30" departureDate="2015-11-22 09:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-11-29 12:00:00" totalPlaces="30" Destination_id="8000" From_id="7000" />
+    <trip id="4000" Description="trip 4000" availablePlaces="30" departureDate="2015-11-22 09:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-11-29 12:00:00" totalPlaces="30" travelAgency="Jetair" Destination_id="8000" From_id="7000" />
     <jnd_trip_flight flight_fk="1006" trip_fk="4000" />
     <jnd_trip_flight flight_fk="1007" trip_fk="4000" />
 
 
 
 
-    <trip id="1000" Description="aa" availablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" Destination_id="2000" From_id="1000" />
-    <trip id="2000" Description="ab" availablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" Destination_id="3000" From_id="4000" />
+    <trip id="1000" Description="aa" availablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" travelAgency="Jetair" Destination_id="2000" From_id="1000" />
+    <trip id="2000" Description="ab" availablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" travelAgency="Jetair" Destination_id="3000" From_id="4000" />
     <jnd_trip_flight flight_fk="1000" trip_fk="1000" />
     <jnd_trip_flight flight_fk="1001" trip_fk="1000" />
-    <trip id="1001" Description="aa" availablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" Destination_id="2000" From_id="1000" />
-    <trip id="1002" Description="bb" availablePlaces="20" departureDate="2015-10-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="45.55" returnDate="2015-10-20 12:00:00" totalPlaces="30" Destination_id="3000" From_id="2000" />
-    <trip id="1003" Description="cc" availablePlaces="25" departureDate="2015-11-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="35.55" returnDate="2015-11-20 12:00:00" totalPlaces="40" Destination_id="4000" From_id="3000" />
-    <trip id="1004" Description="dd" availablePlaces="30" departureDate="2015-12-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="99.55" returnDate="2015-12-20 12:00:00" totalPlaces="50" Destination_id="1000" From_id="4000" />
-    <trip id="1005" Description="ee" availablePlaces="35" departureDate="2015-08-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="88.55" returnDate="2015-08-20 12:00:00" totalPlaces="60" Destination_id="2000" From_id="1000" />
+    <trip id="1001" Description="aa" availablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" travelAgency="Neckerman" Destination_id="2000" From_id="1000" />
+    <trip id="1002" Description="bb" availablePlaces="20" departureDate="2015-10-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="45.55" returnDate="2015-10-20 12:00:00" totalPlaces="30" travelAgency="Jetair" Destination_id="3000" From_id="2000" />
+    <trip id="1003" Description="cc" availablePlaces="25" departureDate="2015-11-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="35.55" returnDate="2015-11-20 12:00:00" totalPlaces="40" travelAgency="Neckerman" Destination_id="4000" From_id="3000" />
+    <trip id="1004" Description="dd" availablePlaces="30" departureDate="2015-12-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="99.55" returnDate="2015-12-20 12:00:00" totalPlaces="50" travelAgency="Jetair" Destination_id="1000" From_id="4000" />
+    <trip id="1005" Description="ee" availablePlaces="35" departureDate="2015-08-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="88.55" returnDate="2015-08-20 12:00:00" totalPlaces="60" travelAgency="Neckerman" Destination_id="2000" From_id="1000" />
     <jnd_trip_flight flight_fk="1002" trip_fk="1001" />
     <jnd_trip_flight flight_fk="1003" trip_fk="1001" />
     <jnd_trip_flight flight_fk="1000" trip_fk="1002" />
@@ -52,8 +52,8 @@
     <jnd_trip_flight flight_fk="1003" trip_fk="1005" />
     <User id="100" DTYPE="RdEmployee" username="Glenn" password="Glenn" emailadress="gvc@i.be"/>
     <User id="101" DTYPE="PartnerEmployee" username="Amber" password="Amber" emailadress="avc@i.be" airlineCompany_id="1"/>
-    <User id="102" DTYPE="Customer" username="j" password="j" emailadress="avc@i.be"/>
-    <User id="103" DTYPE="PartnerEmployee" username="Jeff" password="Jeff" emailadress="avc@i.be"/>
+    <User id="102" DTYPE="Customer" username="j" password="j" emailadress="avvc@i.be"/>
+    <User id="103" DTYPE="PartnerEmployee" username="Jeff" password="Jeff" emailadress="avvvc@i.be"/>
 
     <airlinecompany id="1" name="JetairFly" />
     <airlinecompany id="2" name="SN Brussels Airlines" />

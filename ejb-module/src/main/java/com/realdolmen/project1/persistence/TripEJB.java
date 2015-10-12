@@ -101,4 +101,45 @@ public class TripEJB implements TripEJBRemote{
         em.persist(booking);
         return booking;
     }
+
+
+    @Override
+    public List<String> getAllContintentDestinationsOfTrips(){
+
+        return em.createQuery("SELECT distinct t.Destination.continent FROM Trip t").getResultList();
+
+
+    }
+
+    @Override
+    public List<String> getAllContintentFromOfTrips(){
+
+        return em.createQuery("SELECT distinct t.From.continent FROM Trip t").getResultList();
+
+    }
+
+    @Override
+    public List<Location> getAllDestinationsOfTrips(){
+
+        return em.createQuery("SELECT distinct t.Destination FROM Trip t ").getResultList();
+
+
+    }
+
+    @Override
+    public List<Location> getAllFromOfTrips(){
+
+        return em.createQuery("SELECT distinct t.From FROM Trip t").getResultList();
+
+    }
+
+
+    @Override
+    public List<Trip> getAllTripsFiltered(String toloc, String fromloc, String tocon, String fromcon){
+
+//Select e.name, p.name from HPe hp join hp.hPlatform p join hp.hPespCollection p where p.name = 'xxx'
+
+        return em.createQuery("SELECT trip from Trip trip where STR(trip.From.id) like :fromloc and STR(trip.Destination.id) like :toloc and trip.Destination.continent like :tocon and trip.From.continent like :fromcon").setParameter("fromloc", fromloc).setParameter("toloc", toloc).setParameter("tocon", tocon).setParameter("fromcon", fromcon).getResultList();
+
+    }
 }

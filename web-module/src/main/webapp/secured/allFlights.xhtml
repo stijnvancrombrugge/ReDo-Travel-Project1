@@ -18,6 +18,15 @@
 
     <h:form>
         <h:panelGrid columns="2" >
+
+            <h:outputLabel value="From:" />
+            <h:selectOneMenu id="filterFrom" value="#{partnerController.filterFromID}" >
+                <f:selectItem itemValue="0" itemLabel="" />
+                <f:selectItems value="#{partnerController.locationListFromForPartner}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+                <f:ajax event="valueChange" listener="#{partnerController.filterWithDestination}"   render="flights" />
+            </h:selectOneMenu>
+
+
             <h:outputLabel value="To:" />
             <h:selectOneMenu id="filterDestination" value="#{partnerController.filterDestinationID}" >
                 <f:selectItem itemValue="0" itemLabel="" />

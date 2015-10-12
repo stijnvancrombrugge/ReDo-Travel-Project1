@@ -36,7 +36,7 @@ public class TripPersistenceTest extends DataSetPersistenceTest {
         Date departuredate = flight1.getDepartureTime();
         Date returndate = flight2.getArrivalTime();
 
-        Trip trip = new Trip(from, destination, 49.00, departuredate, returndate, "iiii", 10, "tst.jpg", 10);
+        Trip trip = new Trip(from, destination, 49.00, departuredate, returndate, "iiii", 10, "tst.jpg", 10, "Neckerman");
         trip.addFlight(flight1);
         trip.addFlight(flight2);
         flight1.addTrip(trip);

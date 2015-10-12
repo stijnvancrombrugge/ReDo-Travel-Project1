@@ -185,7 +185,10 @@ public class CreateFlightController implements Serializable {
     }
 
     public void onArrDateSelect(){
+        System.out.println(departureDate);
         departureMax = arrivalDate;
+        System.out.println(departureDate);
+        System.out.println(departureMax);
     }
 
     public void onDepDateSelect(){

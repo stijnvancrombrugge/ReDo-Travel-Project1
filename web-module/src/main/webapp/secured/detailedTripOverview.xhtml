@@ -113,18 +113,39 @@
             </f:facet>
             <h:outputText value="#{flight.pricePerSeatByEmployee}"/>
         </h:column>
-        <h:column>
-            <h:form>
-                <h:outputText id="pr" value="#{flight.pricePerSeatByEmployee}"/>
-                <p:inputText id="newwPrice" value="#{rDTripController.newPrice}"  />
-                <p:commandButton id="upd" value="update price" update="pr" actionListener="#{rDTripController.updPrice}">
-                    <f:setPropertyActionListener target="#{rDTripController.flightID}" value="#{flight.id}" />
-                    <f:ajax event="click" render="pr" />
-                </p:commandButton>
-
-        </h:form>
-    </h:column>
     </h:dataTable>
+
+    <h:form>
+    <h:panelGrid id="newpr" columns="2" >
+
+    <h:outputLabel value="Flight id:" />
+    <h:selectOneMenu id="filterFrom" value="#{rDTripController.flightToChangeID}" >
+        <f:selectItem itemValue="0" itemLabel="" />
+        <f:selectItems value="#{rDTripController.detailedTrip.flights}" var="flighttochange" itemLabel="#{flighttochange.id}" itemValue="#{flighttochange.id}"  />
+
+    </h:selectOneMenu>
+
+        <h:outputLabel value="New price" />
+        <p:inputText id="newwwPrice" value="#{rDTripController.newPrice}">
+        <f:validateDoubleRange minimum="0.01"/>
+        </p:inputText>
+
+        <p:commandButton id="updatepr" value="update price" update="tripFlights newpr" actionListener="#{rDTripController.updPrice}">
+
+            <f:ajax event="click" render="tripFlights newpr" />
+        </p:commandButton>
+
+
+    </h:panelGrid>
+
+
+
+
+    </h:form>
+
+    <h:form>
+        <h:commandButton value="Back to Trip overview" action="#{rDTripController.goToTripOverview}" />
+    </h:form>
 
 
 </div>

@@ -33,6 +33,12 @@ public class PartnerController implements Serializable {
     List<Location> locationListForPartner;
     private int filterDestinationID;
 
+    List<Location> locationListFromForPartner;
+    private int filterFromID;
+
+
+
+
     private Date departureMin;
     private Date departureMax;
 
@@ -41,7 +47,11 @@ public class PartnerController implements Serializable {
 
         airlineCompany = airlineEJB.getAirlineOfPartner(username);
         flights = airlineCompany.getFlights();
-        locationListForPartner = airlineEJB.getFromLocationForAirline(airlineCompany.getName());
+       // locationListForPartner = airlineEJB.getFromLocationForAirline(airlineCompany.getName());
+        locationListForPartner = airlineEJB.getAllDestinationsOfAirline(airlineCompany.getName());
+        locationListFromForPartner = airlineEJB.getAllFromOfBookingsOfAirline(airlineCompany.getName());
+        departureMin = airlineEJB.getMinDateOfFlightsForAirline(airlineCompany.getName());
+        departureMax = airlineEJB.getMaxDateOfFlightsForAirline(airlineCompany.getName());
         return "allFlights";
 
    }
@@ -58,19 +68,25 @@ public class PartnerController implements Serializable {
 
     public void doFiltering(){
         String filterDestID = "%%";
-        Date fromDate = departureMin;
-        Date endDate = departureMax;
+        String filterFrID = "%%";
+       // Date fromDate = departureMin;
+       // Date endDate = departureMax;
         if(filterDestinationID != 0){
             filterDestID = Integer.toString(filterDestinationID);
         }
+        if(filterFromID != 0){
+            filterFrID = Integer.toString(filterFromID);
+        }
+        /*
         if(departureMin == null){
             fromDate = new Date(Long.MIN_VALUE);
         }
         if(departureMax == null){
             endDate = new Date(Long.MAX_VALUE);
         }
+        */
 
-        flights = airlineEJB.getFlightsOfAirlineBetween(airlineCompany.getName(), fromDate, endDate, filterDestID);
+        flights = airlineEJB.getFlightsOfAirlineBetween(airlineCompany.getName(), departureMin, departureMax, filterDestID, filterFrID);
     }
 
     public void onToDateSelect(SelectEvent event){
@@ -131,5 +147,21 @@ public class PartnerController implements Serializable {
 
     public void setDepartureMax(Date departureMax) {
         this.departureMax = departureMax;
+    }
+
+    public List<Location> getLocationListFromForPartner() {
+        return locationListFromForPartner;
+    }
+
+    public void setLocationListFromForPartner(List<Location> locationListFromForPartner) {
+        this.locationListFromForPartner = locationListFromForPartner;
+    }
+
+    public int getFilterFromID() {
+        return filterFromID;
+    }
+
+    public void setFilterFromID(int filterFromID) {
+        this.filterFromID = filterFromID;
     }
 }

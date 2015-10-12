@@ -25,6 +25,44 @@
 
 
     <h1>Trip Overview</h1>
+
+        <h:form>
+        <h:panelGrid columns="2" >
+
+        <h:outputLabel value="From Continent:" />
+        <h:selectOneMenu id="filterFromContinent" value="#{rDTripController.filterContinentFromID}" >
+            <f:selectItem itemValue="%%" itemLabel="" />
+            <f:selectItems value="#{rDTripController.continentFrom}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
+            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
+        </h:selectOneMenu>
+
+        <h:outputLabel value="Destination Continent:" />
+        <h:selectOneMenu id="filterDestinationcontinent" value="#{rDTripController.filterContintentDestinationID}" >
+            <f:selectItem itemValue="%%" itemLabel="" />
+            <f:selectItems value="#{rDTripController.continentDestination}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
+            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
+        </h:selectOneMenu>
+
+        <h:outputLabel value="From:" />
+        <h:selectOneMenu id="filterFrom" value="#{rDTripController.filterFromID}" >
+            <f:selectItem itemValue="0" itemLabel="" />
+            <f:selectItems value="#{rDTripController.locationListFrom}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
+        </h:selectOneMenu>
+
+
+        <h:outputLabel value="Destination:" />
+        <h:selectOneMenu id="filterDestination" value="#{rDTripController.filterDestinationID}" >
+            <f:selectItem itemValue="0" itemLabel="" />
+            <f:selectItems value="#{rDTripController.locationListDestination}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
+        </h:selectOneMenu>
+
+        </h:panelGrid>
+        </h:form>
+
+
+
     <h:dataTable id="tripOverview" value="#{rDTripController.allTrips}" var="trip">
         <h:column>
             <f:facet name="header">

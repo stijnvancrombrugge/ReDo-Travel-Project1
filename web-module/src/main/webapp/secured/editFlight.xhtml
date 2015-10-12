@@ -53,11 +53,13 @@
             </p:inputText>
             <p:outputLabel for="fromLocation" value="From:" />
             <p:selectOneMenu id="fromLocation" value="#{editFlightController.from}">
+                <f:selectItem itemValue="#{editFlightController.flight.from.id}" itemLabel="#{editFlightController.flight.from.city}" />
                 <f:selectItems value="#{editFlightController.allLocations}" var="loc" itemLabel="#{loc.city}" itemValue="#{loc.id}" />
             </p:selectOneMenu>
 
             <p:outputLabel for="toLocation" value="To:" />
             <p:selectOneMenu id="toLocation" value="#{editFlightController.to}">
+                <f:selectItem itemValue="#{editFlightController.flight.to.id}" itemLabel="#{editFlightController.flight.to.city}" />
                 <f:selectItems value="#{editFlightController.allLocations}" var="loc" itemLabel="#{loc.city}" itemValue="#{loc.id}" />
             </p:selectOneMenu>
 

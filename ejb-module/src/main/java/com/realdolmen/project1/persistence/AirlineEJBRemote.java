@@ -24,8 +24,18 @@ public interface AirlineEJBRemote  {
 
     List<Flight> getFlightsOfAirlineBetween(String airlinename, Date from, Date to, String toloc);
 
+    List<Flight> getFlightsOfAirlineBetween(String airlinename, Date from, Date to, String toloc, String fromloc);
+
     List<Location> allLocationsWithWildcard(String wild);
 
     List<Flight> getFlightsOfAirlineBetweenDateStrings(String airlinename, String from, String to, String toloc);
+
+    List<Location> getAllDestinationsOfAirline(String airline);
+
+    List<Location> getAllFromOfBookingsOfAirline(String airline);
+
+    Date getMinDateOfFlightsForAirline(String airline);
+
+    Date getMaxDateOfFlightsForAirline(String airline);
 
 }

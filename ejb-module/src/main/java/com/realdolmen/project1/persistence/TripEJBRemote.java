@@ -30,4 +30,14 @@ public interface TripEJBRemote {
     List<Trip> getPossibleTrips(Location destination, Date departureDate, Date arrivalDate, int numberOfPersons);
 
     Booking createBooking(double totalPrice, int nrOfTrips, PaymentType paymentType, Trip trip);
+
+    List<String> getAllContintentDestinationsOfTrips();
+
+    List<String> getAllContintentFromOfTrips();
+
+    List<Location> getAllDestinationsOfTrips();
+
+    List<Location> getAllFromOfTrips();
+
+    List<Trip> getAllTripsFiltered(String toloc, String fromloc, String tocon, String fromcon);
 }
