@@ -1,14 +1,29 @@
-<!DOCTYPE html>
-
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<h:head>
-    <meta charset="UTF-8"/>
-    <title>Passengers</title>
-</h:head>
-<h:body>
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+<ui:composition template="../index.xhtml">
+<ui:define name="pageContent" >
+
+
+<div id="TripsOverview">
+
+    <div class="light-wrapper">
+    <div class="container inner">
+    <div class="row">
+    <div class="text-center">
+        <h2 class="main-title"> All Trips Overview </h2>
+        <hr/>
+    </div>
+    <div class="divide50"></div>
+    <div class="col-sm-8">
+
+
+
     <h1>Trip Overview</h1>
     <h:dataTable id="tripOverview" value="#{rDTripController.allTrips}" var="trip">
         <h:column>
@@ -52,6 +67,20 @@
     </h:dataTable>
 
 
+    </div>
+    </div>
+    </div>
+    </div>
+</div>
 
-</h:body>
+
+    <script>
+        function goToAnchor(){
+            window.location = "#TripsOverview";
+        }
+    </script>
+
+
+</ui:define>
+</ui:composition>
 </html>

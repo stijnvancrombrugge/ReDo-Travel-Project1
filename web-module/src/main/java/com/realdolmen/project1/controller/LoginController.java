@@ -43,7 +43,9 @@ public class LoginController implements Serializable {
 
         String[] prevPage = FacesContext.getCurrentInstance().getExternalContext().getRequestHeaderMap().get("referer").split("[\\W]");
         String loggedInUserType = loginBean.doLogin(username, password);
-        if( loggedInUserType != "noUser") {
+        System.out.println("in login, usertype:");
+        System.out.println(loggedInUserType);
+        if( !loggedInUserType.equals("noUser")) {
             userType = loggedInUserType;
             loggedIn = true;
             if(loggedInUserType.equals("Customer")) {
@@ -52,6 +54,7 @@ public class LoginController implements Serializable {
                 }
                 return "/customerWelcome.xhtml";
             } else if(loggedInUserType.equals("PartnerEmployee")) {
+                System.out.println("loggedin as partner");
                 return "/secured/partnerHomePage.xhtml";
             }
             return "/secured/rdEmpHomePage.xhtml";

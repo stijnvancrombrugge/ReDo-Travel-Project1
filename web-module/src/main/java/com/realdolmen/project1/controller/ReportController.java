@@ -60,7 +60,7 @@ public class ReportController implements Serializable {
         continentDestination =reportEJB.getAllContintentDestinationsOfBookings();
         continentFrom = reportEJB.getAllContintentFromOfBookings();
         reportInfo = reportEJB.getAllBookingsInfoFiltered(departureMin, departureMax, "%%", "%%", filterContintentDestinationID, filterContinentFromID);
-        return "employeeReport.xhtml#report";
+        return "/secured/employeeReport.xhtml";
     }
 
 

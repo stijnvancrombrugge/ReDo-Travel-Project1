@@ -41,18 +41,18 @@ public class EditFlightController implements Serializable{
         flightID = id;
         flight = flightEJB.findFlightById(id);
         allLocations = flightEJB.findAllLocations();
-        return "editFlight";
+        return "/secured/editFlight";
     }
 
     public String editDiscount(int id){
         discount = flightEJB.findDiscountById(id);
       //  allLocations = flightEJB.findAllLocations();
-        return "editDiscounts";
+        return "/secured/editDiscounts";
     }
 
     public String updateFlight(){
         flightEJB.updateFlight(flight, from, to);
-        return "editFlight";
+        return "/secured/editFlight";
     }
 
     public String updateDiscount(){
@@ -62,14 +62,14 @@ public class EditFlightController implements Serializable{
         discounts = flight.getDiscounts();
         discount = null;
         percentage = 0;
-        return "editDiscounts";
+        return "/secured/editDiscounts";
     }
 
     public String editDiscounts(){
       discounts = flight.getDiscounts();
       discount = null;
 
-      return "editDiscounts";
+      return "/secured/editDiscounts";
     };
 
     public String addNewDiscount(){
@@ -81,7 +81,7 @@ public class EditFlightController implements Serializable{
         flight = flightEJB.findFlightById(flight.getId());
         discount = null;
         discounts = flight.getDiscounts();
-        return "editDiscounts";
+        return "/secured/editDiscounts";
     }
 
     public void onArrDateSelect(){
@@ -96,7 +96,7 @@ public class EditFlightController implements Serializable{
     public String endUpdate(){
 
 
-        return "allFlights";
+        return "/secured/allFlights";
     }
 
     public boolean discountToEdit(){
