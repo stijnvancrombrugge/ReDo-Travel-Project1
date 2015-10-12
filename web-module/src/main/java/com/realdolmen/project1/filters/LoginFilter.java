@@ -25,7 +25,7 @@ package com.realdolmen.project1.filters;
 public class LoginFilter implements Filter {
 
     /**
-     * Checks if user is logged in. If not it redirects to the login.xhtml page.
+     * Checks if user is logged in. If not it redirects to the index.xhtml page.
      */
 
     @Inject
@@ -34,7 +34,7 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (loginBean == null || !loginBean.getLoggedIn()) {
             String contextPath = ((HttpServletRequest)request).getContextPath();
-            ((HttpServletResponse)response).sendRedirect(contextPath + "/login.xhtml");
+            ((HttpServletResponse)response).sendRedirect(contextPath + "/homepage.xhtml");
         }
         chain.doFilter(request, response);
     }

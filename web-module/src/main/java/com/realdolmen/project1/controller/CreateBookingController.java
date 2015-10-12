@@ -69,7 +69,7 @@ public class CreateBookingController implements Serializable {
             return "/secured/proceedBooking.xhtml";
         }
         else{
-            return "/login.xhtml";
+            return "/index.xhtml";
         }
     }
 

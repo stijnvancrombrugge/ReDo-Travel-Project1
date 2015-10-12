@@ -86,6 +86,27 @@
 
 </ui:insert>
 
+
+    <!-- Services -->
+    <div id="customer-services" class="services">
+        <ui:insert name="customerServices" >
+        </ui:insert>
+    </div>
+    <!-- /Services -->
+
+
+    <!-- Call to Action -->
+    <div class="call-to-action">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <h3>Customer or employee login</h3>
+                    <a href="#" id="logina" class="btn booking-btn text-center" data-toggle="modal" data-target="#login">Login here !</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <!-- Footer -->
 <footer>
     <div class="container">
@@ -116,12 +137,43 @@
 </footer>
 <!-- /Footer -->
 
+<!-- Login form -->
+    <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <h:form id="login-form">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                    <h4 class="modal-title">Login Form</h4>
+                </div>
+                <div class="modal-body">
+                    <h:panelGrid id="grid">
+                        <div class="form-group">
+                            <h:outputLabel for="username" value="Username:"/>
+                            <p:inputText class="form-control input-lg" value="#{loginController.username}" id="username" required="true" label="Username"/>
+                            <p:message for="username"/>
+                        </div>
+                        <div class="form-group">
+                            <h:outputLabel for="password" value="Password:" />
+                            <p:password class="form-control input-lg" value="#{loginController.password}" id="password" required="true" label="Password"/>
+                            <p:message for="password"/>
+                        </div>
+                    </h:panelGrid>
+                </div>
+                <div class="modal-footer">
+                    <p:commandButton  class="btn confirm-btn"  id="button" value="Login" update="grid" validateClient="true" action="#{loginController.login}"/>
+                    <p:link  value="Register" outcome="/register.xhtml" />
+                    <p:messages for="credentials" id="messages" showDetail="true" autoUpdate="true" closable="true" style="display:block" />
+                </div>
+                </h:form>
 
+            </div>
+        </div>
+    </div>
 
-<!-- JavaScript
-<script src="js/jquery-1.10.2.js"></script>  -->
+<!-- JavaScript -->
+<script src="js/jquery-1.10.2.js"></script>
 <script src="js/bootstrap.js"></script>
-
 <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
 
 <!-- Custom JavaScript for the Side Menu and Smooth Scrolling -->
@@ -167,6 +219,15 @@
             }
         });
     });
+</script>
+
+    <script>
+    $(document).ready(function(){
+        console.log($(location).attr('pathname'));
+        if( $(location).attr('pathname') == "/index.xhtml"){
+            $('#logina').click();
+        }
+    })
 
 </script>
 
