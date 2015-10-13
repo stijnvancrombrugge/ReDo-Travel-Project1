@@ -10,28 +10,34 @@
 <ui:composition template="index.xhtml">
 <ui:define name="customerServices">
 
+    <div class="container inner">
+    <div class="row">
+    <div class="text-center">
+        <h2 class="main-title">Search Trip</h2>
+        <hr/>
+    </div>
+    </div>
+
     <div id="tripsection" class="form-container">
-    <div class="modal-header">
-            <h1 class="main-title">Trip Form</h1>
-        </div>
     <div class="modal-body">
     <h:form id="tripForm">
 
 
+        <h:panelGrid id="grid">
         <div class="form-group">
-            <h:panelGrid columns="2" cellpadding="5" rendered="#{empty createBookingController.selectedDestinationName}">
+            <h:panelGrid columns="2" rendered="#{empty createBookingController.selectedDestinationName}">
                 <h:outputLabel for="selectedDestination" value="Destination: "/>
                 <br/>
-                <p:selectOneMenu style="font-size:20px!important; width: 275px" id="selectedDestination" value="#{createBookingController.selectedDestinationName}">
+                <p:selectOneMenu style="font-size:24px!important; width: 338px" id="selectedDestination" value="#{createBookingController.selectedDestinationName}">
                     <f:selectItems value="#{createBookingController.allDestinations}" var="destination" itemLabel="#{destination.city}" itemValue="#{destination.city}"/>
                 </p:selectOneMenu>
             </h:panelGrid>
         </div>
         <div class="form-group">
-            <h:panelGrid columns="2" cellpadding="5" rendered="#{not empty createBookingController.selectedDestinationName}" >
+            <h:panelGrid columns="2" rendered="#{not empty createBookingController.selectedDestinationName}" >
                 <h:outputLabel for="chosenDestination" value="Destination: "/>
                 <br/>
-                <h:outputText style="font-size: 20px;" id="chosenDestination" value="#{createBookingController.selectedDestinationName}"/>
+                <h:outputText class="text-item" id="chosenDestination" value="#{createBookingController.selectedDestinationName}"/>
             </h:panelGrid>
         </div>
         <div class="form-group">
@@ -50,10 +56,14 @@
             </p:calendar>
             <p:message id="arrDateMessage" for="dateArr" />
         </div>
+        </h:panelGrid>
 
-        <p:commandButton value="Continue" class="btn confirm-btn" update="arrDateMessage" validateClient="true" action="#{createBookingController.proceedToNumberOfPersons}" />
+        <br/>
+
+        <p:commandButton value="Continue" class="btn confirm-btn" update="grid" validateClient="true" action="#{createBookingController.proceedToNumberOfPersons}" />
     </h:form>
         </div>
+    </div>
     </div>
 
     <script type="text/javascript">

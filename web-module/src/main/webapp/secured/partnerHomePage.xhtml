@@ -13,35 +13,39 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4 text-center">
-                    <h2 class="main-title">Our Services</h2>
+                    <h2 class="main-title">Partner Services</h2>
                     <hr> </hr>
                 </div>
             </div>
             <div class="divide50"></div>
             <div class="row">
-                <div class="col-md-3 text-center">
+                <h:form>
+                <div class="col-md-4 text-center">
                     <div class="service-item">
-                        <i class="service-icon fa fa-plane"> <h:form><h:commandLink actionListener="#{partnerController.goToFlights(loginController.username)}" /> </h:form> </i>
-                        <h4 class="service-title"><h:form>
-                            <h:commandButton action="#{partnerController.goToFlights(loginController.username)}" value="Go To Flight Overview" /> </h:form>
+                        <h:commandLink actionListener="#{partnerController.goToFlights(loginController.username)}"> <i class="service-icon fa fa-plane"/></h:commandLink>
+                        <h4 class="service-title">
+                            Flight Overview
+                        </h4>
+                    </div>
+                </div>
 
-                        </h4>
-                        </div>
-                </div>
-                <div class="col-md-3 text-center">
+                <div class="col-md-4 text-center">
                     <div class="service-item">
-                        <i class="service-icon fa fa-usd"></i>
-                        <h4 class="service-title"><h:form> <h:commandButton value="create new flight" action="#{createFlightControllerConversation.startCreation}" />  </h:form>
+                        <h:commandLink action="#{createFlightControllerConversation.startCreation}"><i class="service-icon fa fa-plus"/></h:commandLink>
+                        <h4 class="service-title">
+                            Create New Flight
                         </h4>
                     </div>
                 </div>
-                <div class="col-md-3 text-center">
+                <div class="col-md-4 text-center">
                     <div class="service-item">
-                        <i class="service-icon fa fa-usd"></i>
-                        <h4 class="service-title"><h:form> <h:commandButton value="flight report" action="#{flightReportController.goToReportPage(loginController.username)}" />  </h:form>
+                        <h:commandLink action="#{flightReportController.goToReportPage(loginController.username)}"><i class="service-icon fa fa-file"/></h:commandLink>
+                        <h4 class="service-title">
+                            Flight report
                         </h4>
                     </div>
                 </div>
+                </h:form>
 
             </div>
         </div>

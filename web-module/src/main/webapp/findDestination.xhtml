@@ -11,8 +11,18 @@
 <ui:define name="customerServices">
 
     <div id="destinationsection">
-<h1 class="main-title">Find A Destination</h1>
+    <div class="container inner">
+        <div class="row">
+            <div class="text-center">
+                <h2 class="main-title">Choose a destination</h2>
+                <hr/>
+            </div>
+        </div>
+    </div>
+        <div style="margin-left:200px;">
     <div id="map"></div>
+        </div>
+
     <h:form id="destinationForm">
         <p style="display:none">
             <h:inputHidden id="selectedDestinationName" value="#{createBookingController.selectedDestinationName}"/>

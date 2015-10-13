@@ -159,10 +159,6 @@ public class CreateFlightController implements Serializable {
     }
 
     public String createFlight(){
-        System.out.println("flight created");
-        System.out.println(from);
-        System.out.println(to);
-        System.out.println(arrivalDate);
        // Flight f =  flightEJB.createFlight(departureDate, arrivalDate, totalPlaces, freePlaces, from, to, price);
         return "createFlightDiscount";
     }
@@ -185,10 +181,7 @@ public class CreateFlightController implements Serializable {
     }
 
     public void onArrDateSelect(){
-        System.out.println(departureDate);
         departureMax = arrivalDate;
-        System.out.println(departureDate);
-        System.out.println(departureMax);
     }
 
     public void onDepDateSelect(){

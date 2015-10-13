@@ -19,27 +19,28 @@
                 </div>
                 <div class="divide50"></div>
                 <div class="row">
-                    <div class="col-md-3 text-center">
+                    <h:form>
+                    <div class="col-md-6 text-center">
                         <div class="service-item">
-                            <i class="service-icon fa fa-plane"> <h:form><h:commandLink actionListener="#{partnerController.goToFlights(loginController.username)}" /> </h:form> </i>
-                            <h4 class="service-title"><h:form>
-                                <h:commandButton value="Go to Trip overview" action="#{rDTripController.goToTripOverview}" /> </h:form>
-
+                            <h:commandLink actionListener="#{rDTripController.goToTripOverview}"><i class="service-icon fa fa-sun-o"/> </h:commandLink>
+                            <h4 class="service-title">
+                                Trip Overview
                             </h4>
                         </div>
                     </div>
-                    <div class="col-md-3 text-center">
+                    <div class="col-md-6 text-center">
                         <div class="service-item">
-                            <i class="service-icon fa fa-usd"></i>
-                            <h4 class="service-title"><h:form> <h:commandButton value="Go to Report" action="#{reportController.goToReportPage}" />  </h:form>
+                            <h:commandLink action="#{reportController.goToReportPage}"><i class="service-icon  fa fa-clipboard"/></h:commandLink>
+                            <h4 class="service-title">
+                                Report Overview
                             </h4>
                         </div>
                     </div>
-
+                    </h:form>
                 </div>
             </div>
         </div>
-        <script>
+        <script type="text/javascript">
             function goToAnchor(){
                 window.location = "#rdEmpHome";
             }

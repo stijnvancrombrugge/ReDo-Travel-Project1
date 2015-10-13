@@ -14,51 +14,39 @@
 <div class="container inner">
 <div class="row">
 <div class="text-center">
-    <h2 class="main-title">Create Flight</h2>
+    <h2 class="main-title">Create Flight Discount</h2>
     <hr/>
 </div>
-<div class="divide50"></div>
-<div class="col-sm-8">
+</div>
 
-    <h:dataTable id="passangers" value="#{createFlightController.discounts}" var="discount">
-    <h:column>
-        <f:facet name="header">
-            <h:outputText value="From"/>
-        </f:facet>
-        <h:outputText value="#{discount.nbrToCell}"/>
-    </h:column>
-    <h:column>
-        <f:facet name="header">
-            <h:outputText value="To"/>
-        </f:facet>
-        <h:outputText value="#{discount.percentage}"/>
-    </h:column>
-    </h:dataTable>
+    <div class="form-container">
 
+        <div class="modal-body">
+        <h:form id="form">
 
-    <h:form id="form">
+            <div class="form-group">
+                <h:outputLabel for="nbrToSell" value="Nbr of Seats Sold:" />
+                <p:inputText class="text-item" id="nbrToSell" value="#{createFlightController.nbrToCell}">
+                    <f:validateDoubleRange minimum="1"/>
+                </p:inputText>
+                <p:message for="nbrToSell"/>
+            </div>
+            <div class="form-group">
+                <h:outputText id="output" class="text-item" value="Percentage Discount:#{createFlightController.percentage}%" />
+                <h:inputHidden id="txt2" value="#{createFlightController.percentage}" />
+                <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
+            </div>
 
-
-        <h:panelGrid columns="2" cellpadding="5">
-
-
-
-            <p:outputLabel for="nbrToSell" value="Nbr of Seats Sold:" />
-            <p:inputText id="nbrToSell" value="#{createFlightController.nbrToCell}"  />
-            <h:outputText id="output" value="Percentage Discount:#{createFlightController.percentage}%" />
-            <h:inputHidden id="txt2" value="#{createFlightController.percentage}" />
-            <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
+            <br/>
+    <h:commandButton class="btn confirm-btn" update="grid" validateClient="true" value="Add Discount"  action="#{createFlightController.addDiscount}" />
+        </h:form>
+            <br/>
+            <br/>
+            <h:form>
+                <h:commandButton class="btn confirm-btn" value="Save Flight"  action="#{createFlightControllerConversation.saveFlight}" />
+            </h:form>
 
 
-
-        </h:panelGrid>
-
-
-
-    <h:commandButton value="Add Discount"  action="#{createFlightController.addDiscount}" />
-        <br> </br>
-    <h:commandButton value="Save Flight"  action="#{createFlightControllerConversation.saveFlight}" />
-    </h:form>
 
 </div>
 </div>
@@ -67,7 +55,7 @@
 </div>
 
 
-    <script>
+    <script type="text/javascript">
         function goToAnchor(){
             window.location = "#createDiscount";
         }
