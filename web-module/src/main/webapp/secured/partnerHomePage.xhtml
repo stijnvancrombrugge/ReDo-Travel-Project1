@@ -22,7 +22,7 @@
                 <h:form>
                 <div class="col-md-4 text-center">
                     <div class="service-item">
-                        <h:commandLink actionListener="#{partnerController.goToFlights(loginController.username)}"> <i class="service-icon fa fa-plane"/></h:commandLink>
+                        <h:commandLink action="#{partnerController.goToFlights(loginController.username)}"> <i class="service-icon fa fa-plane"/></h:commandLink>
                         <h4 class="service-title">
                             Flight Overview
                         </h4>
@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-<script>
+<script type="text/javascript">
     function goToAnchor(){
         window.location = "#partnerHome";
     }

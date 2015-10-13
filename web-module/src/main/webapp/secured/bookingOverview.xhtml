@@ -18,7 +18,7 @@
         <div class="row">
 
         <h1>General Info</h1>
-    <h:panelGrid id="grid" columns="1">
+    <h:panelGrid id="grid" style="font-size:20px;" columns="1">
         <h:panelGroup>
             <h:outputLabel value="Departure Location: " />
             <h:outputLabel value="#{createBookingController.selectedTrip.from.city} " />
@@ -51,47 +51,29 @@
 
     <h1>Flights Info    </h1>
 
-    <h:dataTable id="tripFlights" value="#{createBookingController.selectedTrip.flights}" var="flight">
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="From"/>
-            </f:facet>
+    <p:dataTable style="font-size: 18px;" id="tripFlights" value="#{createBookingController.selectedTrip.flights}" var="flight">
+        <p:column headerText="From">
             <h:outputText value="#{flight.from.city}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="To"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="To">
             <h:outputText value="#{flight.to.city}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Arrival Date"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Arrival Date">
             <h:outputText value="#{flight.arrivalTime}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Departure Date"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Departure Date">
             <h:outputText value="#{flight.departureTime}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Price Per Seat"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Price Per Seat">
             <h:outputText value="#{flight.pricePerSeat}"/>
-        </h:column>
-    </h:dataTable>
+        </p:column>
+    </p:dataTable>
 
     <h1>Total Price</h1>
-    <h:column>
-        <f:facet name="header">
-            <h:outputText value="Price: "/>
-        </f:facet>
-        <h:outputText value="#{createBookingController.totalPrice}"/>
-    </h:column>
 
+            <h:panelGrid style="font-size:20px">
+                <h:outputText  value="#{createBookingController.totalPrice}"/>
+            </h:panelGrid>
             <br/>
             <br/>
 

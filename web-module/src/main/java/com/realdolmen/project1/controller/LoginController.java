@@ -43,14 +43,15 @@ public class LoginController implements Serializable {
 
         String[] prevPage = FacesContext.getCurrentInstance().getExternalContext().getRequestHeaderMap().get("referer").split("[\\W]");
         String loggedInUserType = loginBean.doLogin(username, password);
+
         if(!loggedInUserType.equals("noUser")) {
             userType = loggedInUserType;
             loggedIn = true;
             if(loggedInUserType.equals("Customer")) {
-                if(prevPage[5].equals("bookingTripList")){
+                if(prevPage.length > 4 && prevPage[5].equals("bookingTripList")){
                     return "/secured/proceedBooking.xhtml";
                 }
-                return "/homepage.xhtml";
+                return "/index.xhtml";
             } else if(loggedInUserType.equals("PartnerEmployee")) {
                 return "/secured/partnerHomePage.xhtml";
             }
@@ -62,7 +63,7 @@ public class LoginController implements Serializable {
 
     public String logout(){
         loggedIn = false;
-        return "/homepage.xhtml";
+        return "/index.xhtml";
     }
 
     public String register(){

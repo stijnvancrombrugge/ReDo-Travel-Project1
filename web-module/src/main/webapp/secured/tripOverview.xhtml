@@ -19,90 +19,89 @@
         <h2 class="main-title"> All Trips Overview </h2>
         <hr/>
     </div>
-    <div class="divide50"></div>
-    <div class="col-sm-8">
 
 
-
-    <h1>Trip Overview</h1>
-
-        <h:form>
-        <h:panelGrid columns="2" >
-
-        <h:outputLabel value="From Continent:" />
-        <h:selectOneMenu id="filterFromContinent" value="#{rDTripController.filterContinentFromID}" >
-            <f:selectItem itemValue="%%" itemLabel="" />
-            <f:selectItems value="#{rDTripController.continentFrom}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
-            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
-        </h:selectOneMenu>
-
-        <h:outputLabel value="Destination Continent:" />
-        <h:selectOneMenu id="filterDestinationcontinent" value="#{rDTripController.filterContintentDestinationID}" >
-            <f:selectItem itemValue="%%" itemLabel="" />
-            <f:selectItems value="#{rDTripController.continentDestination}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
-            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
-        </h:selectOneMenu>
-
-        <h:outputLabel value="From:" />
-        <h:selectOneMenu id="filterFrom" value="#{rDTripController.filterFromID}" >
-            <f:selectItem itemValue="0" itemLabel="" />
-            <f:selectItems value="#{rDTripController.locationListFrom}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
-            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
-        </h:selectOneMenu>
-
-
-        <h:outputLabel value="Destination:" />
-        <h:selectOneMenu id="filterDestination" value="#{rDTripController.filterDestinationID}" >
-            <f:selectItem itemValue="0" itemLabel="" />
-            <f:selectItems value="#{rDTripController.locationListDestination}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
-            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
-        </h:selectOneMenu>
-
-        </h:panelGrid>
-        </h:form>
-
-
-
-    <h:dataTable id="tripOverview" value="#{rDTripController.allTrips}" var="trip">
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="From"/>
-            </f:facet>
-            <h:outputText value="#{trip.from.city}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="To"/>
-            </f:facet>
-            <h:outputText value="#{trip.destination.city}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Departure Date"/>
-            </f:facet>
-            <h:outputText value="#{trip.departureDate.date}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Return Date"/>
-            </f:facet>
-            <h:outputText value="#{trip.returnDate.date}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Available places"/>
-            </f:facet>
-            <h:outputText value="#{trip.availablePlaces}"/>
-        </h:column>
-
-        <h:column>
-
+        <div class="row">
             <h:form>
-                <h:commandLink action="#{rDTripController.showDetailedTrip(trip.id)}" value="Details Trip">
+            <div class="left-section">
+                <div class="form-group">
+                    <h:panelGrid columns="1">
+
+                        <h:outputLabel value="From Continent:" />
+                        <p:selectOneMenu style="font-size:24px!important; width: 338px" id="filterFromContinent" value="#{rDTripController.filterContinentFromID}" >
+                            <f:selectItem itemValue="%%" itemLabel="" />
+                            <f:selectItems value="#{rDTripController.continentFrom}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
+                            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                </div>
+                <div class="form-group">
+                    <h:panelGrid columns="1">
+
+                        <h:outputLabel value="From:" />
+                        <p:selectOneMenu style="font-size:24px!important; width: 338px" id="filterFrom" value="#{rDTripController.filterFromID}" >
+                            <f:selectItem itemValue="0" itemLabel="" />
+                            <f:selectItems value="#{rDTripController.locationListFrom}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+                            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
+                        </p:selectOneMenu>
+                    </h:panelGrid>
+                </div>
+
+            </div>
+            <div class="right-section">
+
+                <div class="form-group">
+                    <h:panelGrid columns="1">
+                <h:outputLabel value="Destination Continent:" />
+                <p:selectOneMenu style="font-size:24px!important; width: 338px" id="filterDestinationcontinent" value="#{rDTripController.filterContintentDestinationID}" >
+                    <f:selectItem itemValue="%%" itemLabel="" />
+                    <f:selectItems value="#{rDTripController.continentDestination}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
+                    <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
+                </p:selectOneMenu>
+                    </h:panelGrid>
+                    </div>
+
+                <div class="form-group">
+                    <h:panelGrid columns="1">
+                        <h:outputLabel value="Destination:" />
+                        <p:selectOneMenu style="font-size:24px!important; width: 338px" id="filterDestination" value="#{rDTripController.filterDestinationID}" >
+                            <f:selectItem itemValue="0" itemLabel="" />
+                            <f:selectItems value="#{rDTripController.locationListDestination}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+                            <f:ajax event="valueChange" listener="#{rDTripController.filterOnLocation}"   render="tripOverview" />
+                        </p:selectOneMenu>
+                            </h:panelGrid>
+                    </div>
+
+                </div>
+            </h:form>
+        </div>
+
+
+        <div class="row">
+        <p:dataTable style="font-size: 18px;" id="tripOverview" value="#{rDTripController.allTrips}" var="trip">
+        <p:column headerText="From">
+            <h:outputText value="#{trip.from.city}"/>
+        </p:column>
+        <p:column headerText="To">
+            <h:outputText value="#{trip.destination.city}"/>
+        </p:column>
+        <p:column headerText="Departure Date">
+            <h:outputText value="#{trip.departureDate.date}"/>
+        </p:column>
+        <p:column headerText="Return Date">
+            <h:outputText value="#{trip.returnDate.date}"/>
+        </p:column>
+        <p:column headerText="Available Places">
+            <h:outputText value="#{trip.availablePlaces}"/>
+        </p:column>
+
+        <p:column headerText="Details">
+            <h:form>
+                <h:commandLink style="color:deepskyblue" action="#{rDTripController.showDetailedTrip(trip.id)}" value="Details Trip">
                 </h:commandLink>
             </h:form>
-        </h:column>
-    </h:dataTable>
+        </p:column>
+    </p:dataTable>
 
 
     </div>
@@ -112,7 +111,7 @@
 </div>
 
 
-    <script>
+    <script type="text/javascript">
         function goToAnchor(){
             window.location = "#TripsOverview";
         }

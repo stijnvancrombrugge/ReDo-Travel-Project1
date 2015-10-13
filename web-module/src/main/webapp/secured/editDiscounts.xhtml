@@ -18,10 +18,10 @@
     <h2 class="main-title">Edit Discounts</h2>
     <hr/>
 </div>
-<div class="divide50"></div>
-<div class="col-sm-8">
 
-<h:dataTable id="passangers" value="#{editFlightController.discounts}" var="discount">
+    <div class="form-container">
+        <div class="modal-body">
+<h:dataTable style="font-size: 18px" id="passangers" value="#{editFlightController.discounts}" var="discount">
         <h:column>
             <f:facet name="header">
                 <h:outputText value="Nbr to Cell"/>
@@ -42,82 +42,97 @@
             </h:form>
         </h:column>
     </h:dataTable>
+    <br/><br/>
+
+    <h:form>
+        <h:commandButton class="btn confirm-btn" action="#{editFlightController.editFlight(editFlightController.flightID)}" value="Edit flight " />
+        <br/>
+        <br></br>
+        <h:commandButton class="btn confirm-btn" action="#{partnerController.goToFlights(loginController.username)}" value="Update Done" />
+    </h:form>
+            </div>
+        </div>
+
+
 
     <c:if test="#{editFlightController.discountToEdit()}">
-     <h3> Update Discount </h3>
+        <div class="row">
+        <div class="text-center">
+            <h2 class="main-title">Update Discount</h2>
+            <hr/>
+        </div>
+        <div class="form-container">
+            <div class="modal-body">
 
-    <h:form id="form">
+        <h:form id="form">
 
-
-        <h:panelGrid columns="2" cellpadding="5">
-
-
-
-            <p:outputLabel for="nbrToSell1" value="Nbr of Seats To Sell:" />
-            <p:inputText id="nbrToSell1" value="#{editFlightController.discount.nbrToCell}"  />
-            <h:outputText id="output1" value="Percentage Discount:#{editFlightController.percentage}%" />
-            <h:inputHidden id="txt21" value="#{editFlightController.percentage}" />
-            <p:slider for="txt21" display="output1" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
-
-
-
-        </h:panelGrid>
-
+            <div class="form-group">
+                <h:outputLabel for="nbrToSell1" value="Nbr of Seats Sold:" />
+                <p:inputText class="text-item" id="nbrToSell1" value="#{editFlightController.discount.nbrToCell}">
+                    <f:validateDoubleRange minimum="1"/>
+                </p:inputText>
+                <p:message for="nbrToSell"/>
+            </div>
+            <div class="form-group">
+                <h:outputText id="output1" class="text-item" value="Percentage Discount:#{editFlightController.percentage}%" />
+                <h:inputHidden id="txt21" value="#{editFlightController.percentage}" />
+                <p:slider for="txt21" display="output" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
+            </div>
 
 
         <h:commandButton value="Save Changed Discount"  action="#{editFlightController.updateDiscount}" />
         <br> </br>
 
-    </h:form>
+        </h:form>
+        </div>
+        </div>
+        </div>
 
     </c:if>
     <c:if test="#{!editFlightController.discountToEdit()}">
-        <h3> Add New Discount </h3>
 
+        <div class="row">
+        <div class="text-center">
+            <h2 class="main-title">Add new discount</h2>
+            <hr/>
+        </div>
+        <div class="form-container">
+            <div class="modal-body">
 
 
         <h:form id="formnew">
 
-
-            <h:panelGrid columns="2" cellpadding="5">
-
-
-
-                <p:outputLabel for="nbrToSell" value="Nbr of Seats Sold:" />
-                <p:inputText id="nbrToSell" value="#{editFlightController.nbrToCell}"  />
-                <h:outputText id="output" value="Percentage Discount:#{editFlightController.percentage}%" />
+            <div class="form-group">
+                <h:outputLabel for="nbrToSell" value="Nbr of Seats Sold:" />
+                <p:inputText class="text-item" id="nbrToSell" value="#{editFlightController.nbrToCell}">
+                    <f:validateDoubleRange minimum="1"/>
+                </p:inputText>
+                <p:message for="nbrToSell"/>
+            </div>
+            <div class="form-group">
+                <h:outputText id="output" class="text-item" value="Percentage Discount:#{editFlightController.percentage}%" />
                 <h:inputHidden id="txt2" value="#{editFlightController.percentage}" />
                 <p:slider for="txt2" display="output" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
+            </div>
 
-
-
-            </h:panelGrid>
-
-
-
-            <h:commandButton value="Add Discount"  action="#{editFlightController.addNewDiscount}" />
+            <h:commandButton class="btn confirm-btn" value="Add Discount"  action="#{editFlightController.addNewDiscount}" />
 
         </h:form>
 
+        </div>
+        </div>
+        </div>
 
     </c:if>
 
-    <h:form>
-        <h:commandButton action="#{editFlightController.editFlight(editFlightController.flightID)}" value="Edit flight " />
-
-        <h:commandButton action="#{partnerController.goToFlights(loginController.username)}" value="Update Done" />
-
-    </h:form>
-
 
 </div>
 </div>
-</div>
-</div>
-</div>
+    </div>
+    </div>
 
 
-    <script>
+    <script type="text/javascript">
         function goToAnchor(){
             window.location = "#editDiscount";
         }

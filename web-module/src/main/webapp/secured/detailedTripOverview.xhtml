@@ -5,7 +5,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://primefaces.org/ui" >
+      xmlns:p="http://primefaces.org/ui">
+
+
 <ui:composition template="../index.xhtml">
 <ui:define name="businessServices" >
 
@@ -17,11 +19,11 @@
     <h2 class="main-title">Detailed Trip Info </h2>
     <hr/>
 </div>
-<div class="divide50"></div>
-<div class="col-sm-8">
+
+    <div class="row">
 
 <h1>Trip Info </h1>
-    <h:panelGrid id="grid" columns="1">
+    <h:panelGrid id="grid" style="font-size:20px" columns="1">
         <h:panelGroup>
             <h:outputLabel value="Departure Location: " />
             <h:outputLabel value="#{rDTripController.detailedTrip.from.city} " />
@@ -55,98 +57,78 @@
             <h:outputLabel value="#{rDTripController.detailedTrip.pricePerDay} " />
         </h:panelGroup>
     </h:panelGrid>
+        </div>
+    <div class="row">
 
-    <h1>Flights Info    </h1>
+    <h1>Flights Info</h1>
 
-    <h:dataTable id="tripFlights" value="#{rDTripController.detailedTrip.flights}" var="flight">
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Flight ID"/>
-            </f:facet>
+    <p:dataTable style="font-size: 18px;" id="tripFlights" value="#{rDTripController.detailedTrip.flights}" var="flight">
+        <p:column headerText="Flight ID">
             <h:outputText value="#{flight.id}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="From"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="From">
             <h:outputText value="#{flight.from.city}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="To"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="To">
             <h:outputText value="#{flight.to.city}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Arrival Date"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Arrival Date">
             <h:outputText value="#{flight.arrivalTime}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Departure Date"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Departure Date">
             <h:outputText value="#{flight.departureTime}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Available places"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Available Places">
             <h:outputText value="#{flight.availablePlaces}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Total places"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Total Places">
             <h:outputText value="#{flight.totalPlaces}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Price Per Seat"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Price Per Seat">
             <h:outputText value="#{flight.pricePerSeat}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Price Per Seat ordered by RD Travel"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="# ordered by RD Travel">
             <h:outputText value="#{flight.pricePerSeatByEmployee}"/>
-        </h:column>
-    </h:dataTable>
+        </p:column>
+    </p:dataTable>
+    <br/>
+</div>
+    <div class="row">
+    <div class="form-container">
+        <h:panelGrid id="newpr">
+        <h:form>
 
-    <h:form>
-    <h:panelGrid id="newpr" columns="2" >
+            <div class="form-group">
+            <h:panelGrid columns="1">
+                <h:outputLabel value="Flight id:" />
+                <p:selectOneMenu style="font-size:24px!important; width: 338px" id="filterFrom" value="#{rDTripController.flightToChangeID}" >
+                    <f:selectItem itemValue="0" itemLabel="" />
+                    <f:selectItems value="#{rDTripController.detailedTrip.flights}" var="flighttochange" itemLabel="#{flighttochange.id}" itemValue="#{flighttochange.id}"  />
+                </p:selectOneMenu>
+            </h:panelGrid>
+            </div>
+            <div class="form-group">
+            <h:panelGrid columns="1">
+                <h:outputLabel value="New price" />
+                <p:inputText class="text-item" id="newwwPrice" value="#{rDTripController.newPrice}">
+                    <f:validateDoubleRange minimum="0.01"/>
+                </p:inputText>
+            </h:panelGrid>
+            </div>
 
-    <h:outputLabel value="Flight id:" />
-    <h:selectOneMenu id="filterFrom" value="#{rDTripController.flightToChangeID}" >
-        <f:selectItem itemValue="0" itemLabel="" />
-        <f:selectItems value="#{rDTripController.detailedTrip.flights}" var="flighttochange" itemLabel="#{flighttochange.id}" itemValue="#{flighttochange.id}"  />
-
-    </h:selectOneMenu>
-
-        <h:outputLabel value="New price" />
-        <p:inputText id="newwwPrice" value="#{rDTripController.newPrice}">
-        <f:validateDoubleRange minimum="0.01"/>
-        </p:inputText>
-
-        <p:commandButton id="updatepr" value="update price" update="tripFlights newpr" actionListener="#{rDTripController.updPrice}">
-
+            <br/>
+            <br/>
+        <p:commandButton class="btn confirm-btn" id="updatepr" value="update price" update="tripFlights newpr" actionListener="#{rDTripController.updPrice}">
             <f:ajax event="click" render="tripFlights newpr" />
         </p:commandButton>
-
-
-    </h:panelGrid>
-
-
-
-
-    </h:form>
-
-    <h:form>
-        <h:commandButton value="Back to Trip overview" action="#{rDTripController.goToTripOverview}" />
-    </h:form>
-
+            <br/>
+            <br/>
+        </h:form>
+        <h:form>
+            <p:commandButton class="btn confirm-btn" value="Back to Trip overview" action="#{rDTripController.goToTripOverview}" />
+        </h:form>
+        </h:panelGrid>
+</div>
 
 </div>
 </div>
@@ -155,7 +137,7 @@
 </div>
 
 
-    <script>
+    <script type="text/javascript">
         function goToAnchor(){
             window.location = "#detailedTrip";
         }

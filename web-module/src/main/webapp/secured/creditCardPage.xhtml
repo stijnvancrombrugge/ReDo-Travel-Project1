@@ -23,10 +23,11 @@
 
         <div class="form-group">
             <h:outputLabel for="inpCCnumber" value="Card number: " />
-            <p:inputText  id="inpCCnumber" required="true" value="#{createBookingController.creditcardNumber}">
+            <p:inputText class="text-item" id="inpCCnumber" required="true" value="#{createBookingController.creditcardNumber}">
                 <f:validator validatorId="CreditCardValidator"/>
             </p:inputText>
         </div>
+        <h2>Obtain 10% Discount !</h2>
         <h:commandButton class="btn confirm-btn" value="Pay" action="#{createBookingControllerConversation.endCreationTrip}" />
         <p:message id="creditcardNumber" for="inpCCnumber" />
 
