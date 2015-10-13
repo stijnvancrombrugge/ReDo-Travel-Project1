@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui" >
+<ui:composition template="../index.xhtml">
+    <ui:define name="pageContent" >
+
+
+        <div id="report">
+
+            <div class="light-wrapper">
+                <div class="container inner">
+                    <div class="row">
+                        <div class="text-center">
+                            <h2 class="main-title"> Flights overview of #{flightReportController.airlineCompany.name} </h2>
+                            <hr/>
+                        </div>
+                        <div class="divide50"></div>
+                        <div class="col-sm-8">
+
+
+                            <h:form>
+                                <h:panelGrid columns="2" >
+
+                                    <h:outputLabel value="From Continent:" />
+                                    <h:selectOneMenu id="filterFromContinent" value="#{flightReportController.filterContinentFromID}" >
+                                        <f:selectItem itemValue="%%" itemLabel="" />
+                                        <f:selectItems value="#{flightReportController.continentFrom}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
+                                        <f:ajax event="valueChange" listener="#{flightReportController.filterOnLocation}"   render="flights repinfo" />
+                                    </h:selectOneMenu>
+
+                                    <h:outputLabel value="Destination Continent:" />
+                                    <h:selectOneMenu id="filterDestinationcontinent" value="#{flightReportController.filterContintentDestinationID}" >
+                                        <f:selectItem itemValue="%%" itemLabel="" />
+                                        <f:selectItems value="#{flightReportController.continentDestination}" var="cont" itemLabel="#{cont}" itemValue="#{cont}"  />
+                                        <f:ajax event="valueChange" listener="#{flightReportController.filterOnLocation}"   render="flights repinfo" />
+                                    </h:selectOneMenu>
+
+                                    <h:outputLabel value="From:" />
+                                    <h:selectOneMenu id="filterFrom" value="#{flightReportController.filterFromID}" >
+                                        <f:selectItem itemValue="0" itemLabel="" />
+                                        <f:selectItems value="#{flightReportController.locationListFrom}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+                                        <f:ajax event="valueChange" listener="#{flightReportController.filterOnLocation}"   render="flights repinfo" />
+                                    </h:selectOneMenu>
+
+
+                                    <h:outputLabel value="Destination:" />
+                                    <h:selectOneMenu id="filterDestination" value="#{flightReportController.filterDestinationID}" >
+                                        <f:selectItem itemValue="0" itemLabel="" />
+                                        <f:selectItems value="#{flightReportController.locationListDestination}" var="location" itemLabel="#{location.city}" itemValue="#{location.id}"  />
+                                        <f:ajax event="valueChange" listener="#{flightReportController.filterOnLocation}"   render="flights repinfo" />
+                                    </h:selectOneMenu>
+
+
+
+
+
+
+
+                                    <p:calendar id="FromDate" value="#{flightReportController.departureMin}" showOn="button"
+                                                maxdate="#{flightReportController.departureMax}" >
+                                        <p:ajax event="dateSelect" listener="#{flightReportController.onDateSelect}" update="ToDate flights repinfo"></p:ajax>
+                                        <p:ajax event="change" update="ToDate"></p:ajax>
+                                    </p:calendar>
+
+                                    <p:calendar id="ToDate" value="#{flightReportController.departureMax}" showOn="button"
+                                                mindate="#{flightReportController.departureMin}">
+                                        <p:ajax event="dateSelect" listener="#{flightReportController.onDateSelect}" update="FromDate flights repinfo"></p:ajax>
+                                        <p:ajax event="change" update="FromDate"></p:ajax>
+                                    </p:calendar>
+                                </h:panelGrid>
+                            </h:form>
+
+
+                            <p:dataTable id="flights" var="flight" value="#{flightReportController.flights}">
+                                <p:column headerText="Departure Date">
+                                    <h:outputText value="#{flight.departureTime}" />
+                                </p:column>
+
+                                <p:column headerText="Arrival Date">
+                                    <h:outputText value="#{flight.arrivalTime}" />
+                                </p:column>
+
+                                <p:column headerText="From">
+                                    <h:outputText value="#{flight.from.city}" />
+                                </p:column>
+
+                                <p:column headerText="To">
+                                    <h:outputText value="#{flight.to.city}" />
+                                </p:column>
+                                <p:column headerText="Free seats">
+                                <h:outputText value="#{flight.availablePlaces}" />
+                            </p:column>
+
+                                <p:column headerText="Price per Seat">
+                                    <h:outputText value="#{flight.pricePerSeat}" />
+                                </p:column>
+                            </p:dataTable>
+
+                            <h:panelGrid id="repinfo" columns="2" >
+                                <h:outputLabel value="Total number of flights:" />
+                                <h:outputLabel value="#{flightReportController.reportInfo.count}" />
+                                <h:outputLabel value="Minimum price:" />
+                                <h:outputLabel value="#{flightReportController.reportInfo.min}" />
+                                <h:outputLabel value="Maximum price:" />
+                                <h:outputLabel value="#{flightReportController.reportInfo.max}" />
+                                <h:outputLabel value="Average price:" />
+                                <h:outputLabel value="#{flightReportController.reportInfo.avg}" />
+                                <h:outputLabel value="Total booking volume:" />
+                                <h:outputLabel value="#{flightReportController.reportInfo.sum}" />
+
+                            </h:panelGrid>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script type="application/javascript">
+            function goToAnchor(){
+                window.location = "#report";
+            }
+        </script>
+
+
+    </ui:define>
+</ui:composition>
+</html>

@@ -34,9 +34,9 @@ public interface ReportEJBRemote {
 
     List<String> getAllContintentFromOfBookings();
 
-    List<Booking> getAllBookingsFiltered(Date from, Date to, String toloc, String fromloc, String tocon, String fromcon);
+    //List<Booking> getAllBookingsFiltered(Date from, Date to, String toloc, String fromloc, String tocon, String fromcon);
 
-    ReportInfo getAllBookingsInfoFiltered(Date from, Date to, String toloc, String fromloc, String tocon, String fromcon);
+   // ReportInfo getAllBookingsInfoFiltered(Date from, Date to, String toloc, String fromloc, String tocon, String fromcon);
 
     List<Booking> getAllBookingsFiltered(Date from, Date to, String toloc, String fromloc, String tocon, String fromcon, String travelAgency);
 
