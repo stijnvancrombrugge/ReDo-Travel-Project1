@@ -99,6 +99,18 @@
                                 <p:column headerText="Price per Seat">
                                     <h:outputText value="#{flight.pricePerSeat}" />
                                 </p:column>
+                                <p:column headerText="Total Sold Seats">
+                                    <h:outputText value="#{flight.totalFlightsSold}" />
+                                </p:column>
+
+                                <p:column headerText="Total turn over">
+                                    <h:outputText value="#{flight.totalTurnover}" />
+                                </p:column>
+
+                                <p:column headerText="Discounts">
+                                    <h:outputText value="#{flight.totalDiscount}" />
+                                </p:column>
+
                             </p:dataTable>
 
                             <h:panelGrid id="repinfo" columns="2" >
@@ -111,7 +123,7 @@
                                 <h:outputLabel value="Average price:" />
                                 <h:outputLabel value="#{flightReportController.reportInfo.avg}" />
                                 <h:outputLabel value="Total booking volume:" />
-                                <h:outputLabel value="#{flightReportController.reportInfo.sum}" />
+                                <h:outputLabel value="#{flightReportController.totalTurnover}" />
 
                             </h:panelGrid>
 

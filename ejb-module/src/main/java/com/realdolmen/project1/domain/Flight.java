@@ -34,6 +34,8 @@ public class Flight implements Serializable {
     @Basic(optional = false)
     private int availablePlaces;
 
+    private int initialAvailablePlaces;
+
     @Basic(optional = false)
     private Double pricePerSeat;
 
@@ -43,7 +45,12 @@ public class Flight implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Discount> discounts = new ArrayList<>();
 
-
+    @Transient
+    private int totalFlightsSold;
+    @Transient
+    private double totalTurnover;
+    @Transient
+    private double totalDiscount;
 
 
     @ManyToMany
@@ -61,6 +68,7 @@ public class Flight implements Serializable {
         this.totalPlaces = totalPlaces;
         this.pricePerSeat = pricePerSeat;
         this.pricePerSeatByEmployee = pricePerSeat;
+        this.initialAvailablePlaces = availablePlaces;
     }
 
     public Flight(Location from, int availablePlaces, Location to, Date departureTime, Date arrivalTime, int totalPlaces) {
@@ -70,6 +78,30 @@ public class Flight implements Serializable {
         this.departureTime = departureTime;
         this.arrivalTime = arrivalTime;
         this.totalPlaces = totalPlaces;
+        this.initialAvailablePlaces = availablePlaces;
+    }
+
+
+    public int getTotalFlightsSold(){
+        return initialAvailablePlaces - availablePlaces;
+    }
+
+
+    public double getTotalTurnover(){
+        return (pricePerSeat * getTotalFlightsSold());
+    }
+
+
+    public double getTotalDiscount(){
+        int sold = getTotalFlightsSold();
+        double totalDiscount = 0.0;
+        for(Discount disc:discounts){
+            if(disc.getNbrToCell() <= sold){
+                totalDiscount += disc.getPercentage();
+            }
+        }
+
+        return (getTotalTurnover() * totalDiscount);
     }
 
 
@@ -173,5 +205,13 @@ public class Flight implements Serializable {
 
     public void setDiscounts(List<Discount> discounts) {
         this.discounts = discounts;
+    }
+
+    public int getInitialAvailablePlaces() {
+        return initialAvailablePlaces;
+    }
+
+    public void setInitialAvailablePlaces(int initialAvailablePlaces) {
+        this.initialAvailablePlaces = initialAvailablePlaces;
     }
 }

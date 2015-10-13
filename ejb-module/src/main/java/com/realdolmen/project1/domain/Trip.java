@@ -31,6 +31,8 @@ public class Trip implements Serializable {
     private int totalPlaces;
     private int availablePlaces;
 
+    private int initialAvailablePlaces;
+
     @ManyToMany(mappedBy = "trips", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private List<Flight> flights = new ArrayList<>();
 
@@ -49,6 +51,7 @@ public class Trip implements Serializable {
         this.totalPlaces = totalPlaces;
         this.picturename = picturename;
         this.availablePlaces = availablePlaces;
+        this.initialAvailablePlaces = availablePlaces;
     }
 
     public Trip(Location from, Location destination, Double pricePerDay, Date departureDate, Date returnDate, String description, int totalPlaces, String picturename, int availablePlaces, String travelAgency) {
@@ -62,6 +65,7 @@ public class Trip implements Serializable {
         this.picturename = picturename;
         this.availablePlaces = availablePlaces;
         this.travelAgency = travelAgency;
+        this.initialAvailablePlaces = availablePlaces;
     }
 
     public void bookPlaces(int nbrOfTrips){
@@ -169,5 +173,13 @@ public class Trip implements Serializable {
 
     public void setTravelAgency(String travelAgency) {
         this.travelAgency = travelAgency;
+    }
+
+    public int getInitialAvailablePlaces() {
+        return initialAvailablePlaces;
+    }
+
+    public void setInitialAvailablePlaces(int initialAvailablePlaces) {
+        this.initialAvailablePlaces = initialAvailablePlaces;
     }
 }

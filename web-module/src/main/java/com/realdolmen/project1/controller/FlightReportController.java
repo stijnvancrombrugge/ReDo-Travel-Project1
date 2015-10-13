@@ -45,6 +45,8 @@ public class FlightReportController implements Serializable {
     private int filterFromID;
 
 
+    private double totalTurnover;
+
 
     private String filterContintentDestinationID = "%%";
     private String filterContinentFromID = "%%";
@@ -69,6 +71,7 @@ public class FlightReportController implements Serializable {
         continentFrom = flightReportEJB.getAllContintentFromOfFlight(airlineCompany.getName());
         flights = flightReportEJB.getAllFlightsFiltered(departureMin, departureMax, "%%", "%%", filterContintentDestinationID, filterContinentFromID, airlineCompany.getName());
         reportInfo = flightReportEJB.getAllFlightsInfoFiltered(departureMin, departureMax, "%%", "%%", filterContintentDestinationID, filterContinentFromID, airlineCompany.getName());
+        totalTurnover = calcTotalTurnover(flights);
         return "/secured/flightReport.xhtml";
     }
 
@@ -87,9 +90,15 @@ public class FlightReportController implements Serializable {
 
         flights = flightReportEJB.getAllFlightsFiltered(departureMin, departureMax, filterDestID, filterFrID, filterContintentDestinationID, filterContinentFromID, airlineCompany.getName());
         reportInfo = flightReportEJB.getAllFlightsInfoFiltered(departureMin, departureMax, filterDestID, filterFrID, filterContintentDestinationID, filterContinentFromID, airlineCompany.getName());
+        totalTurnover = calcTotalTurnover(flights);
     }
 
-
+    public double calcTotalTurnover(List<Flight> flightslist){
+        double total = 0.0;
+        for(Flight f:flightslist)
+            total += f.getTotalTurnover();
+        return total;
+    }
 
     public void filterOnLocation(AjaxBehaviorEvent event){
 
@@ -221,5 +230,13 @@ public class FlightReportController implements Serializable {
 
     public void setReportInfo(ReportInfo reportInfo) {
         this.reportInfo = reportInfo;
+    }
+
+    public double getTotalTurnover() {
+        return totalTurnover;
+    }
+
+    public void setTotalTurnover(double totalTurnover) {
+        this.totalTurnover = totalTurnover;
     }
 }
