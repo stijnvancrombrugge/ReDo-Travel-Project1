@@ -18,6 +18,7 @@ public class TripElement implements Serializable {
     private String to;
     private String picturename;
     private String description;
+    private String travelAgency;
     private int freeplaces;
     private Date departureDate;
     private Date returnDate;
@@ -29,7 +30,7 @@ public class TripElement implements Serializable {
 
     List<FlightElement> flight;
 
-    public TripElement(String from, String to, String picturename, String description, int freeplaces, Date departureDate, Date returnDate, Double pricePerDay, int totalPlaces, int availablePlaces, List<FlightElement> flight) {
+    public TripElement(String from, String to, String picturename, String description, int freeplaces, Date departureDate, Date returnDate, Double pricePerDay, int totalPlaces, int availablePlaces, List<FlightElement> flight, String travelAgency) {
         this.from = from;
         this.to = to;
         this.picturename = picturename;
@@ -41,6 +42,7 @@ public class TripElement implements Serializable {
         this.totalPlaces = totalPlaces;
         this.availablePlaces = availablePlaces;
         this.flight = flight;
+        this.travelAgency = travelAgency;
     }
 
     public TripElement() {
@@ -139,5 +141,13 @@ public class TripElement implements Serializable {
 
     public void setFlight(List<FlightElement> flight) {
         this.flight = flight;
+    }
+
+    public String getTravelAgency() {
+        return travelAgency;
+    }
+
+    public void setTravelAgency(String travelAgency) {
+        this.travelAgency = travelAgency;
     }
 }
