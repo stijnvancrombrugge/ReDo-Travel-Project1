@@ -99,6 +99,8 @@ public class TripEJB implements TripEJBRemote{
     public Booking createBooking(double totalPrice, int nrOfTrips, PaymentType paymentType, Trip trip){
         Booking booking = new Booking(totalPrice, nrOfTrips, paymentType, trip);
         em.persist(booking);
+        trip.bookPlaces(nrOfTrips);
+        em.merge(trip);
         return booking;
     }
 

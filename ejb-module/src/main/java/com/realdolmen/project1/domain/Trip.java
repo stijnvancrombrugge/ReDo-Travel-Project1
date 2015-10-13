@@ -31,7 +31,7 @@ public class Trip implements Serializable {
     private int totalPlaces;
     private int availablePlaces;
 
-    @ManyToMany(mappedBy = "trips", cascade = {CascadeType.PERSIST}, fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "trips", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private List<Flight> flights = new ArrayList<>();
 
     protected Trip(){
@@ -62,6 +62,13 @@ public class Trip implements Serializable {
         this.picturename = picturename;
         this.availablePlaces = availablePlaces;
         this.travelAgency = travelAgency;
+    }
+
+    public void bookPlaces(int nbrOfTrips){
+        setAvailablePlaces(getAvailablePlaces() - nbrOfTrips);
+        for(Flight fl:flights){
+            fl.setAvailablePlaces(fl.getAvailablePlaces() - nbrOfTrips);
+        }
     }
 
     public void addFlight(Flight flight){
