@@ -144,4 +144,32 @@ public class TripEJB implements TripEJBRemote{
         return em.createQuery("SELECT trip from Trip trip where STR(trip.From.id) like :fromloc and STR(trip.Destination.id) like :toloc and trip.Destination.continent like :tocon and trip.From.continent like :fromcon").setParameter("fromloc", fromloc).setParameter("toloc", toloc).setParameter("tocon", tocon).setParameter("fromcon", fromcon).getResultList();
 
     }
+
+    public int getDurationOfTrip(Trip selectedTrip){
+        return (int) (selectedTrip.getReturnDate().getTime() - selectedTrip.getDepartureDate().getTime()) / (1000 * 60 * 60 * 24);
+    }
+
+    public double getTotalPriceTrip(Trip trip, int nbrOfPersons){
+        int duration = getDurationOfTrip(trip);
+        double stayPrice = duration * nbrOfPersons * trip.getPricePerDay();
+        double flightPrice = nbrOfPersons * trip.getFlightsPrice() * 1.05;
+        return stayPrice + flightPrice;
+
+    }
+
+    public double getTotalPriceForTrip(Trip trip){
+        int duration = getDurationOfTrip(trip);
+        double stayPrice = duration * trip.getPricePerDay();
+        double flightPrice = trip.getFlightsPrice() * 1.05;
+        return stayPrice + flightPrice;
+    }
+
+    public double getTotalCostForTrip(Trip trip){
+        int duration = getDurationOfTrip(trip);
+        double stayPrice = duration * trip.getPricePerDay();
+        double flightPrice = trip.getFlightsPrice();
+        return stayPrice + flightPrice;
+    }
+
+
 }

@@ -6,6 +6,7 @@ import com.realdolmen.project1.domain.Location;
 import com.realdolmen.project1.domain.ReportInfo;
 import com.realdolmen.project1.persistence.BookingEJB;
 import com.realdolmen.project1.persistence.ReportEJB;
+import com.realdolmen.project1.persistence.TripEJB;
 import org.primefaces.event.SelectEvent;
 
 import javax.ejb.EJB;
@@ -26,6 +27,9 @@ public class ReportController implements Serializable {
 
     @EJB
     private BookingEJB bookingEJB;
+
+    @EJB
+    private TripEJB tripEJB;
     @EJB
     private ReportEJB reportEJB;
 
@@ -226,5 +230,13 @@ public class ReportController implements Serializable {
 
     public void setTravelAgencies(List<String> travelAgencies) {
         this.travelAgencies = travelAgencies;
+    }
+
+    public TripEJB getTripEJB() {
+        return tripEJB;
+    }
+
+    public void setTripEJB(TripEJB tripEJB) {
+        this.tripEJB = tripEJB;
     }
 }

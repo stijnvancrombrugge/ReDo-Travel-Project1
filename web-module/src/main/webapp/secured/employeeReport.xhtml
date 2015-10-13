@@ -83,11 +83,15 @@
 
         <p:dataTable id="bookings" var="booking" value="#{reportController.bookings}">
                             <p:column headerText="Departure Date">
-                                <h:outputText value="#{booking.trip.departureDate}" />
+                                <h:outputText value="#{booking.trip.departureDate}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy" />
+                                </h:outputText>
                             </p:column>
 
                             <p:column headerText="Return Date">
-                                <h:outputText value="#{booking.trip.returnDate}" />
+                                <h:outputText value="#{booking.trip.returnDate}">
+                                    <f:convertDateTime pattern="dd-MM-yyyy" />
+                                </h:outputText>
                             </p:column>
 
                             <p:column headerText="From">
@@ -104,7 +108,19 @@
                                 <h:outputText value="#{booking.nrOfTrips}" />
                             </p:column>
                             <p:column headerText="TotalPrice">
-                                <h:outputText value="#{booking.totalPrice}" />
+                                <h:outputText value="#{booking.totalPrice}">
+                                    <f:convertNumber pattern="#0.00" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="TotalCostForTrip">
+                                <h:outputText value="#{reportController.tripEJB.getTotalCostForTrip(booking.trip) * booking.nrOfTrips}">
+                                    <f:convertNumber pattern="#0.00" />
+                                </h:outputText>
+                            </p:column>
+                            <p:column headerText="Margin">
+                                <h:outputText value="#{booking.totalPrice - (reportController.tripEJB.getTotalCostForTrip(booking.trip) * booking.nrOfTrips)}" >
+                                    <f:convertNumber pattern="#0.00" />
+                                </h:outputText>
                             </p:column>
                         </p:dataTable>
 

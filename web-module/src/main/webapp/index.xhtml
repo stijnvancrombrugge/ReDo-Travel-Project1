@@ -213,7 +213,7 @@
                     </h:panelGrid>
                 </div>
                 <div class="modal-footer">
-                    <p:commandButton  class="btn confirm-btn"  id="button" value="Login" update="grid" validateClient="true" action="#{loginController.login}"/>
+                    <p:commandButton  class="btn confirm-btn" ajax="false" id="button" value="Login" update="grid" validateClient="true" action="#{loginController.login}"/>
                     <a href="#" data-toggle="modal" data-target="#register">Register</a>
                     <p:messages for="credentials" id="messages" showDetail="true" autoUpdate="true" closable="true" style="display:block" />
                 </div>

@@ -62,8 +62,9 @@ public class CreateBookingController implements Serializable {
 
     public String chooseTrip(int id){
         selectedTrip = tripEJB.getTripForID(id);
-        int timeDiff = (int)( (selectedTrip.getReturnDate().getTime() - selectedTrip.getDepartureDate().getTime()) / (1000 * 60 * 60 * 24) );
-        totalPrice = selectedTrip.getPricePerDay()*numberOfPersons*timeDiff;
+      //  int timeDiff = (int)( (selectedTrip.getReturnDate().getTime() - selectedTrip.getDepartureDate().getTime()) / (1000 * 60 * 60 * 24) );
+      //  totalPrice = selectedTrip.getPricePerDay()*numberOfPersons*timeDiff;
+        totalPrice = tripEJB.getTotalPriceTrip(selectedTrip, numberOfPersons);
         if(loginController.getLoggedIn()){
             return "/secured/proceedBooking.xhtml";
         }

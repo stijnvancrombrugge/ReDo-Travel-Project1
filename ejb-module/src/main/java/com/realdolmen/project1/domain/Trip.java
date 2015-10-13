@@ -79,6 +79,14 @@ public class Trip implements Serializable {
         flights.add(flight);
     }
 
+    public double getFlightsPrice(){
+        double total = 0.0;
+        for(Flight fl:flights){
+           total += fl.getPricePerSeatByEmployee();
+        }
+        return total;
+    }
+
     public Integer getId() {
         return id;
     }
