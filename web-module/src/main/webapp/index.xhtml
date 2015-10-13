@@ -39,29 +39,22 @@
             </a>
         </li>
         <li class="sidebar-brand">
-            <a href="index.html">Traveller's</a>
+            <a href="homepage.xhtml">Traveller's</a>
 
         </li>
         <li>
             <a href="#top">Home</a>
         </li>
         <li>
-            <h:link outcome="/login.xhtml" fragment="login"> Login </h:link>
-        </li>
-        <li>
             <a href="#customer-services"> Customer Services </a>
         </li>
         <li>
-            <h:form>
-            <h:commandLink action="#{reportController.goToReportPage}" fragment="report"> Report </h:commandLink>
-            </h:form>
-
+            <a href="#business-services"> Business Services </a>
         </li>
         <li>
-            <h:form>
-                <h:commandLink action="#{partnerController.goToFlights('SN Brussels Airlines')}" fragment="report"> Flight Overview </h:commandLink>
-            </h:form>
+            <a href="#" data-toggle="modal" data-target="#login">Login</a>
         </li>
+
     </ul>
 </div>
 <!-- /Side Menu -->
@@ -82,30 +75,89 @@
 </div>
 <!-- /Full Page Image Header Area -->
 
-<ui:insert name="pageContent" >
-
-</ui:insert>
-
 
     <!-- Services -->
     <div id="customer-services" class="services">
         <ui:insert name="customerServices" >
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-md-offset-4 text-center">
+                        <h2 class="main-title">Customer Services</h2>
+                    </div>
+                </div>
+                <div class="divide50"></div>
+                <div class="row">
+                    <h:form>
+                        <div class="col-md-6 text-center">
+                            <div class="service-item">
+                                <h:commandLink action="#{createBookingControllerConversation.startCreationTrip}"><i class="service-icon fa fa-plane"/></h:commandLink>
+                                <h4 class="service-title">Search Trip</h4>
+                                <p class="service-desc">Find a trip by choosing a destination, departure and arrival date</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <div class="service-item">
+                                <h:link outcome="/findDestination.xhtml"><i class="service-icon fa fa-compass"></i></h:link>
+                                <h4 class="service-title">Search destination</h4>
+                                <p class="service-desc">Find a trip by choosing a destination on a map</p>
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
         </ui:insert>
     </div>
     <!-- /Services -->
 
 
-    <!-- Call to Action -->
+    <!-- Call to login -->
     <div class="call-to-action">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <h3>Customer or employee login</h3>
-                    <a href="#" id="logina" class="btn booking-btn text-center" data-toggle="modal" data-target="#login">Login here !</a>
+                    <a href="#" id="logina" class="btn booking-btn text-center" data-toggle="modal" data-target="#login">Login here</a>
                 </div>
             </div>
         </div>
     </div>
+
+
+    <div id="business-services" class="services">
+            <ui:insert name="businessServices">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4 text-center">
+                            <h2 class="main-title">Business Services</h2>
+                        </div>
+                    </div>
+
+                    <div class="divide50"></div>
+                    <div class="row">
+                        <h:form>
+                            <div class="col-md-6 text-center">
+                                <div class="service-item">
+                                    <a href="/secured/rdEmpHomePage.xhtml"><i class="service-icon fa fa-building-o"/></a>
+                                    <h4 class="service-title">Realdolmen Travel</h4>
+                                    <p class="service-desc">Access Realdolmen travel services after authentication</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <div class="service-item">
+                                    <a href="/secured/partnerHomePage.xhtml"><i class="service-icon fa fa-sun-o"></i></a>
+                                    <h4 class="service-title">Travel Agency</h4>
+                                    <p class="service-desc">Access your travel agency services after authentication</p>
+                                </div>
+                            </div>
+                        </h:form>
+                    </div>
+                </div>
+            </ui:insert>
+    </div>
+
+
 
 <!-- Footer -->
 <footer>
@@ -162,9 +214,50 @@
                 </div>
                 <div class="modal-footer">
                     <p:commandButton  class="btn confirm-btn"  id="button" value="Login" update="grid" validateClient="true" action="#{loginController.login}"/>
-                    <p:link  value="Register" outcome="/register.xhtml" />
+                    <a href="#" data-toggle="modal" data-target="#register">Register</a>
                     <p:messages for="credentials" id="messages" showDetail="true" autoUpdate="true" closable="true" style="display:block" />
                 </div>
+                </h:form>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Login form -->
+    <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="login" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <h:form id="register-form">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                        <h4 class="modal-title">Registration Form</h4>
+                    </div>
+                    <div class="modal-body">
+                        <h:panelGrid id="grid-r">
+                            <div class="form-group">
+                                <h:outputLabel for="username" value="Username:"/>
+                                <p:inputText  class="form-control input-lg" value="#{loginController.username}" id="username-r" required = "true" label="Username"/>
+                                <p:message for="username-r"/>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="password" value="Password:"/>
+                                <p:password  class="form-control input-lg" value="#{loginController.password}" id="password-r" required = "true" label="Password"/>
+                                <p:message for="password-r"/>
+                            </div>
+                            <div class="form-group">
+                                <h:outputLabel for="emailadress" value="Emailadress:"/>
+                                <p:inputText  class="form-control input-lg" value="#{loginController.emailadress}" id="emailadress" required="true" label="Emailadress" validatorMessage="This is not a valid email adress">
+                                    <f:validateRegex pattern= "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$" />
+                                </p:inputText>
+                                <p:message for="emailadress"/>
+                            </div>
+                        </h:panelGrid>
+                    </div>
+                    <div class="modal-footer">
+                        <p:commandButton class="btn confirm-btn" id="button-r" value="Register" update="grid-r" validateClient="true"  action="#{loginController.register}"/>
+                        <p:messages for="registerCredentials" id="messages-r" showDetail="true" autoUpdate="true" closable="true" />
+                    </div>
                 </h:form>
 
             </div>

@@ -9,32 +9,12 @@
 <ui:composition template="index.xhtml">
 <ui:define name="customerServices">
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-4 col-md-offset-4 text-center">
-            <h2 class="main-title">Customer Services</h2>
-        </div>
-    </div>
-    <div class="divide50"></div>
-    <div class="row">
-        <h:form>
-        <div class="col-md-6 text-center">
-            <div class="service-item">
-                <h:commandLink action="#{createBookingControllerConversation.startCreationTrip}"><i class="service-icon fa fa-plane"/></h:commandLink>
-                <h4 class="service-title">Search Trip</h4>
-                <p class="service-desc">Find a trip by choosing a destination, departure and arrival date</p>
-            </div>
-        </div>
-        <div class="col-md-6 text-center">
-            <div class="service-item">
-                <h:link outcome="/findDestination.xhtml"><i class="service-icon fa fa-compass"></i></h:link>
-                <h4 class="service-title">Search destination</h4>
-                <p class="service-desc">Find a trip by choosing a destination on a map</p>
-            </div>
-        </div>
-        </h:form>
-    </div>
-</div>
+
+</ui:define>
+
+<ui:define name="businessServices">
+
+
 
 </ui:define>
 </ui:composition>

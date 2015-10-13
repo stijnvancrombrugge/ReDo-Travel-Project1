@@ -34,7 +34,7 @@ public class LoginFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         if (loginBean == null || !loginBean.getLoggedIn()) {
             String contextPath = ((HttpServletRequest)request).getContextPath();
-            ((HttpServletResponse)response).sendRedirect(contextPath + "/homepage.xhtml");
+            ((HttpServletResponse)response).sendRedirect(contextPath + "/login.xhtml");
         }
         chain.doFilter(request, response);
     }

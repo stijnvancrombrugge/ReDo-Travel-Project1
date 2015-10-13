@@ -57,7 +57,7 @@ public class LoginController implements Serializable {
             return "/secured/rdEmpHomePage.xhtml";
         }
         FacesContext.getCurrentInstance().addMessage("credentials",new FacesMessage(FacesMessage.SEVERITY_WARN, "Loggin Error", "Invalid credentials"));
-        return "/homepage.xhtml";
+        return "/login.xhtml";
     }
 
     public String logout(){
