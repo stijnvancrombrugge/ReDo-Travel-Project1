@@ -11,6 +11,7 @@
     <pictureName>aaa</pictureName>
     <totalPlaces>100</totalPlaces>
     <availablePlaces> 30 </availablePlaces>
+    <travelAgency> Jetair </travelAgency>
     <flight>
         <flightID> 1000 </flightID>
     </flight>
@@ -29,6 +30,7 @@
     <pictureName>aaa</pictureName>
     <totalPlaces>80</totalPlaces>
     <availablePlaces> 40 </availablePlaces>
+    <travelAgency> Neckerman </travelAgency>
     <flight>
         <flightID> 1002 </flightID>
     </flight>

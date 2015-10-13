@@ -59,9 +59,39 @@ public class TripXMLParser implements Serializable{
 
     }
 
+    public List<TripElement> parseXML(File file){
+
+        try {
+            //web-module\src\main\trips.xml
+           // File file = new File(filename);
+            JAXBContext jaxbContext = JAXBContext.newInstance(TripsElement.class);
+
+            Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+            TripsElement que= (TripsElement) jaxbUnmarshaller.unmarshal(file);
+
+           // return que.getTrip();
+
+            List<TripElement> list= que.getTrip();
+            for(TripElement ans:list) {
+                System.out.println(ans.getFrom() + " " + ans.getTo() + "  " + ans.getFreeplaces()+ "  " + ans.getDepartureDate() + "  " + ans.getPricePerDay()
+                        + "  " + ans.getDescription()  + "  " + ans.getPicturename()  + "  " + ans.getAvailablePlaces()  + "  " + ans.getReturnDate()
+                        + "  " + ans.getTotalPlaces() + "  " + ans.getTravelAgency());
+                List<FlightElement> l = ans.getFlight();
+                for(FlightElement f:l)
+                    System.out.println(f.getFlightID());
+            }
+            return list;
+
+        } catch (JAXBException e) {
+            e.printStackTrace();
+            return null;
+        }
+
+    }
 
 
-   // public static void main(String[] args) {
+
+    //public static void main(String[] args) {
 
         /*
         boolean bFrom = false;
@@ -156,10 +186,11 @@ public class TripXMLParser implements Serializable{
         */
 
 
-    /*
 
-        try {
 
+
+          //  TripXMLParser tripXMLParser = new TripXMLParser();
+/*
             File file = new File("web-module\\src\\main\\trips.xml");
             JAXBContext jaxbContext = JAXBContext.newInstance(TripsElement.class);
 
@@ -167,20 +198,20 @@ public class TripXMLParser implements Serializable{
             TripsElement que= (TripsElement) jaxbUnmarshaller.unmarshal(file);
             System.out.println(que.getTrip());
 
-            List<TripElement> list=que.getTrip();
+            */
+/*
+            List<TripElement> list= tripXMLParser.parseXML("web-module\\src\\main\\trips.xml");
             for(TripElement ans:list) {
                 System.out.println(ans.getFrom() + " " + ans.getTo() + "  " + ans.getFreeplaces()+ "  " + ans.getDepartureDate() + "  " + ans.getPricePerDay()
                         + "  " + ans.getDescription()  + "  " + ans.getPicturename()  + "  " + ans.getAvailablePlaces()  + "  " + ans.getReturnDate()
-                        + "  " + ans.getTotalPlaces());
+                        + "  " + ans.getTotalPlaces() + "  " + ans.getTravelAgency());
                 List<FlightElement> l = ans.getFlight();
                 for(FlightElement f:l)
                     System.out.println(f.getFlightID());
             }
-        } catch (JAXBException e) {
-            e.printStackTrace();
-        }
-    }
+            */
 
-    */
+
+
 }
 

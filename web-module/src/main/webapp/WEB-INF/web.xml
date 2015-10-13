@@ -4,10 +4,13 @@
         version="3.1">
 
     <!-- Login filter -->
+
+
     <filter>
         <filter-name>LoginFilter</filter-name>
         <filter-class>com.realdolmen.project1.filters.LoginFilter</filter-class>
     </filter>
+
     <!-- Set the login filter to secure all the pages in the /secured/* path of the application  -->
     <filter-mapping>
         <filter-name>LoginFilter</filter-name>
@@ -37,4 +40,13 @@
         <welcome-file>/index.faces</welcome-file>
     </welcome-file-list>
 
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/pageNotFound.faces</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/pageNotFound.faces</location>
+    </error-page>
 </web-app>
