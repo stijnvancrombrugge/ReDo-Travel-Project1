@@ -59,6 +59,7 @@ public class FlightReportController implements Serializable {
 
 
     public String goToReportPage(String username){
+        System.out.println("in go to report page");
         airlineCompany = airlineEJB.getAirlineOfPartner(username);
         locationListDestination = flightReportEJB.getAllDestinationsOfFlights(airlineCompany.getName());
         locationListFrom = flightReportEJB.getAllOriginOfFlights(airlineCompany.getName());
