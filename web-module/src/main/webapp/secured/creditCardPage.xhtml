@@ -10,22 +10,28 @@
 <ui:composition template="../index.xhtml">
 <ui:define name="customerServices">
 
-    <div class="form-container">
-    <div class="modal-header">
-        <h1 class="main-title">Credit Card</h1>
+    <div class="container inner">
+    <div class="row">
+        <div class="text-center">
+            <h2 class="main-title">Credit card</h2>
+            <hr/>
+        </div>
     </div>
+    <div class="form-container">
     <div class="modal-body">
     <h:form id="form">
 
         <div class="form-group">
-        <h:inputText label="Credit Card Number:" id="inpCCnumber" required="true" value="#{createBookingController.creditcardNumber}">
-            <f:validator validatorId="CreditCardValidator"/>
-        </h:inputText>
+            <h:outputLabel for="inpCCnumber" value="Card number: " />
+            <p:inputText  id="inpCCnumber" required="true" value="#{createBookingController.creditcardNumber}">
+                <f:validator validatorId="CreditCardValidator"/>
+            </p:inputText>
         </div>
         <h:commandButton class="btn confirm-btn" value="Pay" action="#{createBookingControllerConversation.endCreationTrip}" />
         <p:message id="creditcardNumber" for="inpCCnumber" />
 
-</h:form>
+    </h:form>
+    </div>
     </div>
     </div>
 

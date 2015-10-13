@@ -8,9 +8,16 @@
 <ui:composition template="../index.xhtml">
 <ui:define name="customerServices">
 
-    <div class="services-center">
+    <div class="container inner">
+        <div class="row">
+            <div class="text-center">
+                <h2 class="main-title">Booking Info for #{loginController.username}</h2>
+                <hr/>
+            </div>
+        </div>
+        <div class="row">
 
-    <h1 class="main-title">Booking Info for #{loginController.username}</h1>
+        <h1>General Info</h1>
     <h:panelGrid id="grid" columns="1">
         <h:panelGroup>
             <h:outputLabel value="Departure Location: " />
@@ -85,6 +92,9 @@
         <h:outputText value="#{createBookingController.totalPrice}"/>
     </h:column>
 
+            <br/>
+            <br/>
+
     <h:form>
         <div style="width: 45%; float:left;">
             <h:commandButton class="btn confirm-btn" value="Pay by CreditCard" action="#{createBookingController.payByCreditCard}" />
@@ -94,6 +104,8 @@
         </div>
 
     </h:form>
+        <div class="divide50"></div>
+    </div>
     </div>
 
     <script type="text/javascript">
