@@ -8,6 +8,30 @@
     <location id="7000" city="Helsinki" code="HEL" continent="Europe" latitude="60.317222" longitude="24.963333" country="Finland"/>
     <location id="8000" city="Hamburg" code="HAM" continent="Europe" latitude="53.630389" longitude="9.988228" country="Germany"/>
     <location id="9000" city="Warsaw" code="WAW" continent="Europe" latitude="52.16575" longitude="20.967122" country="Poland"/>
+    <location id="10000" city="Madang" code="MAG" continent="Africa" latitude="-5.207083" longitude="145.7887" country="Papua New Guinea"/>
+    <location id="11000" city="Sault Sainte Marie" code="YAM" continent="North America" latitude="46.485001" longitude="-84.509445" country="Canada"/>
+    <location id="12000" city="Daloa" code="DJO" continent="Africa" latitude="6.792808" longitude="-6.473189" country="Cote d''Ivoire"/>
+    <location id="13000" city="Brussels" code="BRU" continent="Europe" latitude="50.901389" longitude="4.484444" country="Belgium"/>
+    <location id="15000" city="Berlin" code="SXF" continent="Europe" latitude="52.380001" longitude="13.5225" country="Germany"/>
+    <location id="16000" city="Helsinki" code="HEM" continent="Europe" latitude="60.254558" longitude="25.042828" country="Finland"/>
+    <location id="17000" city="London" code="LTN" continent="Europe" latitude="51.874722" longitude="-0.368333" country="United Kingdom"/>
+    <location id="18000" city="Rygge" code="RYG" continent="Europe" latitude="59.378933" longitude="10.785389" country="Norway"/>
+    <location id="19000" city="Warsaw" code="WAW" continent="Europe" latitude="52.16575" longitude="20.967122" country="Poland"/>
+    <location id="20000" city="San Salvador" code="SAL" continent="South America" latitude="13.440947" longitude="-89.055728" country="El Salvador"/>
+    <location id="21000" city="Bahrain" code="BAH" continent="Middle East" latitude="26.270834" longitude="50.63361" country="Bahrain"/>
+    <location id="22000" city="Tokachi" code="TOK" continent="South Asia" latitude="42.890544" longitude="143.158475" country="Japan"/>
+    <location id="23000" city="Buenos Aires" code="AEP" continent="South America" latitude="-34.559175" longitude="-58.415606" country="Argentina"/>
+    <location id="24000" city="Melbourne" code="MEL" continent="Oceania" latitude="-37.8181602" longitude="144.9533883" country="Australia"/>
+    <location id="25000" city="St. Petersburg" code="STP" continent="North Asia" latitude="59.951443" longitude="30.313831" country="Russia"/>
+    <location id="26000" city="Gisborne" code="GIS" continent="Oceania" latitude="-38.663333" longitude="177.978333" country="New Zealand"/>
+    <location id="27000" city="Tel-aviv" code="SDV" continent="Middle East" latitude="32.114661" longitude="34.782239" country="Israel"/>
+    <location id="28000" city="Sondrestrom" code="SFJ" continent="North America" latitude="67.016969" longitude="-50.689325" country="Greenland"/>
+    <location id="29000" city="Winnipeg" code="YWG" continent="North America" latitude="49.910036" longitude="-97.239886" country="Canada"/>
+    <location id="31000" city="Waterkloof" code="WAT" continent="Africa" latitude="-25.83" longitude="28.2225" country="South Africa"/>
+    <location id="32000" city="Brazzaville" code="BZV" continent="Africa" latitude="-4.2517" longitude="15.253031" country="Congo"/>
+    <location id="33000" city="Changuinola" code="CHX" continent="South America" latitude="9.458636" longitude="-82.516806" country="Panama"/>
+
+
 
 
     <flight id="1000" arrivalTime="2015-09-09 16:00:00" availablePlaces="15" initialAvailablePlaces="15" departureTime="2015-09-09 12:00:00" totalPlaces="60" From_id="1000" To_id="2000" pricePerSeat="40" pricePerSeatByEmployee="40"/>
