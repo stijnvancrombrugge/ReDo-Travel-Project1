@@ -61,8 +61,24 @@ public class LoginController implements Serializable {
         return "/login.xhtml";
     }
 
+    public String determineCorrectHome(){
+        if(userType == null)
+            return "/index.xhtml";
+        if(userType.equals("PartnerEmployee")) {
+
+                return "/secured/partnerHomePage.xhtml";
+
+
+        } else if(userType.equals("RdEmployee")) {
+            return "/secured/rdEmpHomePage.xhtml";
+        } else {
+            return "/index.xthml";
+        }
+    }
+
     public String logout(){
         loggedIn = false;
+        userType = null;
         return "/index.xhtml";
     }
 

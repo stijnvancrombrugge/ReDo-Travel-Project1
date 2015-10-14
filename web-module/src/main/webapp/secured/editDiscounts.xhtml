@@ -71,12 +71,12 @@
                 <p:inputText class="text-item" id="nbrToSell1" value="#{editFlightController.discount.nbrToCell}">
                     <f:validateDoubleRange minimum="1"/>
                 </p:inputText>
-                <p:message for="nbrToSell"/>
+                <p:message for="nbrToSell1"/>
             </div>
             <div class="form-group">
                 <h:outputText id="output1" class="text-item" value="Percentage Discount:#{editFlightController.percentage}%" />
                 <h:inputHidden id="txt21" value="#{editFlightController.percentage}" />
-                <p:slider for="txt21" display="output" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
+                <p:slider for="txt21" display="output1" style="width: 200px" displayTemplate="Percentage Discount: {value} %" />
             </div>
 
 

@@ -7,7 +7,7 @@
     <location id="6000" city="Carefree" code="CAR" continent="North America" latitude="+40.75170" longitude="-111.8979242" country="America"/>
     <location id="7000" city="Helsinki" code="HEL" continent="Europe" latitude="60.317222" longitude="24.963333" country="Finland"/>
     <location id="8000" city="Hamburg" code="HAM" continent="Europe" latitude="53.630389" longitude="9.988228" country="Germany"/>
-
+    <location id="9000" city="Warsaw" code="WAW" continent="Europe" latitude="52.16575" longitude="20.967122" country="Poland"/>
     <location id="10000" city="Madang" code="MAG" continent="Africa" latitude="-5.207083" longitude="145.7887" country="Papua New Guinea"/>
     <location id="11000" city="Sault Sainte Marie" code="YAM" continent="North America" latitude="46.485001" longitude="-84.509445" country="Canada"/>
     <location id="12000" city="Daloa" code="DJO" continent="Africa" latitude="6.792808" longitude="-6.473189" country="Cote d''Ivoire"/>
@@ -70,9 +70,9 @@
 
 
 
-    <flight id="1012" arrivalTime="2016-03-01 10:00:00" availablePlaces="80" initialAvailablePlaces="80" departureTime="2016-03-01 07:00:00" totalPlaces="160" From_id="19000" To_id="18000" pricePerSeat="78.00" pricePerSeatByEmployee="78.00"/>
-    <flight id="1013" arrivalTime="2016-03-15 11:00:00" availablePlaces="70" initialAvailablePlaces="70" departureTime="2016-03-15 06:00:00" totalPlaces="160" From_id="18000" To_id="19000" pricePerSeat="110.40" pricePerSeatByEmployee="110.40"/>
-    <trip id="1008" Description="Beautiful trip with  staying in a 3 stars hotel" availablePlaces="30" initialAvailablePlaces="30" departureDate="2016-03-01 07:00:00" picturename="xxxxx.jpg" pricePerDay="68.55" returnDate="2016-03-15 111:00:00" totalPlaces="30" travelAgency="Neckerman" Destination_id="18000" From_id="19000" />
+    <flight id="1012" arrivalTime="2016-03-01 10:00:00" availablePlaces="80" initialAvailablePlaces="80" departureTime="2016-03-01 07:00:00" totalPlaces="160" From_id="19000" To_id="20000" pricePerSeat="78.00" pricePerSeatByEmployee="78.00"/>
+    <flight id="1013" arrivalTime="2016-03-15 11:00:00" availablePlaces="70" initialAvailablePlaces="70" departureTime="2016-03-15 06:00:00" totalPlaces="160" From_id="20000" To_id="19000" pricePerSeat="110.40" pricePerSeatByEmployee="110.40"/>
+    <trip id="1008" Description="Beautiful trip with  staying in a 3 stars hotel" availablePlaces="30" initialAvailablePlaces="30" departureDate="2016-03-01 07:00:00" picturename="xxxxx.jpg" pricePerDay="68.55" returnDate="2016-03-15 111:00:00" totalPlaces="30" travelAgency="Neckerman" Destination_id="20000" From_id="19000" />
     <jnd_trip_flight flight_fk="1012" trip_fk="1008" />
     <jnd_trip_flight flight_fk="1013" trip_fk="1008" />
 
@@ -81,9 +81,9 @@
 
     <flight id="1014" arrivalTime="2015-11-22 16:00:00" availablePlaces="90" initialAvailablePlaces="90" departureTime="2015-11-22 13:00:00" totalPlaces="170" From_id="21000" To_id="22000" pricePerSeat="83.14" pricePerSeatByEmployee="83.14"/>
     <flight id="1015" arrivalTime="2015-11-29 12:00:00" availablePlaces="65" initialAvailablePlaces="65" departureTime="2015-11-29 09:00:00" totalPlaces="170" From_id="22000" To_id="21000" pricePerSeat="74.00" pricePerSeatByEmployee="74.00"/>
-    <trip id="1013" Description="Beautiful trip with  staying in a 4 stars hotel" availablePlaces="50" initialAvailablePlaces="50" departureDate="2015-11-22 13:00:00" picturename="xxxxx.jpg" pricePerDay="88.55" returnDate="2015-11-29 12:00:00" totalPlaces="50" travelAgency="Neckerman" Destination_id="22000" From_id="21000" />
-    <jnd_trip_flight flight_fk="1014" trip_fk="1013" />
-    <jnd_trip_flight flight_fk="1015" trip_fk="1013" />
+    <trip id="1008" Description="Beautiful trip with  staying in a 4 stars hotel" availablePlaces="50" initialAvailablePlaces="50" departureDate="2015-11-22 13:00:00" picturename="xxxxx.jpg" pricePerDay="88.55" returnDate="2015-11-29 12:00:00" totalPlaces="50" travelAgency="Neckerman" Destination_id="22000" From_id="21000" />
+    <jnd_trip_flight flight_fk="1014" trip_fk="1008" />
+    <jnd_trip_flight flight_fk="1015" trip_fk="1008" />
 
 
 

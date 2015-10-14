@@ -95,13 +95,32 @@ public class TripEJB implements TripEJBRemote{
                 .getResultList();
     }
 
+    public boolean checkPlacesAvailable(int id, int places){
+        Trip trip = getTripForID(id);
+        List<Flight> flights = trip.getFlights();
+        boolean available = true;
+        for(Flight f:flights){
+            if(f.getAvailablePlaces() < places)
+                available = false;
+        }
+        if(trip.getAvailablePlaces() < places)
+            available = false;
+        return available;
+
+    }
+
     @Override
     public Booking createBooking(double totalPrice, int nrOfTrips, PaymentType paymentType, Trip trip){
-        Booking booking = new Booking(totalPrice, nrOfTrips, paymentType, trip);
-        em.persist(booking);
-        trip.bookPlaces(nrOfTrips);
-        em.merge(trip);
-        return booking;
+        if(checkPlacesAvailable(trip.getId(), nrOfTrips)) {
+            Booking booking = new Booking(totalPrice, nrOfTrips, paymentType, trip);
+            em.persist(booking);
+            trip.bookPlaces(nrOfTrips);
+            em.merge(trip);
+            return booking;
+        } else {
+            return null;
+        }
+
     }
 
 

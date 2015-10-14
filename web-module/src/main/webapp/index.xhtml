@@ -49,10 +49,9 @@
             <a href="#customer-services"> Customer Services </a>
         </li>
         <li>
-            <a href="#business-services"> Business Services </a>
-        </li>
-        <li>
-            <a href="#" data-toggle="modal" data-target="#login">Login</a>
+            <h:form>
+                <h:commandLink action="#{loginController.determineCorrectHome}" value="Business Services"/>
+            </h:form>
         </li>
 
     </ul>
