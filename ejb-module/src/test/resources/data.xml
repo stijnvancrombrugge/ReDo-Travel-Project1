@@ -8,30 +8,6 @@
     <location id="7000" city="Helsinki" code="HEL" continent="Europe" latitude="60.317222" longitude="24.963333" country="Finland"/>
     <location id="8000" city="Hamburg" code="HAM" continent="Europe" latitude="53.630389" longitude="9.988228" country="Germany"/>
     <location id="9000" city="Warsaw" code="WAW" continent="Europe" latitude="52.16575" longitude="20.967122" country="Poland"/>
-    <location id="10000" city="Madang" code="MAG" continent="Africa" latitude="-5.207083" longitude="145.7887" country="Papua New Guinea"/>
-    <location id="11000" city="Sault Sainte Marie" code="YAM" continent="North America" latitude="46.485001" longitude="-84.509445" country="Canada"/>
-    <location id="12000" city="Daloa" code="DJO" continent="Africa" latitude="6.792808" longitude="-6.473189" country="Cote d''Ivoire"/>
-    <location id="13000" city="Brussels" code="BRU" continent="Europe" latitude="50.901389" longitude="4.484444" country="Belgium"/>
-    <location id="15000" city="Berlin" code="SXF" continent="Europe" latitude="52.380001" longitude="13.5225" country="Germany"/>
-
-    <location id="17000" city="London" code="LTN" continent="Europe" latitude="51.874722" longitude="-0.368333" country="United Kingdom"/>
-    <location id="18000" city="Rygge" code="RYG" continent="Europe" latitude="59.378933" longitude="10.785389" country="Norway"/>
-    <location id="19000" city="Warsaw" code="WAW" continent="Europe" latitude="52.16575" longitude="20.967122" country="Poland"/>
-    <location id="20000" city="San Salvador" code="SAL" continent="South America" latitude="13.440947" longitude="-89.055728" country="El Salvador"/>
-    <location id="21000" city="Bahrain" code="BAH" continent="Middle East" latitude="26.270834" longitude="50.63361" country="Bahrain"/>
-    <location id="22000" city="Tokachi" code="TOK" continent="South Asia" latitude="42.890544" longitude="143.158475" country="Japan"/>
-    <location id="23000" city="Buenos Aires" code="AEP" continent="South America" latitude="-34.559175" longitude="-58.415606" country="Argentina"/>
-    <location id="24000" city="Melbourne" code="MEL" continent="Oceania" latitude="-37.8181602" longitude="144.9533883" country="Australia"/>
-    <location id="25000" city="St. Petersburg" code="STP" continent="North Asia" latitude="59.951443" longitude="30.313831" country="Russia"/>
-    <location id="26000" city="Gisborne" code="GIS" continent="Oceania" latitude="-38.663333" longitude="177.978333" country="New Zealand"/>
-    <location id="27000" city="Tel-aviv" code="SDV" continent="Middle East" latitude="32.114661" longitude="34.782239" country="Israel"/>
-    <location id="28000" city="Sondrestrom" code="SFJ" continent="North America" latitude="67.016969" longitude="-50.689325" country="Greenland"/>
-    <location id="29000" city="Winnipeg" code="YWG" continent="North America" latitude="49.910036" longitude="-97.239886" country="Canada"/>
-    <location id="31000" city="Waterkloof" code="WAT" continent="Africa" latitude="-25.83" longitude="28.2225" country="South Africa"/>
-    <location id="32000" city="Brazzaville" code="BZV" continent="Africa" latitude="-4.2517" longitude="15.253031" country="Congo"/>
-    <location id="33000" city="Changuinola" code="CHX" continent="South America" latitude="9.458636" longitude="-82.516806" country="Panama"/>
-
-
 
 
     <flight id="1000" arrivalTime="2015-09-09 16:00:00" availablePlaces="15" initialAvailablePlaces="15" departureTime="2015-09-09 12:00:00" totalPlaces="60" From_id="1000" To_id="2000" pricePerSeat="40" pricePerSeatByEmployee="40"/>
@@ -53,65 +29,6 @@
     <jnd_trip_flight flight_fk="1007" trip_fk="4000" />
 
 
-
-    <flight id="1008" arrivalTime="2016-01-01 10:00:00" availablePlaces="50" initialAvailablePlaces="50" departureTime="2016-01-01 07:00:00" totalPlaces="150" From_id="13000" To_id="15000" pricePerSeat="67.67" pricePerSeatByEmployee="67.67"/>
-    <flight id="1009" arrivalTime="2016-01-15 11:00:00" availablePlaces="45" initialAvailablePlaces="45" departureTime="2016-01-15 06:00:00" totalPlaces="150" From_id="15000" To_id="13000" pricePerSeat="101.99" pricePerSeatByEmployee="5101.99"/>
-    <trip id="1006" Description="Beautiful trip with  staying in a 5 stars hotel" availablePlaces="35" initialAvailablePlaces="35" departureDate="2015-01-01 07:00:00" picturename="xxxxx.jpg" pricePerDay="88.55" returnDate="2016-01-15 11:00:00" totalPlaces="40" travelAgency="Neckerman" Destination_id="15000" From_id="13000" />
-    <jnd_trip_flight flight_fk="1008" trip_fk="1006" />
-    <jnd_trip_flight flight_fk="1009" trip_fk="1006" />
-
-
-
-    <flight id="1010" arrivalTime="2015-11-15 16:00:00" availablePlaces="65" initialAvailablePlaces="65" departureTime="2015-11-15 13:00:00" totalPlaces="200" From_id="17000" To_id="18000" pricePerSeat="78.00" pricePerSeatByEmployee="78.00"/>
-    <flight id="1011" arrivalTime="2015-11-22 12:00:00" availablePlaces="30" initialAvailablePlaces="30" departureTime="2015-11-22 09:00:00" totalPlaces="200" From_id="18000" To_id="17000" pricePerSeat="89.36" pricePerSeatByEmployee="89.36"/>
-    <trip id="1007" Description="Beautiful trip with  staying in a 4 stars hotel" availablePlaces="30" initialAvailablePlaces="30" departureDate="2015-11-15 13:00:00" picturename="xxxxx.jpg" pricePerDay="88.55" returnDate="2015-11-22 12:00:00" totalPlaces="30" travelAgency="Neckerman" Destination_id="18000" From_id="17000" />
-    <jnd_trip_flight flight_fk="1010" trip_fk="1007" />
-    <jnd_trip_flight flight_fk="1011" trip_fk="1007" />
-
-
-
-    <flight id="1012" arrivalTime="2016-03-01 10:00:00" availablePlaces="80" initialAvailablePlaces="80" departureTime="2016-03-01 07:00:00" totalPlaces="160" From_id="19000" To_id="20000" pricePerSeat="78.00" pricePerSeatByEmployee="78.00"/>
-    <flight id="1013" arrivalTime="2016-03-15 11:00:00" availablePlaces="70" initialAvailablePlaces="70" departureTime="2016-03-15 06:00:00" totalPlaces="160" From_id="20000" To_id="19000" pricePerSeat="110.40" pricePerSeatByEmployee="110.40"/>
-    <trip id="1008" Description="Beautiful trip with  staying in a 3 stars hotel" availablePlaces="30" initialAvailablePlaces="30" departureDate="2016-03-01 07:00:00" picturename="xxxxx.jpg" pricePerDay="68.55" returnDate="2016-03-15 111:00:00" totalPlaces="30" travelAgency="Neckerman" Destination_id="20000" From_id="19000" />
-    <jnd_trip_flight flight_fk="1012" trip_fk="1008" />
-    <jnd_trip_flight flight_fk="1013" trip_fk="1008" />
-
-
-
-
-    <flight id="1014" arrivalTime="2015-11-22 16:00:00" availablePlaces="90" initialAvailablePlaces="90" departureTime="2015-11-22 13:00:00" totalPlaces="170" From_id="21000" To_id="22000" pricePerSeat="83.14" pricePerSeatByEmployee="83.14"/>
-    <flight id="1015" arrivalTime="2015-11-29 12:00:00" availablePlaces="65" initialAvailablePlaces="65" departureTime="2015-11-29 09:00:00" totalPlaces="170" From_id="22000" To_id="21000" pricePerSeat="74.00" pricePerSeatByEmployee="74.00"/>
-    <trip id="1008" Description="Beautiful trip with  staying in a 4 stars hotel" availablePlaces="50" initialAvailablePlaces="50" departureDate="2015-11-22 13:00:00" picturename="xxxxx.jpg" pricePerDay="88.55" returnDate="2015-11-29 12:00:00" totalPlaces="50" travelAgency="Neckerman" Destination_id="22000" From_id="21000" />
-    <jnd_trip_flight flight_fk="1014" trip_fk="1008" />
-    <jnd_trip_flight flight_fk="1015" trip_fk="1008" />
-
-
-
-    <flight id="1016" arrivalTime="2016-02-01 10:00:00" availablePlaces="30" initialAvailablePlaces="30" departureTime="2016-02-01 07:00:00" totalPlaces="165" From_id="23000" To_id="24000" pricePerSeat="44.00" pricePerSeatByEmployee="44.00"/>
-    <flight id="1017" arrivalTime="2016-02-15 11:00:00" availablePlaces="55" initialAvailablePlaces="55" departureTime="2016-02-15 06:00:00" totalPlaces="165" From_id="24000" To_id="23000" pricePerSeat="57.40" pricePerSeatByEmployee="57.40"/>
-    <trip id="1009" Description="Beautiful trip with  staying in a 5 stars hotel" availablePlaces="25" initialAvailablePlaces="25" departureDate="2016-02-01 07:00:00" picturename="xxxxx.jpg" pricePerDay="110.99" returnDate="2016-02-15 11:00:00" totalPlaces="25" travelAgency="Neckerman" Destination_id="24000" From_id="23000" />
-    <jnd_trip_flight flight_fk="1016" trip_fk="1009" />
-    <jnd_trip_flight flight_fk="1017" trip_fk="1009" />
-
-    <flight id="1018" arrivalTime="2015-10-22 16:00:00" availablePlaces="75" initialAvailablePlaces="75" departureTime="2015-10-22 13:00:00" totalPlaces="175" From_id="25000" To_id="26000" pricePerSeat="89.14" pricePerSeatByEmployee="89.14"/>
-    <flight id="1019" arrivalTime="2015-10-29 12:00:00" availablePlaces="35" initialAvailablePlaces="35" departureTime="2015-10-29 09:00:00" totalPlaces="175" From_id="26000" To_id="25000" pricePerSeat="53.00" pricePerSeatByEmployee="53.00"/>
-    <trip id="1010" Description="Beautiful trip with  staying in a 5 stars hotel" availablePlaces="35" initialAvailablePlaces="35" departureDate="2015-10-22 13:00:00" picturename="xxxxx.jpg" pricePerDay="110.99" returnDate="2015-10-29 12:00:00" totalPlaces="35" travelAgency="Neckerman" Destination_id="26000" From_id="25000" />
-    <jnd_trip_flight flight_fk="1018" trip_fk="1010" />
-    <jnd_trip_flight flight_fk="1019" trip_fk="1010" />
-
-
-
-    <flight id="1020" arrivalTime="2016-02-15 10:00:00" availablePlaces="50" initialAvailablePlaces="50" departureTime="2016-02-15 07:00:00" totalPlaces="135" From_id="28000" To_id="29000" pricePerSeat="69.00" pricePerSeatByEmployee="69.00"/>
-    <flight id="1021" arrivalTime="2016-02-22 11:00:00" availablePlaces="45" initialAvailablePlaces="45" departureTime="2016-02-22 06:00:00" totalPlaces="135" From_id="29000" To_id="28000" pricePerSeat="53.40" pricePerSeatByEmployee="53.40"/>
-    <trip id="1011" Description="Beautiful trip with  staying in a 5 stars hotel" availablePlaces="45" initialAvailablePlaces="45" departureDate="2016-02-15 07:00:00" picturename="xxxxx.jpg" pricePerDay="75.00" returnDate="2016-02-22 11:00:00" totalPlaces="45" travelAgency="Neckerman" Destination_id="29000" From_id="28000" />
-    <jnd_trip_flight flight_fk="1020" trip_fk="1011" />
-    <jnd_trip_flight flight_fk="1021" trip_fk="1011" />
-
-    <flight id="1022" arrivalTime="2015-11-04 16:00:00" availablePlaces="65" initialAvailablePlaces="65" departureTime="2015-11-04 13:00:00" totalPlaces="120" From_id="31000" To_id="32000" pricePerSeat="63.14" pricePerSeatByEmployee="63.14"/>
-    <flight id="1023" arrivalTime="2015-11-11 12:00:00" availablePlaces="30" initialAvailablePlaces="30" departureTime="2015-11-11 09:00:00" totalPlaces="120" From_id="32000" To_id="31000" pricePerSeat="96.00" pricePerSeatByEmployee="96.00"/>
-    <trip id="1012" Description="Beautiful trip with  staying in a 5 stars hotel" availablePlaces="30" initialAvailablePlaces="30" departureDate="2015-11-04 13:00:00" picturename="xxxxx.jpg" pricePerDay="75.00" returnDate="2015-11-11 12:00:00" totalPlaces="30" travelAgency="Neckerman" Destination_id="32000" From_id="31000" />
-    <jnd_trip_flight flight_fk="1022" trip_fk="1012" />
-    <jnd_trip_flight flight_fk="1023" trip_fk="1012" />
 
 
     <trip id="1000" Description="aa" availablePlaces="15" initialAvailablePlaces="15" departureDate="2015-09-09 12:00:00" picturename="xxxxx.jpg" pricePerDay="55.55" returnDate="2015-09-20 12:00:00" totalPlaces="20" travelAgency="Jetair" Destination_id="2000" From_id="1000" />
@@ -137,15 +54,12 @@
     <User id="101" DTYPE="PartnerEmployee" username="Amber" password="Amber" emailadress="avc@i.be" airlineCompany_id="1"/>
     <User id="102" DTYPE="Customer" username="j" password="j" emailadress="avvc@i.be"/>
     <User id="103" DTYPE="PartnerEmployee" username="Jeff" password="Jeff" emailadress="avvvc@i.be"/>
-    <User id="104" DTYPE="PartnerEmployee" username="Marc" password="Marc" emailadress="avvvvvvvc@i.be"/>
 
     <airlinecompany id="1" name="JetairFly" />
     <airlinecompany id="2" name="SN Brussels Airlines" />
-    <airlinecompany id="3" name="Ryanair" />
 
     <airlinecompany_user AirlineCompany_id="1" partners_id="101" />
     <airlinecompany_user AirlineCompany_id="2" partners_id="103" />
-    <airlinecompany_user AirlineCompany_id="3" partners_id="104" />
     <airlinecompany_flight AirlineCompany_id="1" flights_id="1000" />
     <airlinecompany_flight AirlineCompany_id="1" flights_id="1001" />
     <airlinecompany_flight AirlineCompany_id="1" flights_id="1002" />
@@ -154,22 +68,6 @@
     <airlinecompany_flight AirlineCompany_id="2" flights_id="1005" />
     <airlinecompany_flight AirlineCompany_id="2" flights_id="1006" />
     <airlinecompany_flight AirlineCompany_id="2" flights_id="1007" />
-    <airlinecompany_flight AirlineCompany_id="2" flights_id="1008" />
-    <airlinecompany_flight AirlineCompany_id="2" flights_id="1009" />
-    <airlinecompany_flight AirlineCompany_id="2" flights_id="1010" />
-    <airlinecompany_flight AirlineCompany_id="2" flights_id="1011" />
-    <airlinecompany_flight AirlineCompany_id="2" flights_id="1012" />
-    <airlinecompany_flight AirlineCompany_id="2" flights_id="1013" />
-    <airlinecompany_flight AirlineCompany_id="3" flights_id="1014" />
-    <airlinecompany_flight AirlineCompany_id="3" flights_id="1015" />
-    <airlinecompany_flight AirlineCompany_id="3" flights_id="1016" />
-    <airlinecompany_flight AirlineCompany_id="3" flights_id="1017" />
-    <airlinecompany_flight AirlineCompany_id="3" flights_id="1018" />
-    <airlinecompany_flight AirlineCompany_id="3" flights_id="1019" />
-    <airlinecompany_flight AirlineCompany_id="1" flights_id="1020" />
-    <airlinecompany_flight AirlineCompany_id="1" flights_id="1021" />
-    <airlinecompany_flight AirlineCompany_id="1" flights_id="1022" />
-    <airlinecompany_flight AirlineCompany_id="1" flights_id="1023" />
 
 
     <Booking id="1" nrOfTrips="2" paymentType="0" totalPrice="2000" trip_id="1001"/>
@@ -177,7 +75,7 @@
     <Booking id="2" nrOfTrips="2" paymentType="0" totalPrice="1000" trip_id="3000"/>
     <Booking id="3" nrOfTrips="4" paymentType="1" totalPrice="2000" trip_id="4000"/>
     <Booking id="4" nrOfTrips="3" paymentType="0" totalPrice="1500" trip_id="3000"/>
-    <Booking id="5" nrOfTrips="6" paymentType="1" totalPrice="4000" trip_id="4000"/>
+    <Booking id="5" nrOfTrips="6" paymentType="1" totalPrice="3000" trip_id="4000"/>
 
 
 </dataset>

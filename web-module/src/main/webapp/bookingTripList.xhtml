@@ -35,8 +35,9 @@
                         <h:outputText value="#{trip.description}" />
 
                         <h:outputText value="Price per day: " style="font-weight: bold" />
-                        <h:outputText value="#{trip.pricePerDay}" />
-
+                        <h:outputText value="#{trip.pricePerDay}">
+                            <f:convertNumber pattern="#0.00" />
+                        </h:outputText>
                         <h:outputText value="Available places: " style="font-weight: bold" />
                         <h:outputText value="#{trip.availablePlaces}" />
 

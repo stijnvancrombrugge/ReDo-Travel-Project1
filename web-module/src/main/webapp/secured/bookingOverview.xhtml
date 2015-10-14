@@ -65,14 +65,18 @@
             <h:outputText value="#{flight.departureTime}"/>
         </p:column>
         <p:column headerText="Price Per Seat">
-            <h:outputText value="#{flight.pricePerSeat}"/>
+            <h:outputText value="#{flight.pricePerSeat}">
+                <f:convertNumber pattern="#0.00" />
+            </h:outputText>
         </p:column>
     </p:dataTable>
 
     <h1>Total Price</h1>
 
             <h:panelGrid style="font-size:20px">
-                <h:outputText  value="#{createBookingController.totalPrice}"/>
+                <h:outputText  value="#{createBookingController.totalPrice}">
+                    <f:convertNumber pattern="#0.00" />
+                </h:outputText>
             </h:panelGrid>
             <br/>
             <br/>

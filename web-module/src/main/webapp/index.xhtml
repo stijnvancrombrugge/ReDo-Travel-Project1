@@ -115,13 +115,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <h3>Customer or employee login</h3>
                     <c:if test="#{loginController.loggedIn eq true}">
+                        <h3>Welcome #{loginController.username}</h3>
                         <h:form>
                         <h:commandLink action="#{loginController.logout}" class="btn booking-btn text-center">Logout</h:commandLink>
                         </h:form>
                         </c:if>
                     <c:if test="#{loginController.loggedIn eq false}">
+                        <h3>Customer or employee login</h3>
                         <a href="#" id="logina" class="btn booking-btn text-center" data-toggle="modal" data-target="#login">Login here</a>
                             </c:if>
 

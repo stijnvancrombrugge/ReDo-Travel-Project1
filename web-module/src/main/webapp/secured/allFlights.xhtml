@@ -67,51 +67,32 @@
 
 
             <div class="row">
-    <h:dataTable style="font-size: 22px" id="flights" value="#{partnerController.flights}" var="flight">
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="From"/>
-            </f:facet>
+    <p:dataTable style="font-size: 22px" id="flights" value="#{partnerController.flights}" var="flight">
+        <p:column headerText="From">
             <h:outputText value="#{flight.from.city}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="To"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="To">
             <h:outputText value="#{flight.to.city}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Arrival Date"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Arrival Date">
             <h:outputText value="#{flight.arrivalTime}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Departure Date"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Departure Date">
             <h:outputText value="#{flight.departureTime}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Available places"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Available Places">
             <h:outputText value="#{flight.availablePlaces}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Total places"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Total Places">
             <h:outputText value="#{flight.totalPlaces}"/>
-        </h:column>
-        <h:column>
-
+        </p:column>
+        <p:column headerText="Edit">
             <h:form>
-                <h:commandLink action="#{editFlightController.editFlight(flight.id)}" value="Edit flight ">
+                <h:commandLink style="color:deepskyblue" action="#{editFlightController.editFlight(flight.id)}" value="Edit flight ">
                 </h:commandLink>
             </h:form>
-        </h:column>
-    </h:dataTable>
+        </p:column>
+    </p:dataTable>
     <h3> #{flightController.departureDate}</h3>
 
         </div>

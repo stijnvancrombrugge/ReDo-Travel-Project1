@@ -19,29 +19,24 @@
     <hr/>
 </div>
 
+    <div class="row">
     <div class="form-container">
         <div class="modal-body">
-<h:dataTable style="font-size: 18px" id="passangers" value="#{editFlightController.discounts}" var="discount">
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Nbr to Cell"/>
-            </f:facet>
+    <p:dataTable style="font-size: 18px" id="passangers" value="#{editFlightController.discounts}" var="discount">
+        <p:column headerText="Number to sell">
             <h:outputText value="#{discount.nbrToCell}"/>
-        </h:column>
-        <h:column>
-            <f:facet name="header">
-                <h:outputText value="Percentage"/>
-            </f:facet>
+        </p:column>
+        <p:column headerText="Percentage">
             <h:outputText value="#{discount.percentage}"/>
-        </h:column>
-        <h:column>
-
+        </p:column>
+        <p:column headerText="Edit">
             <h:form>
-                <h:commandLink action="#{editFlightController.editDiscount(discount.id)}" value="Edit discount ">
+                <h:commandLink style="color:deepskyblue" action="#{editFlightController.editDiscount(discount.id)}" value="Edit discount ">
                 </h:commandLink>
             </h:form>
-        </h:column>
-    </h:dataTable>
+        </p:column>
+    </p:dataTable>
+        </div>
     <br/><br/>
 
     <h:form>
